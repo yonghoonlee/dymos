@@ -1,0 +1,2027 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+    
+    
+      
+        <title>How do I run two phases parallel-in-time? - Dymos</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9299cb39.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-do-i-run-two-phases-parallel-in-time" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Dymos" class="md-header__button md-logo" aria-label="Dymos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dymos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How do I run two phases parallel-in-time?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Dymos" class="md-nav__button md-logo" aria-label="Dymos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Dymos
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation.html" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/collocation.html" class="md-nav__link">
+        What is collocation?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/optimal_control.html" class="md-nav__link">
+        Optimal Control
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/defining_odes.html" class="md-nav__link">
+        Defining ODEs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/intro_to_dymos/intro_ivp.html" class="md-nav__link">
+        Modeling Dynamic Systems with Dymos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/intro_to_dymos/intro_segments.html" class="md-nav__link">
+        Segments of Phases
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Examples and Tutorials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Examples and Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Examples and Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/examples.html" class="md-nav__link">
+        Dymos by Example
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Example Problems
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Example Problems" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Example Problems
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/brachistochrone/brachistochrone.html" class="md-nav__link">
+        The Brachistochrone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/vanderpol/vanderpol.html" class="md-nav__link">
+        The Van der Pol Oscillator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/balanced_field/balanced_field.html" class="md-nav__link">
+        Aircraft Balanced Field Length Calculation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/commercial_aircraft/commercial_aircraft.html" class="md-nav__link">
+        Commercial Aircraft Range Maximization by Differential Inclusion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/double_integrator/double_integrator.html" class="md-nav__link">
+        Double Integrator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/hypersensitive/hypersensitive.html" class="md-nav__link">
+        Hyper-Sensitive Problem
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/finite_burn_orbit_raise/finite_burn_orbit_raise.html" class="md-nav__link">
+        Two-Burn Orbit Raise
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/length_constrained_brachistochrone/length_constrained_brachistochrone.html" class="md-nav__link">
+        The Length-Constrained Brachistochrone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/min_time_climb/min_time_climb.html" class="md-nav__link">
+        Supersonic Interceptor Minimum Time Climb
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/multi_phase_cannonball/multi_phase_cannonball.html" class="md-nav__link">
+        Multi-Phase Cannonball
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/multibranch_trajectory/multibranch_trajectory.html" class="md-nav__link">
+        Multibranch Trajectory
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/racecar/racecar.html" class="md-nav__link">
+        Race car Lap Simulation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/reentry/reentry.html" class="md-nav__link">
+        Single-Phase Space Shuttle Reentry
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/ssto_earth/ssto_earth.html" class="md-nav__link">
+        SSTO Earth Launch
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/ssto_moon_linear_tangent/ssto_moon_linear_tangent.html" class="md-nav__link">
+        SSTO Lunar Ascent with Linear Tangent Guidance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/ssto_moon_polynomial_controls/ssto_moon_polynomial_controls.html" class="md-nav__link">
+        SSTO Lunar Ascent with Polynomial Controls
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/water_rocket/water_rocket.html" class="md-nav__link">
+        Water Rocket
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Feature Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Feature Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Feature Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      <label class="md-nav__link" for="__nav_5_1">
+        Phases
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Phases" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Phases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/phases/phases.html" class="md-nav__link">
+        Phases of a Trajectory
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/phases/segments.html" class="md-nav__link">
+        Segments
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/phases/variables.html" class="md-nav__link">
+        Variables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/phases/constraints.html" class="md-nav__link">
+        Constraints
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/phases/objective.html" class="md-nav__link">
+        Objective
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/phases/timeseries.html" class="md-nav__link">
+        Timeseries Outputs
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        Trajectories
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Trajectories" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Trajectories
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/trajectories/trajectories.html" class="md-nav__link">
+        Organizing Phases into Trajectories
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/exploiting_sparsity.html" class="md-nav__link">
+        Exploiting Sparsity for Faster Derivative Calculation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/plotting.html" class="md-nav__link">
+        Plotting Timeseries
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Frequently Asked Questions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Frequently Asked Questions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Frequently Asked Questions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="add_ode_output_to_timeseries.html" class="md-nav__link">
+        How do I add an ODE output to the timeseries outputs?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="connect_scalar_parameters_to_ode.html" class="md-nav__link">
+        How do I connect a scalar input to the ODE?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="upstream_analysis.html" class="md-nav__link">
+        How do connect the outputs of an upstream analysis as inputs to Dymos?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="downstream_analysis.html" class="md-nav__link">
+        How do connect the outputs of Dymos to a downstream analysis?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          How do I run two phases parallel-in-time?
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="tandem_phases.html" class="md-nav__link md-nav__link--active">
+        How do I run two phases parallel-in-time?
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-ode-for-the-wire-arclength" class="md-nav__link">
+    The ODE for the wire arclength
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="use_partial_coloring.html" class="md-nav__link">
+        How can I more efficiently use finite-differenced components in the ODE?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="debugging.html" class="md-nav__link">
+        How can I debug models when things go wrong?
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Dymos API Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Dymos API Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Dymos API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/run_problem.html" class="md-nav__link">
+        The Dymos run_problem function
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/phase_api.html" class="md-nav__link">
+        The Phase API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/trajectory_api.html" class="md-nav__link">
+        The Trajectory API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Whats New
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Whats New" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Whats New
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release_notes/version_0.16.0.html" class="md-nav__link">
+        dymos 0.16.0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release_notes/version_0.17.0.html" class="md-nav__link">
+        dymos 0.17.0
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Contributing
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Contributing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Contributing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/contributing.html" class="md-nav__link">
+        Contributing to Dymos
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-ode-for-the-wire-arclength" class="md-nav__link">
+    The ODE for the wire arclength
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="how-do-i-run-two-phases-parallel-in-time">How do I run two phases parallel-in-time?<a class="headerlink" href="#how-do-i-run-two-phases-parallel-in-time" title="Permanent link">&para;</a></h1>
+<p>Complex models sometimes encounter state variables which are best simulated on different time scales, with some state variables changing quickly (fast variables) and some evolving slowly (slow variables).  </p>
+<p>For instance, and aircraft trajectory optimization which includes vehicle component temperatures might see relatively gradual changes in altitude over the course of a two hour flight while temperatures of some components seem to exhibit step-function-like behavior on the same scale.</p>
+<p>To accommodate both fast and slow variables in the same ODE, one would typically need to use a <em>dense</em> grid (with many segments/higher order segments).
+This can be unnecessarily burdensome when there are many slow variables or evaluating their rates is particularly expensive.</p>
+<p>As a solution, Dymos allows the user to run two phases over the same range of times, where one phase may have a more sparse grid to accommodate the slow variables, and one has a more dense grid for the fast variables.</p>
+<p>To connect the two phases, state variable values are passed from the first (slow) phase to the second (fast) phase as non-optimal dynamic control variables.
+These values are then used to evaluate the rates of the fast variables.
+Since outputs from the first phase in generally will not fall on the appropriate grid points to be used by the second phase, interpolation is necessary.<br />
+This is one application of the interpolating timeseries component.</p>
+<p>In the following example, we solve the brachistochrone problem but do so to minimize the arclength of the resulting wire instead of the time required for the bead to travel along the wire.<br />
+This is a trivial solution which should find a straight line from the starting point to the ending point.</p>
+<p>There are two phases involved, the first utilizes the standard ODE for the brachistochrone problem.
+The second integrates the arclength (𝑆) of the wire using the equation:</p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+    S = \int v \sin \theta  \sqrt{1 + \frac{1}{\tan^2 \theta}} dt
+\end{align}</div>
+<script type="math/tex; mode=display">\begin{align}
+    S = \int v \sin \theta  \sqrt{1 + \frac{1}{\tan^2 \theta}} dt
+\end{align}</script>
+</div>
+<h2 id="the-ode-for-the-wire-arclength">The ODE for the wire arclength<a class="headerlink" href="#the-ode-for-the-wire-arclength" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">brachistochrone_arclength_ode.py</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BrachistochroneArclengthODE</span><span class="p">(</span><span class="n">om</span><span class="o">.</span><span class="n">ExplicitComponent</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">declare</span><span class="p">(</span><span class="s1">&#39;num_nodes&#39;</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">nn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;num_nodes&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Inputs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_input</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nn</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;velocity&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;m/s&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_input</span><span class="p">(</span><span class="s1">&#39;theta&#39;</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nn</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;angle of wire&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;rad&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_output</span><span class="p">(</span><span class="s1">&#39;Sdot&#39;</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nn</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;rate of change of arclength&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;m/s&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Setup partials</span>
+        <span class="n">arange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nn</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">declare_partials</span><span class="p">(</span><span class="n">of</span><span class="o">=</span><span class="s1">&#39;Sdot&#39;</span><span class="p">,</span> <span class="n">wrt</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">arange</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="n">arange</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">declare_partials</span><span class="p">(</span><span class="n">of</span><span class="o">=</span><span class="s1">&#39;Sdot&#39;</span><span class="p">,</span> <span class="n">wrt</span><span class="o">=</span><span class="s1">&#39;theta&#39;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">arange</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="n">arange</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">):</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;theta&#39;</span><span class="p">]</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+        <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;Sdot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">compute_partials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">jacobian</span><span class="p">):</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;theta&#39;</span><span class="p">]</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+        <span class="n">cos_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+        <span class="n">sin_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+        <span class="n">tan_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+        <span class="n">cot_theta</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">tan_theta</span>
+        <span class="n">csc_theta</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">sin_theta</span>
+
+        <span class="n">jacobian</span><span class="p">[</span><span class="s1">&#39;Sdot&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sin_theta</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">cot_theta</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">jacobian</span><span class="p">[</span><span class="s1">&#39;Sdot&#39;</span><span class="p">,</span> <span class="s1">&#39;theta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span> <span class="o">*</span> <span class="p">(</span><span class="n">cos_theta</span> <span class="o">*</span> <span class="p">(</span><span class="n">cot_theta</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">cot_theta</span> <span class="o">*</span> <span class="n">csc_theta</span><span class="p">)</span> <span class="o">/</span> \
+            <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">cot_theta</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+</td></tr></table>
+<p>The trick is that the bead velocity (<span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>) is a state variable solved for in the first phase,
+and the wire angle (<span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>) is a control variable "owned" by the first phase.  In the
+second phase they are used as control variables with option <code>opt=False</code> so that their values are
+expected as inputs for the second phase.  We need to connect their values from the first phase
+to the second phase, at the <code>control_input</code> node subset of the second phase.</p>
+<p>In the following example, we instantiate two phases and add an interpolating timeseries to the first phase
+which provides outputs at the <code>control_input</code> nodes of the second phase.  Those values are
+then connected and the entire problem run. The result is that the position and velocity variables
+are solved on a relatively coarse grid while the arclength of the wire is solved on a much denser grid.</p>
+<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">script</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dymos.examples.brachistochrone.brachistochrone_ode</span> <span class="kn">import</span> <span class="n">BrachistochroneODE</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">switch_backend</span><span class="p">(</span><span class="s1">&#39;Agg&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">openmdao.api</span> <span class="k">as</span> <span class="nn">om</span>
+<span class="kn">import</span> <span class="nn">dymos</span> <span class="k">as</span> <span class="nn">dm</span>
+
+<span class="kn">from</span> <span class="nn">openmdao.utils.assert_utils</span> <span class="kn">import</span> <span class="n">assert_near_equal</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">Problem</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">om</span><span class="o">.</span><span class="n">Group</span><span class="p">())</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">pyOptSparseDriver</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;optimizer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;SLSQP&#39;</span>
+<span class="n">p</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">declare_coloring</span><span class="p">()</span>
+
+<span class="c1"># The transcription of the first phase</span>
+<span class="n">tx0</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">GaussLobatto</span><span class="p">(</span><span class="n">num_segments</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">compressed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># The transcription for the second phase (and the secondary timeseries outputs from the first phase)</span>
+<span class="n">tx1</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">Radau</span><span class="p">(</span><span class="n">num_segments</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">compressed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="c1"># First Phase: Integrate the standard brachistochrone ODE</span>
+<span class="c1">#</span>
+<span class="n">phase0</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">Phase</span><span class="p">(</span><span class="n">ode_class</span><span class="o">=</span><span class="n">BrachistochroneODE</span><span class="p">,</span> <span class="n">transcription</span><span class="o">=</span><span class="n">tx0</span><span class="p">)</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">add_subsystem</span><span class="p">(</span><span class="s1">&#39;phase0&#39;</span><span class="p">,</span> <span class="n">phase0</span><span class="p">)</span>
+
+<span class="n">phase0</span><span class="o">.</span><span class="n">set_time_options</span><span class="p">(</span><span class="n">fix_initial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">duration_bounds</span><span class="o">=</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">phase0</span><span class="o">.</span><span class="n">add_state</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fix_final</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">phase0</span><span class="o">.</span><span class="n">add_state</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fix_final</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">phase0</span><span class="o">.</span><span class="n">add_state</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fix_final</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">phase0</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="s1">&#39;theta&#39;</span><span class="p">,</span> <span class="n">continuity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rate_continuity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                   <span class="n">units</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">179.9</span><span class="p">)</span>
+
+<span class="n">phase0</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;m/s**2&#39;</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mf">9.80665</span><span class="p">)</span>
+
+<span class="n">phase0</span><span class="o">.</span><span class="n">add_boundary_constraint</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span> <span class="n">equals</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">phase0</span><span class="o">.</span><span class="n">add_boundary_constraint</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span> <span class="n">equals</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Add alternative timeseries output to provide control inputs for the next phase</span>
+<span class="n">phase0</span><span class="o">.</span><span class="n">add_timeseries</span><span class="p">(</span><span class="s1">&#39;timeseries2&#39;</span><span class="p">,</span> <span class="n">transcription</span><span class="o">=</span><span class="n">tx1</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;control_input&#39;</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="c1"># Second Phase: Integration of ArcLength</span>
+<span class="c1">#</span>
+<span class="n">phase1</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">Phase</span><span class="p">(</span><span class="n">ode_class</span><span class="o">=</span><span class="n">BrachistochroneArclengthODE</span><span class="p">,</span> <span class="n">transcription</span><span class="o">=</span><span class="n">tx1</span><span class="p">)</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">add_subsystem</span><span class="p">(</span><span class="s1">&#39;phase1&#39;</span><span class="p">,</span> <span class="n">phase1</span><span class="p">)</span>
+
+<span class="n">phase1</span><span class="o">.</span><span class="n">set_time_options</span><span class="p">(</span><span class="n">fix_initial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">input_duration</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">phase1</span><span class="o">.</span><span class="n">add_state</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fix_final</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">rate_source</span><span class="o">=</span><span class="s1">&#39;Sdot&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
+
+<span class="n">phase1</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="s1">&#39;theta&#39;</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="s1">&#39;theta&#39;</span><span class="p">)</span>
+<span class="n">phase1</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;m/s&#39;</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="c1"># Connect the two phases</span>
+<span class="c1">#</span>
+<span class="n">p</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;phase0.t_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;phase1.t_duration&#39;</span><span class="p">)</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;phase0.timeseries2.controls:theta&#39;</span><span class="p">,</span> <span class="s1">&#39;phase1.controls:theta&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;phase0.timeseries2.states:v&#39;</span><span class="p">,</span> <span class="s1">&#39;phase1.controls:v&#39;</span><span class="p">)</span>
+
+<span class="c1"># Minimize arclength at the end of the second phase</span>
+<span class="n">phase1</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">linear_solver</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">DirectSolver</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_initial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase0</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase0</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase0</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">9.9</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.controls:theta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase0</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;control_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.parameters:g&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">9.80665</span>
+
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase1.states:S&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">dm</span><span class="o">.</span><span class="n">run_problem</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">expected</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">10</span><span class="o">-</span><span class="mi">0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;phase0.timeseries.states:x&#39;</span><span class="p">),</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;phase0.timeseries.states:y&#39;</span><span class="p">),</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x (m)&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y (m)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;phase1.timeseries.time&#39;</span><span class="p">),</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;phase1.timeseries.states:S&#39;</span><span class="p">),</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t (s)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;S (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">output</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>INFO: checking out_of_order
+INFO: checking system
+INFO: checking solvers
+INFO: checking dup_inputs
+INFO: checking missing_recorders
+WARNING: The Problem has no recorder of any kind attached
+INFO: checking comp_has_no_outputs
+INFO: checking auto_ivc_warnings
+INFO: checking out_of_order
+INFO: checking system
+INFO: checking solvers
+INFO: checking dup_inputs
+INFO: checking missing_recorders
+WARNING: The Problem has no recorder of any kind attached
+INFO: checking comp_has_no_outputs
+INFO: checking auto_ivc_warnings
+Full total jacobian was computed 3 times, taking 0.564818 seconds.
+Total jacobian shape: (220, 287) 
+
+
+Jacobian shape: (220, 287)  (10.35% nonzero)
+FWD solves: 42   REV solves: 0
+Total colors vs. total size: 42 vs 287  (85.4% improvement)
+
+Sparsity computed using tolerance: 1e-25
+Time to compute sparsity: 0.564818 sec.
+Time to compute coloring: 0.589559 sec.
+
+
+Optimization Problem -- Optimization using pyOpt_sparse
+================================================================================
+    Objective Function: _objfunc
+
+    Solution: 
+--------------------------------------------------------------------------------
+    Total Time:                   20.3545
+       User Objective Time :       0.9454
+       User Sensitivity Time :     9.8161
+       Interface Time :            1.6267
+       Opt Solver Time:            7.9662
+    Calls to Objective Function :     134
+    Calls to Sens Function :          103
+
+
+   Objectives
+      Index  Name                                    Value          Optimum
+          0  phase1.indep_states.states:S     1.118119E+01     0.000000E+00
+
+   Variables (c - continuous, i - integer, d - discrete)
+      Index  Name                                                    Type      Lower Bound            Value      Upper Bound     Status
+          0  phase0.time_extents.t_duration_0                           c     5.000000E-01     2.210247E+00     1.000000E+01           
+          1  phase0.indep_states.states:x_0                             c    -1.000000E+21     1.390924E-01     1.000000E+21           
+          2  phase0.indep_states.states:x_1                             c    -1.000000E+21     1.390924E-01     1.000000E+21           
+          3  phase0.indep_states.states:x_2                             c    -1.000000E+21     4.697012E-01     1.000000E+21           
+          4  phase0.indep_states.states:x_3                             c    -1.000000E+21     4.697012E-01     1.000000E+21           
+          5  phase0.indep_states.states:x_4                             c    -1.000000E+21     9.890058E-01     1.000000E+21           
+          6  phase0.indep_states.states:x_5                             c    -1.000000E+21     9.890058E-01     1.000000E+21           
+          7  phase0.indep_states.states:x_6                             c    -1.000000E+21     1.698475E+00     1.000000E+21           
+          8  phase0.indep_states.states:x_7                             c    -1.000000E+21     1.698475E+00     1.000000E+21           
+          9  phase0.indep_states.states:x_8                             c    -1.000000E+21     2.605083E+00     1.000000E+21           
+         10  phase0.indep_states.states:x_9                             c    -1.000000E+21     2.605083E+00     1.000000E+21           
+         11  phase0.indep_states.states:x_10                            c    -1.000000E+21     3.704224E+00     1.000000E+21           
+         12  phase0.indep_states.states:x_11                            c    -1.000000E+21     3.704224E+00     1.000000E+21           
+         13  phase0.indep_states.states:x_12                            c    -1.000000E+21     4.986862E+00     1.000000E+21           
+         14  phase0.indep_states.states:x_13                            c    -1.000000E+21     4.986862E+00     1.000000E+21           
+         15  phase0.indep_states.states:x_14                            c    -1.000000E+21     6.463732E+00     1.000000E+21           
+         16  phase0.indep_states.states:x_15                            c    -1.000000E+21     6.463732E+00     1.000000E+21           
+         17  phase0.indep_states.states:x_16                            c    -1.000000E+21     8.135741E+00     1.000000E+21           
+         18  phase0.indep_states.states:x_17                            c    -1.000000E+21     8.135741E+00     1.000000E+21           
+         19  phase0.indep_states.states:x_18                            c    -1.000000E+21     1.000000E+01     1.000000E+21           
+         20  phase0.indep_states.states:y_0                             c    -1.000000E+21     9.926172E+00     1.000000E+21           
+         21  phase0.indep_states.states:y_1                             c    -1.000000E+21     9.926172E+00     1.000000E+21           
+         22  phase0.indep_states.states:y_2                             c    -1.000000E+21     9.767443E+00     1.000000E+21           
+         23  phase0.indep_states.states:y_3                             c    -1.000000E+21     9.767443E+00     1.000000E+21           
+         24  phase0.indep_states.states:y_4                             c    -1.000000E+21     9.507601E+00     1.000000E+21           
+         25  phase0.indep_states.states:y_5                             c    -1.000000E+21     9.507601E+00     1.000000E+21           
+         26  phase0.indep_states.states:y_6                             c    -1.000000E+21     9.145739E+00     1.000000E+21           
+         27  phase0.indep_states.states:y_7                             c    -1.000000E+21     9.145739E+00     1.000000E+21           
+         28  phase0.indep_states.states:y_8                             c    -1.000000E+21     8.694668E+00     1.000000E+21           
+         29  phase0.indep_states.states:y_9                             c    -1.000000E+21     8.694668E+00     1.000000E+21           
+         30  phase0.indep_states.states:y_10                            c    -1.000000E+21     8.156003E+00     1.000000E+21           
+         31  phase0.indep_states.states:y_11                            c    -1.000000E+21     8.156003E+00     1.000000E+21           
+         32  phase0.indep_states.states:y_12                            c    -1.000000E+21     7.507055E+00     1.000000E+21           
+         33  phase0.indep_states.states:y_13                            c    -1.000000E+21     7.507055E+00     1.000000E+21           
+         34  phase0.indep_states.states:y_14                            c    -1.000000E+21     6.762417E+00     1.000000E+21           
+         35  phase0.indep_states.states:y_15                            c    -1.000000E+21     6.762417E+00     1.000000E+21           
+         36  phase0.indep_states.states:y_16                            c    -1.000000E+21     5.928277E+00     1.000000E+21           
+         37  phase0.indep_states.states:y_17                            c    -1.000000E+21     5.928277E+00     1.000000E+21           
+         38  phase0.indep_states.states:y_18                            c    -1.000000E+21     5.000000E+00     1.000000E+21           
+         39  phase0.indep_states.states:v_0                             c    -1.000000E+21     1.212937E+00     1.000000E+21           
+         40  phase0.indep_states.states:v_1                             c    -1.000000E+21     1.212937E+00     1.000000E+21           
+         41  phase0.indep_states.states:v_2                             c    -1.000000E+21     2.141310E+00     1.000000E+21           
+         42  phase0.indep_states.states:v_3                             c    -1.000000E+21     2.141310E+00     1.000000E+21           
+         43  phase0.indep_states.states:v_4                             c    -1.000000E+21     3.111522E+00     1.000000E+21           
+         44  phase0.indep_states.states:v_5                             c    -1.000000E+21     3.111522E+00     1.000000E+21           
+         45  phase0.indep_states.states:v_6                             c    -1.000000E+21     4.096205E+00     1.000000E+21           
+         46  phase0.indep_states.states:v_7                             c    -1.000000E+21     4.096205E+00     1.000000E+21           
+         47  phase0.indep_states.states:v_8                             c    -1.000000E+21     5.062201E+00     1.000000E+21           
+         48  phase0.indep_states.states:v_9                             c    -1.000000E+21     5.062201E+00     1.000000E+21           
+         49  phase0.indep_states.states:v_10                            c    -1.000000E+21     6.015885E+00     1.000000E+21           
+         50  phase0.indep_states.states:v_11                            c    -1.000000E+21     6.015885E+00     1.000000E+21           
+         51  phase0.indep_states.states:v_12                            c    -1.000000E+21     6.994205E+00     1.000000E+21           
+         52  phase0.indep_states.states:v_13                            c    -1.000000E+21     6.994205E+00     1.000000E+21           
+         53  phase0.indep_states.states:v_14                            c    -1.000000E+21     7.970176E+00     1.000000E+21           
+         54  phase0.indep_states.states:v_15                            c    -1.000000E+21     7.970176E+00     1.000000E+21           
+         55  phase0.indep_states.states:v_16                            c    -1.000000E+21     8.937781E+00     1.000000E+21           
+         56  phase0.indep_states.states:v_17                            c    -1.000000E+21     8.937781E+00     1.000000E+21           
+         57  phase0.indep_states.states:v_18                            c    -1.000000E+21     9.904065E+00     1.000000E+21           
+         58  phase0.control_group.indep_controls.controls:theta_0       c     1.000000E-02     1.671533E+01     1.799000E+02           
+         59  phase0.control_group.indep_controls.controls:theta_1       c     1.000000E-02     5.933426E+01     1.799000E+02           
+         60  phase0.control_group.indep_controls.controls:theta_2       c     1.000000E-02     6.891623E+01     1.799000E+02           
+         61  phase0.control_group.indep_controls.controls:theta_3       c     1.000000E-02     6.891623E+01     1.799000E+02           
+         62  phase0.control_group.indep_controls.controls:theta_4       c     1.000000E-02     6.396317E+01     1.799000E+02           
+         63  phase0.control_group.indep_controls.controls:theta_5       c     1.000000E-02     6.297700E+01     1.799000E+02           
+         64  phase0.control_group.indep_controls.controls:theta_6       c     1.000000E-02     6.297700E+01     1.799000E+02           
+         65  phase0.control_group.indep_controls.controls:theta_7       c     1.000000E-02     6.355032E+01     1.799000E+02           
+         66  phase0.control_group.indep_controls.controls:theta_8       c     1.000000E-02     6.327570E+01     1.799000E+02           
+         67  phase0.control_group.indep_controls.controls:theta_9       c     1.000000E-02     6.327570E+01     1.799000E+02           
+         68  phase0.control_group.indep_controls.controls:theta_10      c     1.000000E-02     6.287968E+01     1.799000E+02           
+         69  phase0.control_group.indep_controls.controls:theta_11      c     1.000000E-02     6.308877E+01     1.799000E+02           
+         70  phase0.control_group.indep_controls.controls:theta_12      c     1.000000E-02     6.308877E+01     1.799000E+02           
+         71  phase0.control_group.indep_controls.controls:theta_13      c     1.000000E-02     6.355024E+01     1.799000E+02           
+         72  phase0.control_group.indep_controls.controls:theta_14      c     1.000000E-02     6.391133E+01     1.799000E+02           
+         73  phase0.control_group.indep_controls.controls:theta_15      c     1.000000E-02     6.391133E+01     1.799000E+02           
+         74  phase0.control_group.indep_controls.controls:theta_16      c     1.000000E-02     6.397805E+01     1.799000E+02           
+         75  phase0.control_group.indep_controls.controls:theta_17      c     1.000000E-02     6.355640E+01     1.799000E+02           
+         76  phase0.control_group.indep_controls.controls:theta_18      c     1.000000E-02     6.355640E+01     1.799000E+02           
+         77  phase0.control_group.indep_controls.controls:theta_19      c     1.000000E-02     6.309950E+01     1.799000E+02           
+         78  phase0.control_group.indep_controls.controls:theta_20      c     1.000000E-02     6.306048E+01     1.799000E+02           
+         79  phase0.control_group.indep_controls.controls:theta_21      c     1.000000E-02     6.306048E+01     1.799000E+02           
+         80  phase0.control_group.indep_controls.controls:theta_22      c     1.000000E-02     6.323669E+01     1.799000E+02           
+         81  phase0.control_group.indep_controls.controls:theta_23      c     1.000000E-02     6.342548E+01     1.799000E+02           
+         82  phase0.control_group.indep_controls.controls:theta_24      c     1.000000E-02     6.342548E+01     1.799000E+02           
+         83  phase0.control_group.indep_controls.controls:theta_25      c     1.000000E-02     6.351981E+01     1.799000E+02           
+         84  phase0.control_group.indep_controls.controls:theta_26      c     1.000000E-02     6.341262E+01     1.799000E+02           
+         85  phase0.control_group.indep_controls.controls:theta_27      c     1.000000E-02     6.341262E+01     1.799000E+02           
+         86  phase0.control_group.indep_controls.controls:theta_28      c     1.000000E-02     6.344499E+01     1.799000E+02           
+         87  phase0.control_group.indep_controls.controls:theta_29      c     1.000000E-02     6.395797E+01     1.799000E+02           
+         88  phase1.indep_states.states:S_0                             c    -1.000000E+21     1.019016E-04     1.000000E+21           
+         89  phase1.indep_states.states:S_1                             c    -1.000000E+21     1.053653E-03     1.000000E+21           
+         90  phase1.indep_states.states:S_2                             c    -1.000000E+21     4.089151E-03     1.000000E+21           
+         91  phase1.indep_states.states:S_3                             c    -1.000000E+21     1.007433E-02     1.000000E+21           
+         92  phase1.indep_states.states:S_4                             c    -1.000000E+21     1.880365E-02     1.000000E+21           
+         93  phase1.indep_states.states:S_5                             c    -1.000000E+21     2.884538E-02     1.000000E+21           
+         94  phase1.indep_states.states:S_6                             c    -1.000000E+21     3.797642E-02     1.000000E+21           
+         95  phase1.indep_states.states:S_7                             c    -1.000000E+21     4.394894E-02     1.000000E+21           
+         96  phase1.indep_states.states:S_8                             c    -1.000000E+21     4.544833E-02     1.000000E+21           
+         97  phase1.indep_states.states:S_9                             c    -1.000000E+21     4.544833E-02     1.000000E+21           
+         98  phase1.indep_states.states:S_10                            c    -1.000000E+21     4.930524E-02     1.000000E+21           
+         99  phase1.indep_states.states:S_11                            c    -1.000000E+21     5.838955E-02     1.000000E+21           
+        100  phase1.indep_states.states:S_12                            c    -1.000000E+21     7.242388E-02     1.000000E+21           
+        101  phase1.indep_states.states:S_13                            c    -1.000000E+21     9.044517E-02     1.000000E+21           
+        102  phase1.indep_states.states:S_14                            c    -1.000000E+21     1.105293E-01     1.000000E+21           
+        103  phase1.indep_states.states:S_15                            c    -1.000000E+21     1.299675E-01     1.000000E+21           
+        104  phase1.indep_states.states:S_16                            c    -1.000000E+21     1.458122E-01     1.000000E+21           
+        105  phase1.indep_states.states:S_17                            c    -1.000000E+21     1.555406E-01     1.000000E+21           
+        106  phase1.indep_states.states:S_18                            c    -1.000000E+21     1.579190E-01     1.000000E+21           
+        107  phase1.indep_states.states:S_19                            c    -1.000000E+21     1.579190E-01     1.000000E+21           
+        108  phase1.indep_states.states:S_20                            c    -1.000000E+21     1.639474E-01     1.000000E+21           
+        109  phase1.indep_states.states:S_21                            c    -1.000000E+21     1.777488E-01     1.000000E+21           
+        110  phase1.indep_states.states:S_22                            c    -1.000000E+21     1.982656E-01     1.000000E+21           
+        111  phase1.indep_states.states:S_23                            c    -1.000000E+21     2.236927E-01     1.000000E+21           
+        112  phase1.indep_states.states:S_24                            c    -1.000000E+21     2.513423E-01     1.000000E+21           
+        113  phase1.indep_states.states:S_25                            c    -1.000000E+21     2.777794E-01     1.000000E+21           
+        114  phase1.indep_states.states:S_26                            c    -1.000000E+21     2.992698E-01     1.000000E+21           
+        115  phase1.indep_states.states:S_27                            c    -1.000000E+21     3.124872E-01     1.000000E+21           
+        116  phase1.indep_states.states:S_28                            c    -1.000000E+21     3.157241E-01     1.000000E+21           
+        117  phase1.indep_states.states:S_29                            c    -1.000000E+21     3.157241E-01     1.000000E+21           
+        118  phase1.indep_states.states:S_30                            c    -1.000000E+21     3.239214E-01     1.000000E+21           
+        119  phase1.indep_states.states:S_31                            c    -1.000000E+21     3.426097E-01     1.000000E+21           
+        120  phase1.indep_states.states:S_32                            c    -1.000000E+21     3.702048E-01     1.000000E+21           
+        121  phase1.indep_states.states:S_33                            c    -1.000000E+21     4.041265E-01     1.000000E+21           
+        122  phase1.indep_states.states:S_34                            c    -1.000000E+21     4.407045E-01     1.000000E+21           
+        123  phase1.indep_states.states:S_35                            c    -1.000000E+21     4.754121E-01     1.000000E+21           
+        124  phase1.indep_states.states:S_36                            c    -1.000000E+21     5.034534E-01     1.000000E+21           
+        125  phase1.indep_states.states:S_37                            c    -1.000000E+21     5.206290E-01     1.000000E+21           
+        126  phase1.indep_states.states:S_38                            c    -1.000000E+21     5.248275E-01     1.000000E+21           
+        127  phase1.indep_states.states:S_39                            c    -1.000000E+21     5.248275E-01     1.000000E+21           
+        128  phase1.indep_states.states:S_40                            c    -1.000000E+21     5.354434E-01     1.000000E+21           
+        129  phase1.indep_states.states:S_41                            c    -1.000000E+21     5.595519E-01     1.000000E+21           
+        130  phase1.indep_states.states:S_42                            c    -1.000000E+21     5.949177E-01     1.000000E+21           
+        131  phase1.indep_states.states:S_43                            c    -1.000000E+21     6.380243E-01     1.000000E+21           
+        132  phase1.indep_states.states:S_44                            c    -1.000000E+21     6.840715E-01     1.000000E+21           
+        133  phase1.indep_states.states:S_45                            c    -1.000000E+21     7.273651E-01     1.000000E+21           
+        134  phase1.indep_states.states:S_46                            c    -1.000000E+21     7.620708E-01     1.000000E+21           
+        135  phase1.indep_states.states:S_47                            c    -1.000000E+21     7.832121E-01     1.000000E+21           
+        136  phase1.indep_states.states:S_48                            c    -1.000000E+21     7.883667E-01     1.000000E+21           
+        137  phase1.indep_states.states:S_49                            c    -1.000000E+21     7.883667E-01     1.000000E+21           
+        138  phase1.indep_states.states:S_50                            c    -1.000000E+21     8.013814E-01     1.000000E+21           
+        139  phase1.indep_states.states:S_51                            c    -1.000000E+21     8.308479E-01     1.000000E+21           
+        140  phase1.indep_states.states:S_52                            c    -1.000000E+21     8.738621E-01     1.000000E+21           
+        141  phase1.indep_states.states:S_53                            c    -1.000000E+21     9.259807E-01     1.000000E+21           
+        142  phase1.indep_states.states:S_54                            c    -1.000000E+21     9.813141E-01     1.000000E+21           
+        143  phase1.indep_states.states:S_55                            c    -1.000000E+21     1.033049E+00     1.000000E+21           
+        144  phase1.indep_states.states:S_56                            c    -1.000000E+21     1.074336E+00     1.000000E+21           
+        145  phase1.indep_states.states:S_57                            c    -1.000000E+21     1.099411E+00     1.000000E+21           
+        146  phase1.indep_states.states:S_58                            c    -1.000000E+21     1.105516E+00     1.000000E+21           
+        147  phase1.indep_states.states:S_59                            c    -1.000000E+21     1.105516E+00     1.000000E+21           
+        148  phase1.indep_states.states:S_60                            c    -1.000000E+21     1.120918E+00     1.000000E+21           
+        149  phase1.indep_states.states:S_61                            c    -1.000000E+21     1.155723E+00     1.000000E+21           
+        150  phase1.indep_states.states:S_62                            c    -1.000000E+21     1.206376E+00     1.000000E+21           
+        151  phase1.indep_states.states:S_63                            c    -1.000000E+21     1.267521E+00     1.000000E+21           
+        152  phase1.indep_states.states:S_64                            c    -1.000000E+21     1.332189E+00     1.000000E+21           
+        153  phase1.indep_states.states:S_65                            c    -1.000000E+21     1.392440E+00     1.000000E+21           
+        154  phase1.indep_states.states:S_66                            c    -1.000000E+21     1.440388E+00     1.000000E+21           
+        155  phase1.indep_states.states:S_67                            c    -1.000000E+21     1.469454E+00     1.000000E+21           
+        156  phase1.indep_states.states:S_68                            c    -1.000000E+21     1.476525E+00     1.000000E+21           
+        157  phase1.indep_states.states:S_69                            c    -1.000000E+21     1.476525E+00     1.000000E+21           
+        158  phase1.indep_states.states:S_70                            c    -1.000000E+21     1.494351E+00     1.000000E+21           
+        159  phase1.indep_states.states:S_71                            c    -1.000000E+21     1.534576E+00     1.000000E+21           
+        160  phase1.indep_states.states:S_72                            c    -1.000000E+21     1.592973E+00     1.000000E+21           
+        161  phase1.indep_states.states:S_73                            c    -1.000000E+21     1.663254E+00     1.000000E+21           
+        162  phase1.indep_states.states:S_74                            c    -1.000000E+21     1.737350E+00     1.000000E+21           
+        163  phase1.indep_states.states:S_75                            c    -1.000000E+21     1.806183E+00     1.000000E+21           
+        164  phase1.indep_states.states:S_76                            c    -1.000000E+21     1.860830E+00     1.000000E+21           
+        165  phase1.indep_states.states:S_77                            c    -1.000000E+21     1.893903E+00     1.000000E+21           
+        166  phase1.indep_states.states:S_78                            c    -1.000000E+21     1.901943E+00     1.000000E+21           
+        167  phase1.indep_states.states:S_79                            c    -1.000000E+21     1.901943E+00     1.000000E+21           
+        168  phase1.indep_states.states:S_80                            c    -1.000000E+21     1.922202E+00     1.000000E+21           
+        169  phase1.indep_states.states:S_81                            c    -1.000000E+21     1.967859E+00     1.000000E+21           
+        170  phase1.indep_states.states:S_82                            c    -1.000000E+21     2.034007E+00     1.000000E+21           
+        171  phase1.indep_states.states:S_83                            c    -1.000000E+21     2.113417E+00     1.000000E+21           
+        172  phase1.indep_states.states:S_84                            c    -1.000000E+21     2.196905E+00     1.000000E+21           
+        173  phase1.indep_states.states:S_85                            c    -1.000000E+21     2.274261E+00     1.000000E+21           
+        174  phase1.indep_states.states:S_86                            c    -1.000000E+21     2.335542E+00     1.000000E+21           
+        175  phase1.indep_states.states:S_87                            c    -1.000000E+21     2.372573E+00     1.000000E+21           
+        176  phase1.indep_states.states:S_88                            c    -1.000000E+21     2.381569E+00     1.000000E+21           
+        177  phase1.indep_states.states:S_89                            c    -1.000000E+21     2.381569E+00     1.000000E+21           
+        178  phase1.indep_states.states:S_90                            c    -1.000000E+21     2.404227E+00     1.000000E+21           
+        179  phase1.indep_states.states:S_91                            c    -1.000000E+21     2.455239E+00     1.000000E+21           
+        180  phase1.indep_states.states:S_92                            c    -1.000000E+21     2.529022E+00     1.000000E+21           
+        181  phase1.indep_states.states:S_93                            c    -1.000000E+21     2.617415E+00     1.000000E+21           
+        182  phase1.indep_states.states:S_94                            c    -1.000000E+21     2.710146E+00     1.000000E+21           
+        183  phase1.indep_states.states:S_95                            c    -1.000000E+21     2.795891E+00     1.000000E+21           
+        184  phase1.indep_states.states:S_96                            c    -1.000000E+21     2.863703E+00     1.000000E+21           
+        185  phase1.indep_states.states:S_97                            c    -1.000000E+21     2.904635E+00     1.000000E+21           
+        186  phase1.indep_states.states:S_98                            c    -1.000000E+21     2.914573E+00     1.000000E+21           
+        187  phase1.indep_states.states:S_99                            c    -1.000000E+21     2.914573E+00     1.000000E+21           
+        188  phase1.indep_states.states:S_100                           c    -1.000000E+21     2.939595E+00     1.000000E+21           
+        189  phase1.indep_states.states:S_101                           c    -1.000000E+21     2.995883E+00     1.000000E+21           
+        190  phase1.indep_states.states:S_102                           c    -1.000000E+21     3.077188E+00     1.000000E+21           
+        191  phase1.indep_states.states:S_103                           c    -1.000000E+21     3.174433E+00     1.000000E+21           
+        192  phase1.indep_states.states:S_104                           c    -1.000000E+21     3.276279E+00     1.000000E+21           
+        193  phase1.indep_states.states:S_105                           c    -1.000000E+21     3.370306E+00     1.000000E+21           
+        194  phase1.indep_states.states:S_106                           c    -1.000000E+21     3.444579E+00     1.000000E+21           
+        195  phase1.indep_states.states:S_107                           c    -1.000000E+21     3.489374E+00     1.000000E+21           
+        196  phase1.indep_states.states:S_108                           c    -1.000000E+21     3.500247E+00     1.000000E+21           
+        197  phase1.indep_states.states:S_109                           c    -1.000000E+21     3.500247E+00     1.000000E+21           
+        198  phase1.indep_states.states:S_110                           c    -1.000000E+21     3.527613E+00     1.000000E+21           
+        199  phase1.indep_states.states:S_111                           c    -1.000000E+21     3.589143E+00     1.000000E+21           
+        200  phase1.indep_states.states:S_112                           c    -1.000000E+21     3.677943E+00     1.000000E+21           
+        201  phase1.indep_states.states:S_113                           c    -1.000000E+21     3.784033E+00     1.000000E+21           
+        202  phase1.indep_states.states:S_114                           c    -1.000000E+21     3.895010E+00     1.000000E+21           
+        203  phase1.indep_states.states:S_115                           c    -1.000000E+21     3.997355E+00     1.000000E+21           
+        204  phase1.indep_states.states:S_116                           c    -1.000000E+21     4.078123E+00     1.000000E+21           
+        205  phase1.indep_states.states:S_117                           c    -1.000000E+21     4.126805E+00     1.000000E+21           
+        206  phase1.indep_states.states:S_118                           c    -1.000000E+21     4.138617E+00     1.000000E+21           
+        207  phase1.indep_states.states:S_119                           c    -1.000000E+21     4.138617E+00     1.000000E+21           
+        208  phase1.indep_states.states:S_120                           c    -1.000000E+21     4.168344E+00     1.000000E+21           
+        209  phase1.indep_states.states:S_121                           c    -1.000000E+21     4.235155E+00     1.000000E+21           
+        210  phase1.indep_states.states:S_122                           c    -1.000000E+21     4.331513E+00     1.000000E+21           
+        211  phase1.indep_states.states:S_123                           c    -1.000000E+21     4.446541E+00     1.000000E+21           
+        212  phase1.indep_states.states:S_124                           c    -1.000000E+21     4.566765E+00     1.000000E+21           
+        213  phase1.indep_states.states:S_125                           c    -1.000000E+21     4.677548E+00     1.000000E+21           
+        214  phase1.indep_states.states:S_126                           c    -1.000000E+21     4.764916E+00     1.000000E+21           
+        215  phase1.indep_states.states:S_127                           c    -1.000000E+21     4.817552E+00     1.000000E+21           
+        216  phase1.indep_states.states:S_128                           c    -1.000000E+21     4.830321E+00     1.000000E+21           
+        217  phase1.indep_states.states:S_129                           c    -1.000000E+21     4.830321E+00     1.000000E+21           
+        218  phase1.indep_states.states:S_130                           c    -1.000000E+21     4.862452E+00     1.000000E+21           
+        219  phase1.indep_states.states:S_131                           c    -1.000000E+21     4.934635E+00     1.000000E+21           
+        220  phase1.indep_states.states:S_132                           c    -1.000000E+21     5.038675E+00     1.000000E+21           
+        221  phase1.indep_states.states:S_133                           c    -1.000000E+21     5.162774E+00     1.000000E+21           
+        222  phase1.indep_states.states:S_134                           c    -1.000000E+21     5.292368E+00     1.000000E+21           
+        223  phase1.indep_states.states:S_135                           c    -1.000000E+21     5.411686E+00     1.000000E+21           
+        224  phase1.indep_states.states:S_136                           c    -1.000000E+21     5.505723E+00     1.000000E+21           
+        225  phase1.indep_states.states:S_137                           c    -1.000000E+21     5.562350E+00     1.000000E+21           
+        226  phase1.indep_states.states:S_138                           c    -1.000000E+21     5.576084E+00     1.000000E+21           
+        227  phase1.indep_states.states:S_139                           c    -1.000000E+21     5.576084E+00     1.000000E+21           
+        228  phase1.indep_states.states:S_140                           c    -1.000000E+21     5.610638E+00     1.000000E+21           
+        229  phase1.indep_states.states:S_141                           c    -1.000000E+21     5.688237E+00     1.000000E+21           
+        230  phase1.indep_states.states:S_142                           c    -1.000000E+21     5.800015E+00     1.000000E+21           
+        231  phase1.indep_states.states:S_143                           c    -1.000000E+21     5.933238E+00     1.000000E+21           
+        232  phase1.indep_states.states:S_144                           c    -1.000000E+21     6.072236E+00     1.000000E+21           
+        233  phase1.indep_states.states:S_145                           c    -1.000000E+21     6.200104E+00     1.000000E+21           
+        234  phase1.indep_states.states:S_146                           c    -1.000000E+21     6.300804E+00     1.000000E+21           
+        235  phase1.indep_states.states:S_147                           c    -1.000000E+21     6.361412E+00     1.000000E+21           
+        236  phase1.indep_states.states:S_148                           c    -1.000000E+21     6.376108E+00     1.000000E+21           
+        237  phase1.indep_states.states:S_149                           c    -1.000000E+21     6.376108E+00     1.000000E+21           
+        238  phase1.indep_states.states:S_150                           c    -1.000000E+21     6.413076E+00     1.000000E+21           
+        239  phase1.indep_states.states:S_151                           c    -1.000000E+21     6.496067E+00     1.000000E+21           
+        240  phase1.indep_states.states:S_152                           c    -1.000000E+21     6.615542E+00     1.000000E+21           
+        241  phase1.indep_states.states:S_153                           c    -1.000000E+21     6.757831E+00     1.000000E+21           
+        242  phase1.indep_states.states:S_154                           c    -1.000000E+21     6.906171E+00     1.000000E+21           
+        243  phase1.indep_states.states:S_155                           c    -1.000000E+21     7.042528E+00     1.000000E+21           
+        244  phase1.indep_states.states:S_156                           c    -1.000000E+21     7.149846E+00     1.000000E+21           
+        245  phase1.indep_states.states:S_157                           c    -1.000000E+21     7.214408E+00     1.000000E+21           
+        246  phase1.indep_states.states:S_158                           c    -1.000000E+21     7.230060E+00     1.000000E+21           
+        247  phase1.indep_states.states:S_159                           c    -1.000000E+21     7.230060E+00     1.000000E+21           
+        248  phase1.indep_states.states:S_160                           c    -1.000000E+21     7.269427E+00     1.000000E+21           
+        249  phase1.indep_states.states:S_161                           c    -1.000000E+21     7.357776E+00     1.000000E+21           
+        250  phase1.indep_states.states:S_162                           c    -1.000000E+21     7.484895E+00     1.000000E+21           
+        251  phase1.indep_states.states:S_163                           c    -1.000000E+21     7.636190E+00     1.000000E+21           
+        252  phase1.indep_states.states:S_164                           c    -1.000000E+21     7.793808E+00     1.000000E+21           
+        253  phase1.indep_states.states:S_165                           c    -1.000000E+21     7.938600E+00     1.000000E+21           
+        254  phase1.indep_states.states:S_166                           c    -1.000000E+21     8.052495E+00     1.000000E+21           
+        255  phase1.indep_states.states:S_167                           c    -1.000000E+21     8.120990E+00     1.000000E+21           
+        256  phase1.indep_states.states:S_168                           c    -1.000000E+21     8.137592E+00     1.000000E+21           
+        257  phase1.indep_states.states:S_169                           c    -1.000000E+21     8.137592E+00     1.000000E+21           
+        258  phase1.indep_states.states:S_170                           c    -1.000000E+21     8.179346E+00     1.000000E+21           
+        259  phase1.indep_states.states:S_171                           c    -1.000000E+21     8.273026E+00     1.000000E+21           
+        260  phase1.indep_states.states:S_172                           c    -1.000000E+21     8.407762E+00     1.000000E+21           
+        261  phase1.indep_states.states:S_173                           c    -1.000000E+21     8.568038E+00     1.000000E+21           
+        262  phase1.indep_states.states:S_174                           c    -1.000000E+21     8.734919E+00     1.000000E+21           
+        263  phase1.indep_states.states:S_175                           c    -1.000000E+21     8.888139E+00     1.000000E+21           
+        264  phase1.indep_states.states:S_176                           c    -1.000000E+21     9.008610E+00     1.000000E+21           
+        265  phase1.indep_states.states:S_177                           c    -1.000000E+21     9.081037E+00     1.000000E+21           
+        266  phase1.indep_states.states:S_178                           c    -1.000000E+21     9.098591E+00     1.000000E+21           
+        267  phase1.indep_states.states:S_179                           c    -1.000000E+21     9.098591E+00     1.000000E+21           
+        268  phase1.indep_states.states:S_180                           c    -1.000000E+21     9.142731E+00     1.000000E+21           
+        269  phase1.indep_states.states:S_181                           c    -1.000000E+21     9.241748E+00     1.000000E+21           
+        270  phase1.indep_states.states:S_182                           c    -1.000000E+21     9.384113E+00     1.000000E+21           
+        271  phase1.indep_states.states:S_183                           c    -1.000000E+21     9.553393E+00     1.000000E+21           
+        272  phase1.indep_states.states:S_184                           c    -1.000000E+21     9.729566E+00     1.000000E+21           
+        273  phase1.indep_states.states:S_185                           c    -1.000000E+21     9.891243E+00     1.000000E+21           
+        274  phase1.indep_states.states:S_186                           c    -1.000000E+21     1.001831E+01     1.000000E+21           
+        275  phase1.indep_states.states:S_187                           c    -1.000000E+21     1.009469E+01     1.000000E+21           
+        276  phase1.indep_states.states:S_188                           c    -1.000000E+21     1.011319E+01     1.000000E+21           
+        277  phase1.indep_states.states:S_189                           c    -1.000000E+21     1.011319E+01     1.000000E+21           
+        278  phase1.indep_states.states:S_190                           c    -1.000000E+21     1.015973E+01     1.000000E+21           
+        279  phase1.indep_states.states:S_191                           c    -1.000000E+21     1.026409E+01     1.000000E+21           
+        280  phase1.indep_states.states:S_192                           c    -1.000000E+21     1.041408E+01     1.000000E+21           
+        281  phase1.indep_states.states:S_193                           c    -1.000000E+21     1.059234E+01     1.000000E+21           
+        282  phase1.indep_states.states:S_194                           c    -1.000000E+21     1.077776E+01     1.000000E+21           
+        283  phase1.indep_states.states:S_195                           c    -1.000000E+21     1.094784E+01     1.000000E+21           
+        284  phase1.indep_states.states:S_196                           c    -1.000000E+21     1.108145E+01     1.000000E+21           
+        285  phase1.indep_states.states:S_197                           c    -1.000000E+21     1.116174E+01     1.000000E+21           
+        286  phase1.indep_states.states:S_198                           c    -1.000000E+21     1.118119E+01     1.000000E+21           
+
+   Constraints (i - inequality, e - equality)
+      Index  Name                                                   Type          Lower           Value           Upper    Status  Lagrange Multiplier (N/A)
+          0  phase0.collocation_constraint.defects:x                   e   0.000000E+00    2.755817E-10    0.000000E+00              9.00000E+100
+          1  phase0.collocation_constraint.defects:x                   e   0.000000E+00    1.409762E-10    0.000000E+00              9.00000E+100
+          2  phase0.collocation_constraint.defects:x                   e   0.000000E+00    1.105404E-11    0.000000E+00              9.00000E+100
+          3  phase0.collocation_constraint.defects:x                   e   0.000000E+00    1.603107E-11    0.000000E+00              9.00000E+100
+          4  phase0.collocation_constraint.defects:x                   e   0.000000E+00    1.546162E-11    0.000000E+00              9.00000E+100
+          5  phase0.collocation_constraint.defects:x                   e   0.000000E+00    3.141726E-11    0.000000E+00              9.00000E+100
+          6  phase0.collocation_constraint.defects:x                   e   0.000000E+00    3.950187E-11    0.000000E+00              9.00000E+100
+          7  phase0.collocation_constraint.defects:x                   e   0.000000E+00    1.601276E-11    0.000000E+00              9.00000E+100
+          8  phase0.collocation_constraint.defects:x                   e   0.000000E+00    5.979545E-11    0.000000E+00              9.00000E+100
+          9  phase0.collocation_constraint.defects:x                   e   0.000000E+00    1.328877E-11    0.000000E+00              9.00000E+100
+         10  phase0.collocation_constraint.defects:y                   e   0.000000E+00    1.210084E-10    0.000000E+00              9.00000E+100
+         11  phase0.collocation_constraint.defects:y                   e   0.000000E+00    7.330986E-11    0.000000E+00              9.00000E+100
+         12  phase0.collocation_constraint.defects:y                   e   0.000000E+00   -1.323568E-10    0.000000E+00              9.00000E+100
+         13  phase0.collocation_constraint.defects:y                   e   0.000000E+00   -3.740659E-11    0.000000E+00              9.00000E+100
+         14  phase0.collocation_constraint.defects:y                   e   0.000000E+00   -7.182863E-12    0.000000E+00              9.00000E+100
+         15  phase0.collocation_constraint.defects:y                   e   0.000000E+00   -5.730075E-12    0.000000E+00              9.00000E+100
+         16  phase0.collocation_constraint.defects:y                   e   0.000000E+00   -1.960154E-11    0.000000E+00              9.00000E+100
+         17  phase0.collocation_constraint.defects:y                   e   0.000000E+00    1.141785E-12    0.000000E+00              9.00000E+100
+         18  phase0.collocation_constraint.defects:y                   e   0.000000E+00    1.458280E-11    0.000000E+00              9.00000E+100
+         19  phase0.collocation_constraint.defects:y                   e   0.000000E+00   -4.961063E-11    0.000000E+00              9.00000E+100
+         20  phase0.collocation_constraint.defects:v                   e   0.000000E+00    1.339416E-09    0.000000E+00              9.00000E+100
+         21  phase0.collocation_constraint.defects:v                   e   0.000000E+00    1.610132E-10    0.000000E+00              9.00000E+100
+         22  phase0.collocation_constraint.defects:v                   e   0.000000E+00   -5.227818E-12    0.000000E+00              9.00000E+100
+         23  phase0.collocation_constraint.defects:v                   e   0.000000E+00   -1.358834E-11    0.000000E+00              9.00000E+100
+         24  phase0.collocation_constraint.defects:v                   e   0.000000E+00    4.582843E-12    0.000000E+00              9.00000E+100
+         25  phase0.collocation_constraint.defects:v                   e   0.000000E+00    3.323666E-11    0.000000E+00              9.00000E+100
+         26  phase0.collocation_constraint.defects:v                   e   0.000000E+00   -1.354545E-11    0.000000E+00              9.00000E+100
+         27  phase0.collocation_constraint.defects:v                   e   0.000000E+00   -9.884964E-12    0.000000E+00              9.00000E+100
+         28  phase0.collocation_constraint.defects:v                   e   0.000000E+00   -1.244160E-11    0.000000E+00              9.00000E+100
+         29  phase0.collocation_constraint.defects:v                   e   0.000000E+00    4.786926E-11    0.000000E+00              9.00000E+100
+         30  phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         31  phase0.continuity_comp.defect_states:x                    e   0.000000E+00    7.970040E-18    0.000000E+00              9.00000E+100
+         32  phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         33  phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         34  phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         35  phase0.continuity_comp.defect_states:x                    e   0.000000E+00   -2.226325E-17    0.000000E+00              9.00000E+100
+         36  phase0.continuity_comp.defect_states:x                    e   0.000000E+00   -2.588376E-17    0.000000E+00              9.00000E+100
+         37  phase0.continuity_comp.defect_states:x                    e   0.000000E+00   -2.588376E-17    0.000000E+00              9.00000E+100
+         38  phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         39  phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         40  phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         41  phase0.continuity_comp.defect_states:y                    e   0.000000E+00    7.317723E-18    0.000000E+00              9.00000E+100
+         42  phase0.continuity_comp.defect_states:y                    e   0.000000E+00    1.459221E-17    0.000000E+00              9.00000E+100
+         43  phase0.continuity_comp.defect_states:y                    e   0.000000E+00    1.459221E-17    0.000000E+00              9.00000E+100
+         44  phase0.continuity_comp.defect_states:y                    e   0.000000E+00   -1.826912E-17    0.000000E+00              9.00000E+100
+         45  phase0.continuity_comp.defect_states:y                    e   0.000000E+00   -1.113162E-17    0.000000E+00              9.00000E+100
+         46  phase0.continuity_comp.defect_states:y                    e   0.000000E+00    5.868036E-17    0.000000E+00              9.00000E+100
+         47  phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         48  phase0.continuity_comp.defect_states:v                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         49  phase0.continuity_comp.defect_states:v                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         50  phase0.continuity_comp.defect_states:v                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         51  phase0.continuity_comp.defect_states:v                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         52  phase0.continuity_comp.defect_states:v                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         53  phase0.continuity_comp.defect_states:v                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         54  phase0.continuity_comp.defect_states:v                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         55  phase0.continuity_comp.defect_states:v                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         56  phase0.continuity_comp.defect_states:v                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         57  phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         58  phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         59  phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         60  phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         61  phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         62  phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         63  phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         64  phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         65  phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         66  phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         67  phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    1.413428E-13    0.000000E+00              9.00000E+100
+         68  phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    2.807225E-13    0.000000E+00              9.00000E+100
+         69  phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -2.483314E-13    0.000000E+00              9.00000E+100
+         70  phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -7.459758E-14    0.000000E+00              9.00000E+100
+         71  phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -1.138595E-13    0.000000E+00              9.00000E+100
+         72  phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    2.129957E-13    0.000000E+00              9.00000E+100
+         73  phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -1.064979E-13    0.000000E+00              9.00000E+100
+         74  phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    7.116216E-14    0.000000E+00              9.00000E+100
+         75  phase0.final_boundary_constraints.final_value:x           e   1.000000E+01    1.000000E+01    1.000000E+01              9.00000E+100
+         76  phase0.final_boundary_constraints.final_value:y           e   5.000000E+00    5.000000E+00    5.000000E+00              9.00000E+100
+         77  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.775558E-17    0.000000E+00              9.00000E+100
+         78  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -3.823758E-13    0.000000E+00              9.00000E+100
+         79  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.123322E-12    0.000000E+00              9.00000E+100
+         80  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.909796E-12    0.000000E+00              9.00000E+100
+         81  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -2.426167E-12    0.000000E+00              9.00000E+100
+         82  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -2.492847E-12    0.000000E+00              9.00000E+100
+         83  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -2.142490E-12    0.000000E+00              9.00000E+100
+         84  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.597081E-12    0.000000E+00              9.00000E+100
+         85  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.157115E-12    0.000000E+00              9.00000E+100
+         86  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.037624E-12    0.000000E+00              9.00000E+100
+         87  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -7.168913E-13    0.000000E+00              9.00000E+100
+         88  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.143134E-13    0.000000E+00              9.00000E+100
+         89  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.573107E-12    0.000000E+00              9.00000E+100
+         90  phase1.collocation_constraint.defects:S                   e   0.000000E+00    3.704665E-12    0.000000E+00              9.00000E+100
+         91  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.368584E-12    0.000000E+00              9.00000E+100
+         92  phase1.collocation_constraint.defects:S                   e   0.000000E+00    9.203611E-12    0.000000E+00              9.00000E+100
+         93  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.168707E-11    0.000000E+00              9.00000E+100
+         94  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.328629E-11    0.000000E+00              9.00000E+100
+         95  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.368559E-11    0.000000E+00              9.00000E+100
+         96  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.458320E-11    0.000000E+00              9.00000E+100
+         97  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.644531E-11    0.000000E+00              9.00000E+100
+         98  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.876333E-11    0.000000E+00              9.00000E+100
+         99  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.097956E-11    0.000000E+00              9.00000E+100
+        100  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.268025E-11    0.000000E+00              9.00000E+100
+        101  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.371043E-11    0.000000E+00              9.00000E+100
+        102  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.417273E-11    0.000000E+00              9.00000E+100
+        103  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.430447E-11    0.000000E+00              9.00000E+100
+        104  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.432033E-11    0.000000E+00              9.00000E+100
+        105  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.433399E-11    0.000000E+00              9.00000E+100
+        106  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.421945E-11    0.000000E+00              9.00000E+100
+        107  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.371464E-11    0.000000E+00              9.00000E+100
+        108  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.260188E-11    0.000000E+00              9.00000E+100
+        109  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.086943E-11    0.000000E+00              9.00000E+100
+        110  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.877577E-11    0.000000E+00              9.00000E+100
+        111  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.679991E-11    0.000000E+00              9.00000E+100
+        112  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.547529E-11    0.000000E+00              9.00000E+100
+        113  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.514414E-11    0.000000E+00              9.00000E+100
+        114  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.500719E-11    0.000000E+00              9.00000E+100
+        115  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.471064E-11    0.000000E+00              9.00000E+100
+        116  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.428769E-11    0.000000E+00              9.00000E+100
+        117  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.378774E-11    0.000000E+00              9.00000E+100
+        118  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.327243E-11    0.000000E+00              9.00000E+100
+        119  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.280391E-11    0.000000E+00              9.00000E+100
+        120  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.243777E-11    0.000000E+00              9.00000E+100
+        121  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.222011E-11    0.000000E+00              9.00000E+100
+        122  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.216348E-11    0.000000E+00              9.00000E+100
+        123  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.203264E-11    0.000000E+00              9.00000E+100
+        124  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.173604E-11    0.000000E+00              9.00000E+100
+        125  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.131223E-11    0.000000E+00              9.00000E+100
+        126  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.081270E-11    0.000000E+00              9.00000E+100
+        127  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.029631E-11    0.000000E+00              9.00000E+100
+        128  phase1.collocation_constraint.defects:S                   e   0.000000E+00    9.826047E-12    0.000000E+00              9.00000E+100
+        129  phase1.collocation_constraint.defects:S                   e   0.000000E+00    9.460911E-12    0.000000E+00              9.00000E+100
+        130  phase1.collocation_constraint.defects:S                   e   0.000000E+00    9.237511E-12    0.000000E+00              9.00000E+100
+        131  phase1.collocation_constraint.defects:S                   e   0.000000E+00    9.191207E-12    0.000000E+00              9.00000E+100
+        132  phase1.collocation_constraint.defects:S                   e   0.000000E+00    9.085420E-12    0.000000E+00              9.00000E+100
+        133  phase1.collocation_constraint.defects:S                   e   0.000000E+00    8.855935E-12    0.000000E+00              9.00000E+100
+        134  phase1.collocation_constraint.defects:S                   e   0.000000E+00    8.544490E-12    0.000000E+00              9.00000E+100
+        135  phase1.collocation_constraint.defects:S                   e   0.000000E+00    8.196360E-12    0.000000E+00              9.00000E+100
+        136  phase1.collocation_constraint.defects:S                   e   0.000000E+00    7.861652E-12    0.000000E+00              9.00000E+100
+        137  phase1.collocation_constraint.defects:S                   e   0.000000E+00    7.574918E-12    0.000000E+00              9.00000E+100
+        138  phase1.collocation_constraint.defects:S                   e   0.000000E+00    7.365235E-12    0.000000E+00              9.00000E+100
+        139  phase1.collocation_constraint.defects:S                   e   0.000000E+00    7.243057E-12    0.000000E+00              9.00000E+100
+        140  phase1.collocation_constraint.defects:S                   e   0.000000E+00    7.223475E-12    0.000000E+00              9.00000E+100
+        141  phase1.collocation_constraint.defects:S                   e   0.000000E+00    7.146080E-12    0.000000E+00              9.00000E+100
+        142  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.995240E-12    0.000000E+00              9.00000E+100
+        143  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.792036E-12    0.000000E+00              9.00000E+100
+        144  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.571924E-12    0.000000E+00              9.00000E+100
+        145  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.367885E-12    0.000000E+00              9.00000E+100
+        146  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.200899E-12    0.000000E+00              9.00000E+100
+        147  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.086328E-12    0.000000E+00              9.00000E+100
+        148  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.018405E-12    0.000000E+00              9.00000E+100
+        149  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.998676E-12    0.000000E+00              9.00000E+100
+        150  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.919514E-12    0.000000E+00              9.00000E+100
+        151  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.745878E-12    0.000000E+00              9.00000E+100
+        152  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.515411E-12    0.000000E+00              9.00000E+100
+        153  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.284895E-12    0.000000E+00              9.00000E+100
+        154  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.083040E-12    0.000000E+00              9.00000E+100
+        155  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.939734E-12    0.000000E+00              9.00000E+100
+        156  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.848941E-12    0.000000E+00              9.00000E+100
+        157  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.806734E-12    0.000000E+00              9.00000E+100
+        158  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.794514E-12    0.000000E+00              9.00000E+100
+        159  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.777337E-12    0.000000E+00              9.00000E+100
+        160  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.742050E-12    0.000000E+00              9.00000E+100
+        161  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.715941E-12    0.000000E+00              9.00000E+100
+        162  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.717708E-12    0.000000E+00              9.00000E+100
+        163  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.765264E-12    0.000000E+00              9.00000E+100
+        164  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.845898E-12    0.000000E+00              9.00000E+100
+        165  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.930802E-12    0.000000E+00              9.00000E+100
+        166  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.998038E-12    0.000000E+00              9.00000E+100
+        167  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.999068E-12    0.000000E+00              9.00000E+100
+        168  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.079212E-12    0.000000E+00              9.00000E+100
+        169  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.238615E-12    0.000000E+00              9.00000E+100
+        170  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.431440E-12    0.000000E+00              9.00000E+100
+        171  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.632706E-12    0.000000E+00              9.00000E+100
+        172  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.798195E-12    0.000000E+00              9.00000E+100
+        173  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.907637E-12    0.000000E+00              9.00000E+100
+        174  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.976542E-12    0.000000E+00              9.00000E+100
+        175  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.006381E-12    0.000000E+00              9.00000E+100
+        176  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.016491E-12    0.000000E+00              9.00000E+100
+        177  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.029693E-12    0.000000E+00              9.00000E+100
+        178  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.053986E-12    0.000000E+00              9.00000E+100
+        179  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.061249E-12    0.000000E+00              9.00000E+100
+        180  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.036220E-12    0.000000E+00              9.00000E+100
+        181  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.973794E-12    0.000000E+00              9.00000E+100
+        182  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.869897E-12    0.000000E+00              9.00000E+100
+        183  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.778122E-12    0.000000E+00              9.00000E+100
+        184  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.712702E-12    0.000000E+00              9.00000E+100
+        185  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.695819E-12    0.000000E+00              9.00000E+100
+        186  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.645122E-12    0.000000E+00              9.00000E+100
+        187  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.528220E-12    0.000000E+00              9.00000E+100
+        188  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.351934E-12    0.000000E+00              9.00000E+100
+        189  phase1.collocation_constraint.defects:S                   e   0.000000E+00    5.135503E-12    0.000000E+00              9.00000E+100
+        190  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.889969E-12    0.000000E+00              9.00000E+100
+        191  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.664361E-12    0.000000E+00              9.00000E+100
+        192  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.473057E-12    0.000000E+00              9.00000E+100
+        193  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.366952E-12    0.000000E+00              9.00000E+100
+        194  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.325285E-12    0.000000E+00              9.00000E+100
+        195  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.251866E-12    0.000000E+00              9.00000E+100
+        196  phase1.collocation_constraint.defects:S                   e   0.000000E+00    4.077494E-12    0.000000E+00              9.00000E+100
+        197  phase1.collocation_constraint.defects:S                   e   0.000000E+00    3.839370E-12    0.000000E+00              9.00000E+100
+        198  phase1.collocation_constraint.defects:S                   e   0.000000E+00    3.531459E-12    0.000000E+00              9.00000E+100
+        199  phase1.collocation_constraint.defects:S                   e   0.000000E+00    3.204309E-12    0.000000E+00              9.00000E+100
+        200  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.890656E-12    0.000000E+00              9.00000E+100
+        201  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.646545E-12    0.000000E+00              9.00000E+100
+        202  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.485326E-12    0.000000E+00              9.00000E+100
+        203  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.442531E-12    0.000000E+00              9.00000E+100
+        204  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.419415E-12    0.000000E+00              9.00000E+100
+        205  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.353701E-12    0.000000E+00              9.00000E+100
+        206  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.259669E-12    0.000000E+00              9.00000E+100
+        207  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.135110E-12    0.000000E+00              9.00000E+100
+        208  phase1.collocation_constraint.defects:S                   e   0.000000E+00    2.027582E-12    0.000000E+00              9.00000E+100
+        209  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.909305E-12    0.000000E+00              9.00000E+100
+        210  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.809580E-12    0.000000E+00              9.00000E+100
+        211  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.764773E-12    0.000000E+00              9.00000E+100
+        212  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.770711E-12    0.000000E+00              9.00000E+100
+        213  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.720505E-12    0.000000E+00              9.00000E+100
+        214  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.643944E-12    0.000000E+00              9.00000E+100
+        215  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.535679E-12    0.000000E+00              9.00000E+100
+        216  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.411710E-12    0.000000E+00              9.00000E+100
+        217  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.264576E-12    0.000000E+00              9.00000E+100
+        218  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.143355E-12    0.000000E+00              9.00000E+100
+        219  phase1.collocation_constraint.defects:S                   e   0.000000E+00    1.025373E-12    0.000000E+00              9.00000E+100
+        220  phase1.collocation_constraint.defects:S                   e   0.000000E+00    9.909699E-13    0.000000E+00              9.00000E+100
+        221  phase1.collocation_constraint.defects:S                   e   0.000000E+00    9.324697E-13    0.000000E+00              9.00000E+100
+        222  phase1.collocation_constraint.defects:S                   e   0.000000E+00    8.622891E-13    0.000000E+00              9.00000E+100
+        223  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.613664E-13    0.000000E+00              9.00000E+100
+        224  phase1.collocation_constraint.defects:S                   e   0.000000E+00    3.817236E-13    0.000000E+00              9.00000E+100
+        225  phase1.collocation_constraint.defects:S                   e   0.000000E+00    6.183746E-14    0.000000E+00              9.00000E+100
+        226  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -2.326267E-13    0.000000E+00              9.00000E+100
+        227  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -4.922458E-13    0.000000E+00              9.00000E+100
+        228  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -6.960150E-13    0.000000E+00              9.00000E+100
+        229  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -7.805262E-13    0.000000E+00              9.00000E+100
+        230  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -8.371615E-13    0.000000E+00              9.00000E+100
+        231  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -8.894779E-13    0.000000E+00              9.00000E+100
+        232  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.025717E-12    0.000000E+00              9.00000E+100
+        233  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.187279E-12    0.000000E+00              9.00000E+100
+        234  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.386828E-12    0.000000E+00              9.00000E+100
+        235  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.563899E-12    0.000000E+00              9.00000E+100
+        236  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.704947E-12    0.000000E+00              9.00000E+100
+        237  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.800943E-12    0.000000E+00              9.00000E+100
+        238  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.881528E-12    0.000000E+00              9.00000E+100
+        239  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.858657E-12    0.000000E+00              9.00000E+100
+        240  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.897232E-12    0.000000E+00              9.00000E+100
+        241  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.923636E-12    0.000000E+00              9.00000E+100
+        242  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.939733E-12    0.000000E+00              9.00000E+100
+        243  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.924421E-12    0.000000E+00              9.00000E+100
+        244  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.868375E-12    0.000000E+00              9.00000E+100
+        245  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.801433E-12    0.000000E+00              9.00000E+100
+        246  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.713487E-12    0.000000E+00              9.00000E+100
+        247  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.659796E-12    0.000000E+00              9.00000E+100
+        248  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.573322E-12    0.000000E+00              9.00000E+100
+        249  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.602768E-12    0.000000E+00              9.00000E+100
+        250  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.488909E-12    0.000000E+00              9.00000E+100
+        251  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.316058E-12    0.000000E+00              9.00000E+100
+        252  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -1.071948E-12    0.000000E+00              9.00000E+100
+        253  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -7.953476E-13    0.000000E+00              9.00000E+100
+        254  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -4.902828E-13    0.000000E+00              9.00000E+100
+        255  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -2.562819E-13    0.000000E+00              9.00000E+100
+        256  phase1.collocation_constraint.defects:S                   e   0.000000E+00   -5.123676E-14    0.000000E+00              9.00000E+100
+        257  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        258  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        259  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        260  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        261  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        262  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        263  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        264  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        265  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        266  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        267  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        268  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        269  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        270  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        271  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        272  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        273  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        274  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        275  phase1.continuity_comp.defect_states:S                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+
+--------------------------------------------------------------------------------
+</code></pre></div>
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">plot 1</label><div class="tabbed-content">
+<p><img alt="" width="640" height="480" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAPYQAAD2EBqD+naQAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjIsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+WH4yJAAAgAElEQVR4nOzde1yUdf7//+dIiogwyhkMBQ+FInnONLPM1LTc+uqW2UE7bFufzDS3g1rbWlvQYTM/2VY/27LTZtZHLTv4SctSyUrMQ6KVJ1A+CIskznASUub3B83IyEAKA9cM1+N+u81N55rrmnnNctt4+n5f79fb4nA4HAIAAIBptDK6AAAAADQvAiAAAIDJEAABAABMhgAIAABgMgRAAAAAkyEAAgAAmAwBEAAAwGQIgAAAACZDAAQAADAZAiAAAIDJEAABAABMhgAIAABgMgRAAAAAkznL6AL8RVVVlQ4dOqSQkBBZLBajywEAACbmcDhUXFysuLg4tWp15uN5BMDTdOjQIcXHxxtdBgAAgEtOTo7OPvvsM76OAHiaQkJCJFX/Dx0aGmpwNQAAwMzsdrvi4+Nd+eRMEQBPk3PaNzQ0lAAIAAB8QkNvS2sRi0DWr1+v8ePHKy4uThaLRR988IHb6w6HQ/PmzVNcXJyCgoJ0ySWXaOfOnQZVCwAAYKwWEQBLS0vVp08fvfDCCx5ff/rppzV//ny98MILysjIUExMjEaNGqXi4uJmrhQAAMB4LWIKeOzYsRo7dqzH1xwOhxYsWKCHHnpIEyZMkCS98cYbio6O1jvvvKM77rijOUutV56tXFmFpUqMCFasNcjocgAAQAvVIgJgfbKyspSfn6/Ro0e7jgUGBuriiy/Wxo0bfSYALs04qDnLd6jKIVkk3X5Rom4ZlkgQBAAAXtcipoDrk5+fL0mKjo52Ox4dHe16zZOKigrZ7Xa3R1PJs5W7wp8kOSQt2pClC59cq6UZByVJ23OK9MqGfdqeU9RkdQAAAHNo8SOATqeuknE4HPWunElLS9Ojjz7a1GVJkrIKS13hr6YqhzR3eabW7T6sT3ecDKsT+3fSs9f2bZbaAABAy9PiRwBjYmIkqdZoX0FBQa1RwZrmzJkjm83meuTk5DRZjYkRwWpVRxY94XC4hT9JWrYl120kMM9Wro37CpVnK2+yGgEAQMvR4gNgYmKiYmJitGbNGtexyspKrVu3TkOHDq3zusDAQFfPv6bu/RdrDVLahBSPP4y6xig3Z1cHwKUZB3Xhk2t1/SvfuU0ZAwAA1KVFBMCSkhJt27ZN27Ztk1S98GPbtm06ePCgLBaLZs6cqdTUVK1YsUKZmZm6+eab1a5dO11//fUGV37SpEGd9fWcS/Xni7q6RgMDLBbddUk3j+cPTOhY695B55QxI4EAAKA+LeIewM2bN2vEiBGu57NmzZIkTZ06Va+//roeeOABlZeX66677lJRUZEGDx6s1atXN3j7lKYSaw3S3Ct66pZhCcouLFNCRDvFWoOUbz+mZVtyXedN7N9JfeI7auO+wlr3Dp5wOJRdWOZx9fD2nCJtyj6i8xPC1Ce+Y1N/HQAA4KMsDofDw/IDnMput8tqtcpmsxmyFdz2nCJtzi7SwISOrvCWZyvXhU+udQuBARaL0mePqBUA//LetlohkoUkAAD4p8bmkhYxBWwGfeI76raLurqN3DnvHQz4bTVzgMWi1Am9a4W/7TlFbuFPqr2QBAAAmEeLmAI2s0mDOmv4OZFuU8an2pR9xOO1m7OLmAoGAMCECIAtQKw1qN4dQ85PCPN4fGBC/eGPrekAAGiZCIAm0Ce+oyb27+RxIUldam5N18oipU1I0aRBnZujXAAA0MRYBHKajF4E4g2eFpJ4ciaLSwAAQPNrbC5hBNBE+sTXH/ycPG1NV197GQAA4F9YBYxaPG1NF2CxKCGinTEFAQAAryIAopbTbS9Tl+05RXplwz7azAAA4KOYAoZHp9NexhMaTgMA4PsYAUSdYq1BGtIt/IxG/mg4DQCA7yMAwmvqazgNAAB8BwEQXtPQhtMAAKB5EQDhNc6G0zX9XsNpT/Js5dq4r1B5tnJvlgcAAH7DIhB41bPX9tWUIV1Oq+G0J+xAAgBA0yMAwutOt+H0qfJs5a7wJ0lVDmnu8kwNPyeSBtQAAHgRU8DwGfXtQAIAALyHAAifwQ4kAAA0DwIgfEZjdyABAACnh3sA4VMaugNJXbbnFGlT9hGdnxDWoPsSAQBoiQiA8Dmx1iCvjPqxLR0AAJ4xBYwWiW3pAACom6kCYHFxsWbOnKkuXbooKChIQ4cOVUZGhtFloQmwLR0AAHUzVQD805/+pDVr1uitt97Sjh07NHr0aF122WXKzc39/YvhV9iWDgCAupkmAJaXl2vZsmV6+umnNXz4cHXv3l3z5s1TYmKiXnrpJaPLg5d5a1s6AABaItMsAjl+/LhOnDihtm3buh0PCgpSenq6QVWhKTV2WzoAAFoq0wTAkJAQDRkyRH//+9/Vs2dPRUdHa8mSJfruu+/Uo0ePWudXVFSooqLC9dxutzdnufCShm5L93vybOXKKixVYkQwfQoBAH7HNFPAkvTWW2/J4XCoU6dOCgwM1PPPP6/rr79eAQEBtc5NS0uT1Wp1PeLj4w2oGL5oacZBXfjkWl3/yne68Mm1Wppx0OiSAAA4IxaHw+H4/dNaltLSUtntdsXGxmrSpEkqKSnRJ5984naOpxHA+Ph42Ww2hYaGNnfJ8BF5tnJd+ORatz2LAywWpc8ewUggAKDZ2O12Wa3WBucS00wB1xQcHKzg4GAVFRXps88+09NPP13rnMDAQAUGBhpQHXxZVmGpW/iTpBMOh7ILywiAAAC/YaoA+Nlnn8nhcOjcc8/V3r17df/99+vcc8/VLbfcYnRp8BOJEcFqZVGtEcCEiHbGFQUAwBky1T2ANptN06ZNU1JSkqZMmaJhw4Zp9erVat26tdGlwU/EWoOUNiFFARaLpOrwlzqhN6N/AAC/Ysp7ABuisXPtaFnybOXKLixTQkQ7wh8AoNlxDyBggFhrUJMFv+05RdqUfUTnJ4TRuxAA0CQIgIAP+ct727Rsy8mtCSf276Rnr+1rYEUAgJbIVPcAAr5se06RW/iTpGVbcrU9p8igigAALRUBEPARm7KPeDy+OZsACADwLgIg4CPOTwjzeHxgAvcBAgC8iwAI+Ig+8R01sX8nt2MT+3diIQgAwOtYBAL4kGev7aspQ7poc3aRBiZ0JPwBAJoEARDwMX3iCX4AgKbFFDBgYnm2cm3cV6g8W7nRpQAAmhEjgIBJLc04qDnLd6jKIbWySGkTUjRpUGejywIANANGAAETyrOVu8KfJFU5pLnLMxkJBACTIAACJpRVWOoKf04nHA5lF5YZUxAAoFkRAAETSowIViuL+7EAi0UJEe2MKQgA0KwIgIAJxVqDlDYhRQGW6hQYYLEodUJvxVqDDK4MANAcWAQCmNSkQZ01/JxIZReWKSGiHeEPAEyEAAiYWKw1iOAHACbEFDAAAIDJEAABNJvtOUV6ZcM+bc8pMroUADA1poABNIu/vLdNy7bkup5P7N9Jz17b18CKAMC8GAEE0OS25xS5hT9JWrYll5FAADAIARBAk9uUfcTj8c3ZBEAAMIJpAuDx48f18MMPKzExUUFBQeratasee+wxVVVVGV0a0OKdnxDm8fjAhI7NXAkAQDLRPYBPPfWUXn75Zb3xxhtKTk7W5s2bdcstt8hqtWrGjBlGlwe0aH3iO2pi/0617gHsE08ABAAjmCYAfvPNN7rqqqt0xRVXSJISEhK0ZMkSbd682eDKAHN49tq+mjKkizZnF2lgQkfCHwAYyDRTwMOGDdMXX3yh3bt3S5K2b9+u9PR0jRs3zuP5FRUVstvtbg8AjdMnvqNuu6gr4Q8ADGbICKDNZtOKFSu0YcMGZWdnq6ysTJGRkerXr5/GjBmjoUOHev0zH3zwQdlsNiUlJSkgIEAnTpzQE088ocmTJ3s8Py0tTY8++qjX6wAAADBas44A5uXl6fbbb1dsbKwee+wxlZaWqm/fvho5cqTOPvtsffnllxo1apR69eqlpUuXevWzly5dqrffflvvvPOOtmzZojfeeEP/+Mc/9MYbb3g8f86cObLZbK5HTk6OV+sBAAAwSrOOAPbp00dTpkzRpk2b1Lt3b4/nlJeX64MPPtD8+fOVk5Oj++67zyufff/992v27Nm67rrrJEkpKSk6cOCA0tLSNHXq1FrnBwYGKjAw0CufDcB4ebZyZRWWKjEimP2PAZheswbAnTt3KjIyst5zgoKCNHnyZE2ePFmHDx/22meXlZWpVSv3Ac+AgADawAAmsDTjoOYs36Eqh9TKIqVNSNGkQZ2NLgsADNOsAfD3wl9jz6/P+PHj9cQTT6hz585KTk7W1q1bNX/+fN16661e+wwAvifPVu4Kf5JU5ZDmLs/U8HMiGQkEYFqGtoHJzc3V119/rYKCglojcffcc49XP2vhwoX661//qrvuuksFBQWKi4vTHXfcoUceecSrnwPAt2QVlrrCn9MJh0PZhWUEQACmZXE4HI7fP837Fi9erDvvvFNt2rRReHi4LBbLyaIsFu3fv9+Isupkt9tltVpls9kUGhpqdDkATlOerVwXPrnWLQQGWCxKnz2CAAjAbzU2lxjWB/CRRx7RI488IpvNpuzsbGVlZbkevhb+APivWGuQ0iakKOC3f2QGWCxKndCb8AfA1AybAi4rK9N1111Xa2EGAHjbpEGdNfycSGUXlikhoh3hD4DpGZa+brvtNr3//vtGfTwAk4m1BmlIt3DCHwDIwHsAT5w4oSuvvFLl5eVKSUlR69at3V6fP3++EWXViXsAAQCAr2hsLjFsCjg1NVWfffaZzj33XEmqtQgEAAAATcOwADh//ny99tpruvnmm40qAQAAwJQMuwcwMDBQF154oVEfDwDNbntOkV7ZsE/bc4qMLgWAyRk2AjhjxgwtXLhQzz//vFElAECz+ct727RsS67r+cT+nfTstX0NrAiAmRkWADdt2qS1a9fq448/VnJycq1FIMuXLzeoMgDwru05RW7hT5KWbcnVlCFd1Ce+o0FVATAzwwJghw4dNGHCBKM+HgCazabsIx6Pb84uIgACMIRhAXDx4sVGfTQANKvzE8I8Hh+YQPgDYAy24QCAJtYnvqMm9u/kdmxi/06M/gEwTLOOAF5++eV65JFHNHTo0HrPKy4u1osvvqj27dtr2rRpzVQdADSdZ6/tqylDumhzdpEGJnQk/AEwVLMGwGuuuUbXXnutQkJC9Ic//EEDBw5UXFyc2rZtq6KiIu3atUvp6en69NNPdeWVV+qZZ55pzvIAoEn1iSf4AfANzb4VXGVlpf7nf/5HS5cu1YYNG3T06NHqQiwW9erVS2PGjNHtt9/u2iHEV7AVHAAA8BWNzSWG7QXsZLPZVF5ervDw8FqtYHwJARAAAPgKv90L2MlqtcpqtRpdBgAAgGmwChgATCrPVq6N+wqVZys3uhQAzczwEUAAQPNbmnFQc5bvUJVDamWR0iakaNKgzkaXBaCZMAIIACaTZyt3hT9JqnJIc5dnMhIImIhpAmBCQoIsFkutB30GAZhNVmGpK/w5nXA4lF1YZkxBAJqdYQHw5ptv1vr165vt8zIyMpSXl+d6rFmzRlJ1b0IAMJPEiGC1srgfC7BYlBDRzpiCADQ7wwJgcXGxRo8erR49eig1NVW5ublN+nmRkZGKiYlxPT7++GN169ZNF198cZN+LgD4mlhrkNImpCjAUp0CAywWpU7orVhrkMGVAWguhvYB/OWXX/T222/r9ddfV2Zmpi677DLddtttuuqqq5q0J2BlZaXi4uI0a9YszZ0797SuoQ8ggJYmz1au7MIyJUS0I/wBfqaxucTQewDDw8M1Y8YMbd26VZs2bVL37t110003KS4uTvfee6/27NnTJJ/7wQcf6OjRo7r55pvrPKeiokJ2u93tAQAtSaw1SEO6hRP+ABPyiUUgeXl5Wr16tVavXq2AgACNGzdOO3fuVK9evfTcc895/fNeffVVjR07VnFxcXWek5aW5mpSbbVaFR8f7/U6AAAAjGDYFPCvv/6qlStXavHixVq9erXOO+88/elPf9INN9ygkJAQSdK7776r//qv/1JRUZHXPvfAgQPq2rWrli9frquuuqrO8yoqKlRRUeF6brfbFR8fzxQwAAAwnN9uBRcbG6uqqipNnjxZmzZtUt++fWudM2bMGHXo0MGrn7t48WJFRUXpiiuuqPe8wMBABQYGevWzAQAAfIFhAfC5557TNddco7Zt29Z5TseOHZWVleW1z6yqqtLixYs1depUnXUWm6AAAABzMiwF3XTTTc3+mZ9//rkOHjyoW2+9tdk/GwBwerbnFGlT9hGdnxCmPvEdjS4HaJFMNQw2evRoGdj1BgDwO/7y3jYt23KyL+zE/p307LW1bxEC0Dg+sQoYAIDtOUVu4U+Slm3J1fYc7y0EBFCNAAgA8Ambso94PL45mwAIeBsBEADgE85PCPN4fGAC9wEC3kYABAD4hD7xHTWxfye3YxP7d2IhCNAETLUIBADg2569tq+mDOmizdlFGpjQkfAHNBECIADAp/SJJ/gBTY0pYAAAAJMhAAIAAJgMARAAAMBkCIAAAAAmQwAEAAAwGQIgAABnKM9Wro37CpVnKze6FKBBaAMDAMAZWJpxUHOW71CVQ2plkdImpGjSoM5GlwWcEUYAAQA4TXm2clf4k6QqhzR3eSYjgfA7BEAAAE5TVmGpK/w5nXA4lF1YZkxBQAMRAAEAOE2JEcFqZXE/FmCxKCGinTEFAQ1EAAQA4DTFWoOUNiFFAZbqFBhgsSh1Qm/FWoMMrgw4MywCAQDgDEwa1FnDz4lUdmGZEiLaEf7glwiAAACcoVhrEMEPfo0pYAAAAJMhAAIAAJiMqQJgbm6ubrzxRoWHh6tdu3bq27evvv/+e6PLAgAAaFamuQewqKhIF154oUaMGKFVq1YpKipK+/btU4cOHYwuDQAAoFmZJgA+9dRTio+P1+LFi13HEhISjCsIAADAIKaZAl65cqUGDhyoa665RlFRUerXr59eeeUVo8sCAABodqYJgPv379dLL72kHj166LPPPtOdd96pe+65R2+++abH8ysqKmS3290eAAD4m+05RXplwz5tzykyuhT4EIvD4XD8/mn+r02bNho4cKA2btzoOnbPPfcoIyND33zzTa3z582bp0cffbTWcZvNptDQ0CatFQAAb/jLe9u0bEuu6/nE/p307LV9DawI3mK322W1WhucS0wzAhgbG6tevXq5HevZs6cOHjzo8fw5c+bIZrO5Hjk5Oc1RJgAAXrE9p8gt/EnSsi25jARCkokWgVx44YX6+eef3Y7t3r1bXbp08Xh+YGCgAgMDm6M0AAC8blP2EY/HN2cXqU98x2auBr7GNCOA9957r7799lulpqZq7969euedd7Ro0SJNmzbN6NIAAPC68xPCPB4fmED4g4kC4KBBg7RixQotWbJEvXv31t///nctWLBAN9xwg9GlAQDgdX3iO2pi/05uxyb278ToHySZaBFIYzX2ZksAAIywPadIm7OLNDChI+GvBWlsLjHNPYAAAJhRn3iCH2ozzRQwAAAAqhEAAQAATIYACAAAYDIEQAAAAJMhAAIAAJgMARAAAMBkCIAAAMCn5NnKtXFfofJs5UaX0mLRBxAAAPiMpRkHNWf5DlU5pFYWKW1CiiYN6mx0WS0OI4AAAMAn5NnKXeFPkqoc0tzlmYwENgECIAAA8AlZhaWu8Od0wuFQdmGZMQW1YARAAADgExIjgtXK4n4swGJRQkQ7YwpqwQiAAADAJ8Rag5Q2IUUBluoUGGCxKHVCb8VagwyurOVhEQgAAPAZkwZ11vBzIpVdWKaEiHaEvyZCAAQAAD4l1hpE8GtiTAEDAACYDAEQAADAZAiAAAAAJkMABAAAMBkCIAAAgMkQAAEAAEzGNAFw3rx5slgsbo+YmBijywIAAGh2puoDmJycrM8//9z1PCAgwMBqAABAS5RnK1dWYakSI4J9tp+hqQLgWWedxagfAABoMkszDmrO8h2qckitLFLahBRNGtTZ6LJqMc0UsCTt2bNHcXFxSkxM1HXXXaf9+/fXeW5FRYXsdrvbAwAAoC55tnJX+JOkKoc0d3mm8mzlxhbmgWkC4ODBg/Xmm2/qs88+0yuvvKL8/HwNHTpUv/zyi8fz09LSZLVaXY/4+PhmrhgAAPiTrMJSV/hzOuFwKLuwzJiC6mFxOByO3z+t5SktLVW3bt30wAMPaNasWbVer6ioUEVFheu53W5XfHy8bDabQkNDm7NUAADgB/Js5brwybVuITDAYlH67BFevxfQbrfLarU2OJeYZgTwVMHBwUpJSdGePXs8vh4YGKjQ0FC3BwAAQF1irUFKm5CiAItFUnX4S53Q2ycXgphqEUhNFRUV+vHHH3XRRRcZXQoAAGghJg3qrOHnRCq7sEwJEe18MvxJJgqA9913n8aPH6/OnTuroKBAjz/+uOx2u6ZOnWp0aQAAoAWJtQb5bPBzMk0A/L//+z9NnjxZhYWFioyM1AUXXKBvv/1WXbp0Mbo0AACAZmWaAPjuu+8aXQIAAIBPME0AbCznYmn6AQIAAKM580hDm7kQAE9TcXGxJNEPEAAA+Izi4mJZrdYzvs60fQDPVFVVlQ4dOqSQkBBZflve7W3OXoM5OTm0nfEB/Dx8Cz8P38LPw7fw8/AtzfHzcDgcKi4uVlxcnFq1OvOufowAnqZWrVrp7LPPbpbPou+gb+Hn4Vv4efgWfh6+hZ+Hb2nqn0dDRv6cTNsIGgAAwKwIgAAAACYTMG/evHlGF4GTAgICdMkll+iss5id9wX8PHwLPw/fws/Dt/Dz8C2+/vNgEQgAAIDJMAUMAABgMgRAAAAAkyEAAgAAmAwBEAAAwGQIgD7kxRdfVGJiotq2basBAwZow4YNRpdkSmlpaRo0aJBCQkIUFRWlq6++Wj///LPRZUHVPxuLxaKZM2caXYqp5ebm6sYbb1R4eLjatWunvn376vvvvze6LFM6fvy4Hn74YSUmJiooKEhdu3bVY489pqqqKqNLM4X169dr/PjxiouLk8Vi0QcffOD2usPh0Lx58xQXF6egoCBdcskl2rlzp0HVuiMA+oilS5dq5syZeuihh7R161ZddNFFGjt2rA4ePGh0aaazbt06TZs2Td9++63WrFmj48ePa/To0SotLTW6NFPLyMjQokWLdN555xldiqkVFRXpwgsvVOvWrbVq1Srt2rVLzz77rDp06GB0aab01FNP6eWXX9YLL7ygH3/8UU8//bSeeeYZLVy40OjSTKG0tFR9+vTRCy+84PH1p59+WvPnz9cLL7ygjIwMxcTEaNSoUSouLm7mSmujDYyPGDx4sPr376+XXnrJdaxnz566+uqrlZaWZmBlOHz4sKKiorRu3ToNHz7c6HJMqaSkRP3799eLL76oxx9/XH379tWCBQuMLsuUZs+era+//poZCh9x5ZVXKjo6Wq+++qrr2MSJE9WuXTu99dZbBlZmPhaLRStWrNDVV18tqXr0Ly4uTjNnztSDDz4oSaqoqFB0dLSeeuop3XHHHUaWywigL6isrNT333+v0aNHux0fPXq0Nm7caFBVcLLZbJKksLAwgysxr2nTpumKK67QZZddZnQpprdy5UoNHDhQ11xzjaKiotSvXz+98sorRpdlWsOGDdMXX3yh3bt3S5K2b9+u9PR0jRs3zuDKkJWVpfz8fLff7YGBgbr44ot94ne7b7anNpnCwkKdOHFC0dHRbsejo6OVn59vUFWQqv8FN2vWLA0bNky9e/c2uhxTevfdd7VlyxZlZGQYXQok7d+/Xy+99JJmzZqluXPnatOmTbrnnnsUGBioKVOmGF2e6Tz44IOy2WxKSkpSQECATpw4oSeeeEKTJ082ujTTc/7+9vS7/cCBA0aU5IYA6EMsFovbc4fDUesYmtfdd9+tH374Qenp6UaXYko5OTmaMWOGVq9erbZt2xpdDiRVVVVp4MCBSk1NlST169dPO3fu1EsvvUQANMDSpUv19ttv65133lFycrK2bdummTNnKi4uTlOnTjW6PMh3f7cTAH1ARESEAgICao32FRQU1PqXA5rP9OnTtXLlSq1fv15nn3220eWY0vfff6+CggINGDDAdezEiRNav369XnjhBVVUVCggIMDACs0nNjZWvXr1cjvWs2dPLVu2zKCKzO3+++/X7Nmzdd1110mSUlJSdODAAaWlpREADRYTEyOpeiQwNjbWddxXfrdzD6APaNOmjQYMGKA1a9a4HV+zZo2GDh1qUFXm5XA4dPfdd2v58uVau3atEhMTjS7JtEaOHKkdO3Zo27ZtrsfAgQN1ww03aNu2bYQ/A1x44YW12iLt3r1bXbp0MagicysrK1OrVu6/ygMCAmgD4wMSExMVExPj9ru9srJS69at84nf7YwA+ohZs2bppptu0sCBAzVkyBAtWrRIBw8e1J133ml0aaYzbdo0vfPOO/rwww8VEhLiGpm1Wq0KCgoyuDpzCQkJqXXvZXBwsMLDw7kn0yD33nuvhg4dqtTUVF177bXatGmTFi1apEWLFhldmimNHz9eTzzxhDp37qzk5GRt3bpV8+fP16233mp0aaZQUlKivXv3up5nZWVp27ZtCgsLU+fOnTVz5kylpqaqR48e6tGjh1JTU9WuXTtdf/31Blb9Gwd8xj//+U9Hly5dHG3atHH079/fsW7dOqNLMiVJHh+LFy82ujQ4HI6LL77YMWPGDKPLMLWPPvrI0bt3b0dgYKAjKSnJsWjRIqNLMi273e6YMWOGo3Pnzo62bds6unbt6njooYccFRUVRpdmCl9++aXH3xdTp051OBwOR1VVleNvf/ubIyYmxhEYGOgYPny4Y8eOHcYW/Rv6AAIAAJgM9wACAACYDAEQAADAZAiAAAAAJkMABAAAMBkCIAAAgMkQAAEAAEyGAAgAAGAyBEAAAACTIQACQDN49dVXNXr06Ea9R0FBgSIjI5Wbm+ulqgCYFTuBAEATq6ioUNeuXfXuu+/qoosualQCH+gAACAASURBVNR7zZo1S3a7Xf/617+8VB0AM2IEEACa2LJly9S+fftGhz9JuuWWW/Tvf/9bRUVFXqgMgFkRAAHgNB0+fFgxMTFKTU11Hfvuu+/Upk0brV69us7r3n33Xf3hD39wO3bzzTfr6quvVmpqqqKjo9WhQwc9+uijOn78uO6//36FhYXp7LPP1muvveZ2XUpKimJiYrRixQrvfjkApkIABIDTFBkZqddee03z5s3T5s2bVVJSohtvvFF33XVXvff3bdiwQQMHDqx1fO3atTp06JDWr1+v+fPna968ebryyivVsWNHfffdd7rzzjt15513Kicnx+26888/Xxs2bPD69wNgHtwDCABnaNq0afr88881aNAgbd++XRkZGWrbtq3Hc48ePaqOHTtq/fr1blPAN998s7766ivt379frVpV/1s8KSlJUVFRWr9+vSTpxIkTslqt+te//qXrrrvOde2sWbO0detWffnll034LQG0ZIwAAsAZ+sc//qHjx4/rvffe07///e86w58klZeXS5LHc5KTk13hT5Kio6OVkpLieh4QEKDw8HAVFBS4XRcUFKSysrLGfg0AJkYABIAztH//fh06dEhVVVU6cOBAveeGh4fLYrF4XLTRunVrt+cWi8XjsaqqKrdjR44cUWRkZAOrBwACIACckcrKSt1www2aNGmSHn/8cd122236z3/+U+f5bdq0Ua9evbRr1y6v1ZCZmal+/fp57f0AmA8BEADOwEMPPSSbzabnn39eDzzwgHr27Knbbrut3mvGjBmj9PR0r3x+WVmZvv/++0Y3lQZgbgRAADhNX331lRYsWKC33npLoaGhatWqld566y2lp6frpZdeqvO622+/XZ9++qls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QxKa94sAPsArAbC57dmzR3FxcQoMDNTgwYOVmpqqrl27ejz3m2++0ejRo92OjRkzRq+++qp+/fXXWk2rAQC+Ydchmx5akamesSGaedk5+im/2LU3r3OXDrZpAxrG7wLg4MGD9eabb+qcc87Rf/7zHz3++OMaOnSodu7cqfDw8Frn5+fnKzo62u1YdHS0jh8/rsLCQsXGxnr8nIqKClVUVLie2+12734RAIBHzpG+NgEWbc05qq05R3X94C5alZknqXboq4lt2oDT0+BFIEYZO3asJk6cqJSUFF122WX65JNPJElvvPFGnddYLBa3587NT049XlNaWpqsVqvrER8f74XqAQC/x3l/X57t5IrevQUlSgwPllS9qMO5oGPuuCR9PH2Ya9rXOdrXu5NVSTGhtHEB6uB3I4CnCg4OVkpKivbs2ePx9ZiYGOXnu3d6Lygo0FlnneVxxNBpzpw5mjVrluu53W4nBAJAE3GO+g1K6KgNewolSd8fKHK9XtfevFmHS/Xn4d08vicjfkDd/D4AVlRU6Mcff9RFF13k8fUhQ4boo48+cju2evVqDRw4sN77/wIDAxUYyL8aAaApnLpLh/P+vi5h7XTgSJkk6cf8Yo/X1tymbWxK9YJAmjYDZ6ZRU8DfffedVq1a5XbszTffVGJioqKiovTnP//Z7T46b7jvvvu0bt06ZWVl6bvvvtMf//hH2e12TZ06VVL1yN2UKVNc59955506cOCAZs2apR9//FGvvfaaXn31Vd13331erQsAcPqc07wFxdW/I5z39znDX32mDu2iod3CNWNkDyXFhEoS/fuAM9SoADhv3jz98MMPruc7duzQbbfdpssuu0yzZ8/WRx99pLS0tEYXWdP//d//afLkyTr33HM1YcIEtWnTRt9++61rP+K8vDwdPHjQdX5iYqI+/fRTffXVV+rbt6/+/ve/6/nnn6cFDAA0k/p26dhbUKLMXJvr/r5bhyZo0qCzJUl9zj7Zr++xP/Ry3ecXFswuHUBjWRzOFRENEBsbq48++kgDBw6UJD300ENat26d0tPTJUnvv/++/va3v2nXrl3eqdZAdrtdVqtVNptNoaGhRpcDAD7r1OndzFybrlyYrjdvPV9hwW0kVfftm718R73vkxIXqh2HqjswfDx9mKJCAt3eFzCzxuaSRt0DWFRU5NZiZd26dbr88stdzwcNGqScnBxPlwIAWqgz2aXjVE9OSFHb1gGauXSbhvUI145Ddl2eHE3vPsDLGhUAo6OjlZWVpfj4eFVWVmrLli169NFHXa8XFxfTaBkATMBbu3TUbNg8Jjlabc46ixE/oAk0KgBefvnlmj17tp566il98MEHateundtq3B9++EHdunleng8A8F/pew7rvve3a0i3cM0Z27PRu3TUVHOkr1ec+2sAvKNRAfDxxx/XhAkTdPHFF6t9+/Z644031KZNG9frr732Wq1t2AAA/ss50lfx63Hl2yu0Yush3Tasa+N36aCNC9CsGhUAIyMjtWHDBtlsNrVv314BAQFur7///vtq3759owoEABir5vSu8/6+G0+Z6q25S4cs0sK1ezV3XJKGdotwm951BsAC+zG3wMf9fUDz8kojaKvV8xB9WFiYN94eAGAgZ+iLaN9GWw8elSSl7z3sep1dOgD/43d7AQMAmtapffuOlFZKkuav2a3lW3MlSdm/lHu8dmRSlGuhB7t0AL6LAAgAJuapSbNzxG/jvl+UmWvTGxuzJUlFZb96fI+uEe00tnd12GOXDsA/+P1ewACAhqurZ59U/4KOxIh2yiqs3rZt3h+SFRYcqFWZ+W67dADwXYwAAoCJ1LUt25HSSmXm2lwPqXpBx4JJfTX90u6SqlfxOqd3+8d3cF0bFhzINC/gZxgBBIAWztMq3sSIYHWPau8Ke29szNYXPxW4XVdzQYckt359fTt31Nf7ftGQbuHs0gH4IQIgALQwpzZprjnN63Tq9G7N8DcyKUpf/FRQa5cOSTV26YjRTUMSmuX7APA+AiAAtBB1NWl2ruLdW1Di2qVj+oju6hbVXvsOl2jh2r21mjR/8VOBq29fzeldRvqAloEACAB+7HSaNH+0/ZCkuvv1Se5bsjmnhZ0IfUDLQwAEAD9SM/BFhbY9oybNNY1MitK9o85xm951YkEH0PKxChgA/Igz8BUUV0hqeJPmqUO7qHcnq6tnX82wR98+oOUjAAKAD6urbcvegpIGNWnuHlW9P3tYsPsevIQ9wFyYAgYAH3Hq9K6kOtu2NLhJM9O7AEQABABDeVrEcaa7ckjVTZrbtg7QzKXb1D++gysAnhr6WNABQCIAAkCzqyv0OTl35ZDktiuHp7YtzkUcNGkGcCYIgADQDJyhr3tUsB77aJcOl1RqVK9ojz36TndXjpqhT6JJM4DTRwAEgCZSV4++wyUnQ5+nHn2nuyuHJKZ3ATQIARAAvKSuHn01R/p++e1P6fd79En178oh0aQZQMPQBgYAvKSuHn0f/3BI81ZmSpJWZeZ7vNZTj77enayudi1OtG0B4A2MAAJAA3lq2yJVT+1KcvXoe3nd/t99r6lDu7jCXs3QR9sWAE3B70YA09LSNGjQIIWEhCgqKkpXX321fv7553qv+eqrr2SxWGo9fvrpp2aqGoC/89SQ2Tnit3HfL8rMtbn16LtyYXqthRySFNr25L+7J/aLc+3bW1ePPkb8ADQFvxsBXLdunaZNm6ZBgwbp+PHjeuihhzR69Gjt2rVLwcHB9V77888/KzQ01PU8MjKyqcsF4MeaokffqJ5RWra1euHHLcO6KiokUOHtA1nEAaBZ+V0A/N///V+354sXL1ZUVJS+//57DR8+vN5ro6Ki1KFDBan0VwAAFOhJREFUh6YsD4AfS99zWPe9v11DuoVrztieTdKjL6hN9X92h3QNI/QBMIzfBcBT2WzV/wEOCwv73XP79eunY8eOqVevXnr44Yc1YsSIOs+tqKhQRUWF67ndbm98sQB8knOkr+LX48q3V2jF1kO6bVjXJunR1z0qWF/+XKBpI7ozrQvAMH4dAB0Oh2bNmqVhw4apd+/edZ4XGxurRYsWacCAAaqoqNBbb72lkSNH6quvvqpz1DAtLU2PPvpoU5UOwGB19ehzasoefeP7dGrqrwcA9bI4HA6H0UU01LRp0/TJJ58oPT1dZ5999hldO378eFksFq1cudLj655GAOPj42Wz2dzuIwTgH05dsZuZa9OVC9P196uStfXgUS3fmquE8CBl/1Je7/uc2qNvymsZ+nj6MPXuZK1zVTAAeJvdbpfVam1wLvG7VcBO06dP18qVK/Xll1+ecfiTpAsuuEB79uyp8/XAwECFhoa6PQD4j1NX7dbVo2/+mt1avjVXkuoMf/ToA9DS+F0AdDgcuvvuu7V8+XKtXbtWiYmJDXqfrVu3KjY21svVATBCfS1anIHPaW9BiTJzba4efUVlv3p8z64R7TS2d4yk6tDXPaq9JHr0AWgZ/O4ewGnTpumdd97Rhx9+qJCQEOXnV3fVt1qtCgoKkiTNmTNHubm5evPNNyVJCxYsUEJCgpKTk1VZWam3335by5Yt07Jlywz7HgAa53RbtDibMtfs0VeXxIh2yioskyTN+0OywoIDtSoz/3d79AGAv/G7APjSSy9Jki655BK344sXL9bNN98sScrLy9PBgwddr1VWVuq+++5Tbm6ugoKClJycrE8++UTjxo1rrrIBNJAz6HWPCtYTn/x4xi1azqRHX//4Dq4AeGroI+wBaEn8LgCezpqV119/3e35Aw88oAceeKCJKgLgbXWt0G1Ii5ZT1dejr2/njvp63y8a0i2c0AegRfO7AAig5Tl19ayn0b2aGtOipb4efWOSY3TTkATvf0EA8DEEQADNrr7AFxXa1jW69/EPh7Trt6ncNbv+47q+rmndU1u0fPFTgcfAJ9Xdow8AzMDvVgED8C+NWaH78rr9Wr/3F0nSf0451+m0W7ScsoiDli0AzIwRQABe1xQrdIPbBKi0svpev4t7RKhd4FlalZmvqUO7uMJefS1aGOUDgJMIgAAarDlX6F6eHK1lW6vv+7v/8iRJokULADQQARDAGTFqhW5QG/f/XHEPHwA0HAEQQL18ZYVu96hgff7jf2jRAgBeQAAE4MaXV+iO79PJq98VAMyKVcCAydRclcsKXQAwJ0YAgRYufc9h3ff+9joXaLBCFwDMhwAItCA1p28l6d/fHVTFr8fdFmh4wgpdADAXAiDgx35vgYZzha7T3oIS13TvZ5n5kqX6+KL1+5T+23RuXVihCwAtBwEQ8FGnhjtPx+pqsrz1YJG2HjwqSUrfe9h1vOao3sIv97r+XjP8sUIXAP7/9u4+JsprQQP4MwLDVESq8jEgyoe6aMXrxUFXRK3VBiq5Xu11E//YEOutWlrUIG0aqsnWuk1JE+NHUbR2aZOuN9amotUtdxEXBD8ouersIpcVtTKOIixFKYyoIHj2j3FGhnmHmYGZgfF9fgnJzMt5mTM9nuTp+XpffAyARENMatrW1hM0bAU+03q9CzdaAACf/+dVPOg0rsnT3Xsk+bmzo8dgbuw45JXewJa0qZg3KRgAd+gSEckBAyCRh0gFvcmhAdh+sha/Puiy2pTRH3sbNEzhr6/Y4JGIU4/GX2uasHHxZIwN8Ede6Q3MmxRsDnumv2nCDRtERC8eBkAiN3F0fd6vD7rM90g9QePCjRZz4Gs2GNfv2dugsfG1yYACyCu9gYVTglFx3TgyuO2P0zE2wN+8QUMKAx8R0YuPAZBoAAazPg94HvTudTwPf8U1TaiqN67F6x3wPvvrVbv16bteLzVeDcAYACeOHWkuJ7Urlzt0iYjkhwGQyIa+5+cBrlmf91X5L7iobwVgPCrFpPemjN7mTx6Hf9JMePYZj/FZ0VWHNmiYxKkDoR7tb3ODBsMeEZH8MAASwfHz81yxPu/H6ka79dmSNhWhgSpkHflvrF8Yi4X/EGrxNx3ZoAEYR/dSp6uRnhRt9zOJiEg+GABJFqymZ508Pw9w3fq85b8LR5PhMarqWzH+ZRUafjPetzIhAi8pfXGoSm/ekQvA5lo9wP56PY7uERGRFAZA8kr9Tc/2fm1retbZ8/P+9WQt7vz2EMDg1+ete3USAOAPeefwWlwoDlXpAQBrno0ymt5LPkGDGzSIiMgFGABp2OlvtA5wbHrW1uaLvhw9P69Kd1/y/sGuzzNJih1rtSlDKtwx8BERkSswAJJb2DrcuPdrR3fPOjI9K0Xq+bbFNU240fwAv/xqDH6Onp83/mUVIseMRFX9fZeuz5scGoCyumZkvjbZ/N+DAY+IiNyNAZCc4sjonL3DjR3dPdtXf9OzXT1PAQCFl+8gwN/4z1rq+ba2dtqa2Do/L/dPMzA2wB9/yDvn8vV5fIIGERF52oihrsBA5efnIyYmBiqVChqNBmfPnu23fHl5OTQaDVQqFWJjY3HgwAEP1XToNLc/xq6Sa2huf2x+ffJ/GjD3s9PYfERrcb3va6m/ATwPa82GTqv3ptdVN+9bHG7sqBvND1DT0GYxWndc24DCy3cAGKdnC7UNAKynZ7W3jcHw6/M65JUaQ17f59sCxoC3e9XvsXHxZADG9Xn/sXE+dq/6PQAgNV6N1OnGM/T6np/XmzPr8+xNQxMREXmaV44AHjlyBFlZWcjPz0dycjK+/PJLLF26FLW1tZg40XpqsL6+HmlpaVi3bh0OHTqE8+fP47333kNISAhWrlw5BN9AWnP7YxysuAkAWL/QuK7NqalTB3e2OrN2ztHROcD24cYdXd0ALEfnTv29ye7u2b6jdf1Nz4YGqqC9/Rv+nByNAH9fm8+3TY1XI358EGoa2pBXesOp8/MArs8jIqIXg1cGwJ07d+Ltt9/G2rVrAQC7d+9GcXEx9u/fj9zcXKvyBw4cwMSJE7F7924AwLRp03Dx4kXs2LFjeAVAQyf+7Vw9AGBFgnFa0Jlw5kxYc1bfs+1Ma+mq7xhH3hw53Pjr8zrz6y9K+5+KBYyjdZNCR6H6zm/4+rzOoenZP82KNH6unefb9uXo+XkMeERE9CLwugDY1dWFS5cuIScnx+J6SkoKLly4IHlPZWUlUlJSLK6lpqaioKAAT548gZ+fn9vqOxSknjyhbzUeYVL89+fh7F+O10A8ez3Y0TlHDjfuPTq3afFkxIaMMn+G1O5Z02jd5NBR+Pq8rt/Hm9ljNT3L8/OIiEjGvC4AtrS0oKenB2Fhlk9jCAsLQ1NTk+Q9TU1NkuW7u7vR0tKC8PBwq3s6OzvR2dlpft/e3u6C2ltrbn+Mq00G3O/owi/PQhcA/PvPOjzqtN7YIBXO7O1s7R3Oeq/Nu/xs3Rww+NE5Rw437j06lzJdbTU658hxKSb9Tc/2fQ1YBzxO1xIRkZx5XQA0USgUFu+FEFbX7JWXum6Sm5uLTz75ZJC1tO8vVXrs+a/rVteP/O2O+bW9cGZvZ+vy34VD3/oQ2tttCBmlNIfAWRNehgCs1s4NZHTO0cONHWFvtM6R6VmGOyIiItu8LgAGBwfDx8fHarSvubnZapTPRK1WS5b39fXFuHHjJO/56KOPkJ2dbX7f3t6OCRMmDLL21v75HydCEzXGPAJoCnOrZkfiUedTnKi+azecmUbjfvn1AfJKb/T75InU6WpzGNu+It583ZWjcyZShxv3fQ3Yn47l9CwREZFreV0AVCqV0Gg0KCkpwZtvvmm+XlJSguXLl0vek5SUhJMnT1pcO3XqFBITE22u//P394e/v/21ZYMVOlpl3rBR09BmDoDpc6MBACeq79oNZ87sbB10fR0YnbN3uDF3zxIREQ0trwuAAJCdnY309HQkJiYiKSkJBw8ehF6vR0ZGBgDj6F1DQwO+/fZbAEBGRgb27t2L7OxsrFu3DpWVlSgoKMDhw4eH8mu4na1wdvp//8/xtXMDHJ3j4cZERETDl1cGwFWrVuHevXvYvn07GhsbER8fj6KiIkRFRQEAGhsbodc/X3MWExODoqIibN68Gfv27UNERAS++OKLYXUEDGAMW2vnx5hfA06GswE+eYKjc0RERPKiEKbdENSv9vZ2BAUFoa2tDaNHjx7q6hAREZGMDTaXeO2j4IiIiIhoYLxyCngomAZK3XUeIBEREZGjTHlkoBO5DIAOMhgMAOCWo2CIiIiIBsJgMCAoyPmTP7gG0EFPnz7F3bt3ERgY2O+B04NhOmvw9u3bXGfopdiG3o9t6P3Yht6PbWifEAIGgwEREREYMcL5FX0cAXTQiBEjEBkZ6ZHPGj16NP/Bezm2ofdjG3o/tqH3Yxv2byAjfybcBEJEREQkMwyARERERDLjs23btm1DXQl6zsfHB4sWLYKvL2fnvRXb0PuxDb0f29D7sQ3di5tAiIiIiGSGU8BEREREMsMASERERCQzDIBEREREMsMA6GH5+fmIiYmBSqWCRqPB2bNn+y1fXl4OjUYDlUqF2NhYHDhwwEM1JVucacMzZ85AoVBY/Vy9etWDNabeKioqsGzZMkREREChUOD48eN272E/HF6cbUP2w+ElNzcXs2fPRmBgIEJDQ7FixQrU1dXZvY/90LUYAD3oyJEjyMrKwtatW6HVarFgwQIsXboUer1esnx9fT3S0tKwYMECaLVabNmyBZs2bcLRo0c9XHMycbYNTerq6tDY2Gj+mTJliodqTH11dHRg5syZ2Lt3r0Pl2Q+HH2fb0IT9cHgoLy9HZmYmfv75Z5SUlKC7uxspKSno6OiweQ/7oRsI8pg5c+aIjIwMi2tTp04VOTk5kuU//PBDMXXqVItr77zzjpg7d67b6kj9c7YNy8rKBADR2trqieqRkwCIY8eO9VuG/XB4c6QN2Q+Ht+bmZgFAlJeX2yzDfuh6HAH0kK6uLly6dAkpKSkW11NSUnDhwgXJeyorK63Kp6am4uLFi3jy5Inb6krSBtKGJgkJCQgPD8eSJUtQVlbmzmqSi7EfvjjYD4entrY2AMDYsWNtlmE/dD0GQA9paWlBT08PwsLCLK6HhYWhqalJ8p6mpibJ8t3d3WhpaXFbXUnaQNowPDwcBw8exNGjR1FYWIi4uDgsWbIEFRUVnqgyuQD7ofdjPxy+hBDIzs7G/PnzER8fb7Mc+6Hr8XhtD1MoFBbvhRBW1+yVl7pOnuNMG8bFxSEuLs78PikpCbdv38aOHTuwcOFCt9aTXIf90LuxHw5fGzZsQHV1Nc6dO2e3LPuha3EE0EOCg4Ph4+NjNVLU3Nxs9X81Jmq1WrK8r68vxo0b57a6krSBtKGUuXPn4vr1666uHrkJ++GLif1w6G3cuBEnTpxAWVkZIiMj+y3Lfuh6DIAeolQqodFoUFJSYnG9pKQE8+bNk7wnKSnJqvypU6eQmJgIPz8/t9WVpA2kDaVotVqEh4e7unrkJuyHLyb2w6EjhMCGDRtQWFiI0tJSxMTE2L2H/dANhnADiux89913ws/PTxQUFIja2lqRlZUlAgIChE6nE0IIkZOTI9LT083lb968KUaOHCk2b94samtrRUFBgfDz8xM//PDDUH0F2XO2DXft2iWOHTsmrl27JmpqakROTo4AII4ePTpUX0H2DAaD0Gq1QqvVCgBi586dQqvVilu3bgkh2A+9gbNtyH44vLz77rsiKChInDlzRjQ2Npp/Hj58aC7Dfuh+DIAetm/fPhEVFSWUSqWYNWuWxbb31atXi1dffdWi/JkzZ0RCQoJQKpUiOjpa7N+/38M1pr6cacPPP/9cTJo0SahUKjFmzBgxf/588dNPPw1BrcnEdCRI35/Vq1cLIdgPvYGzbch+OLxItR0A8c0335jLsB+6n0KIZ6soiYiIiEgWuAaQiIiISGYYAImIiIhkhgGQiIiISGYYAImIiIhkhgGQiIiISGYYAImIiIhkhgGQiIiISGYYAImIiIhkhgGQiIiISGYYAImIPKSurg5qtRoGg8Fu2StXriAyMhIdHR0eqBkRyQ0DIBHRICxatAhZWVkOld26dSsyMzMRGBhot+yMGTMwZ84c7Nq1a7BVJCKywgBIROQBd+7cwYkTJ7BmzRqH71mzZg3279+Pnp4eN9aMiOSIAZCIaIDeeustlJeXY8+ePVAoFFAoFNDpdJJlv//+e8ycORORkZHma7du3cKyZcswZswYBAQEYPr06SgqKjL/PjU1Fffu3UN5ebm7vwoRyYzvUFeAiMhb7dmzB9euXUN8fDy2b98OAAgJCZEsW1FRgcTERItrmZmZ6OrqQkVFBQICAlBbW4tRo0aZf69UKjFz5kycPXsWixcvdt8XISLZYQAkIhqgoKAgKJVKjBw5Emq1ut+yOp0OGo3G4pper8fKlSsxY8YMAEBsbKzVfePHj7c5qkhENFCcAiYi8oBHjx5BpVJZXNu0aRM+/fRTJCcn4+OPP0Z1dbXVfS+99BIePnzoqWoSkUwwABIReUBwcDBaW1strq1duxY3b95Eeno6rly5gsTEROTl5VmUuX//vs1pZSKigWIAJCIaBKVS6dAu3YSEBNTW1lpdnzBhAjIyMlBYWIj3338fX331lcXva2pqkJCQ4LL6EhEBDIBERIMSHR2Nqqoq6HQ6tLS04OnTp5LlUlNTUVlZaREWs7KyUFxcjPr6ely+fBmlpaWYNm2a+fc6nQ4NDQ14/fXX3f49iEheGACJiAbhgw8+gI+PD1555RWEhIRAr9dLlktLS4Ofnx9Onz5tvtbT04PMzExMmzYNb7zxBuLi4pCfn2/+/eHDh5GSkoKoqCi3fw8ikheFEEIMdSWIiOQgPz8fP/74I4qLi+2W7ezsxJQpU3D48GEkJyd7oHZEJCc8BoaIyEPWr1+P1tZWGAwGu4+Du3XrFrZu3crwR0RuwRFAIiIiIpnhGkAiIiIimWEAJCIiIpIZBkAiIiIimWEAJCIiIpIZBkAiIiIimWEAJCIiIpIZBkAiIiIimWEAJCIiIpIZBkAiIiIimWEAJCIiIpIZBkAiIiIimWEAJCIiIpIZBkAiIiIimWEAJCIiIpKZ/wdEuS7zLKN1TwAAAABJRU5ErkJggg=="/></p>
+</div>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="downstream_analysis.html" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              How do connect the outputs of Dymos to a downstream analysis?
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="use_partial_coloring.html" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              How can I more efficiently use finite-differenced components in the ODE?
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7353b375.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
