@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.9299cb39.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -42,6 +42,8 @@
     
     
       
+
+
     
     
   </head>
@@ -74,7 +76,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Dymos" class="md-header__button md-logo" aria-label="Dymos" data-md-component="logo">
+    <a href="../index.html" title="Dymos" class="md-header__button md-logo" aria-label="Dymos" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -154,7 +156,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Dymos" class="md-nav__button md-logo" aria-label="Dymos" data-md-component="logo">
+    <a href="../index.html" title="Dymos" class="md-nav__button md-logo" aria-label="Dymos" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -255,6 +257,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -269,6 +272,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -324,13 +328,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#state-discovery" class="md-nav__link">
-    State Discovery
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#controls" class="md-nav__link">
     Controls
   </a>
@@ -358,8 +355,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tagging-variables" class="md-nav__link">
+    Tagging Variables
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-target-detection" class="md-nav__link">
+    Automatic target detection
+  </a>
   
 </li>
       
@@ -1185,6 +1196,7 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
   
@@ -1238,13 +1250,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#state-discovery" class="md-nav__link">
-    State Discovery
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#controls" class="md-nav__link">
     Controls
   </a>
@@ -1272,8 +1277,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tagging-variables" class="md-nav__link">
+    Tagging Variables
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-target-detection" class="md-nav__link">
+    Automatic target detection
+  </a>
   
 </li>
       
@@ -1337,10 +1356,10 @@ The ODE may also be a function of the current time <span><span class="MathJax_Pr
 <p>Finally, the dynamics may be subject to some set of controllable parameters.
 In Dymos these are broken into the dynamic controls <span><span class="MathJax_Preview">\bar{u}</span><script type="math/tex">\bar{u}</script></span> and the static parameters <span><span class="MathJax_Preview">\bar{d}</span><script type="math/tex">\bar{d}</script></span>.</p>
 <h2 id="system-options">System Options<a class="headerlink" href="#system-options" title="Permanent link">&para;</a></h2>
-<p>ODE Systems in Dymos need provide values at numerous points in time we call nodes.
+<p>ODE systems in Dymos need to provide values at numerous points in time we call nodes.
 For performance reasons, it's best if it can do so using vectorized mathematical operations to compute the values simultaneously rather than using the loop to perform the calculation at each node.
 Different optimal control transcriptions will need to have computed ODE values at different numbers of nodes, so each ODE system in Dymos is required to support the option <code>num_nodes</code>, which is defined in the <code>initialize</code> method.</p>
-<p>ODE system may define initial options as well.
+<p>ODE systems may define initial options as well.
 Since these options in OpenMDAO are typically provided as arguments to the instantiation of the ODE system, the user has the ability to provide additional input keyword arguments using the <code>ode_init_kwargs</code> option on Phase.</p>
 <h2 id="variables-of-the-optimal-control-problem">Variables of the Optimal Control Problem<a class="headerlink" href="#variables-of-the-optimal-control-problem" title="Permanent link">&para;</a></h2>
 <p>Dymos needs to know how state, time, and control variables are to be connected to the System, and needs to know which outputs to use as state time-derivatives.</p>
@@ -1684,16 +1703,6 @@ Since these options in OpenMDAO are typically provided as arguments to the insta
 </tr>
 </tbody>
 </table>
-<h3 id="state-discovery">State Discovery<a class="headerlink" href="#state-discovery" title="Permanent link">&para;</a></h3>
-<p>Dymos will also automatically find and add any states that have been declared in components in the ODE. The syntax
-for declaring them is as follows.</p>
-<div class="highlight"><pre><span></span><code>        <span class="bp">self</span><span class="o">.</span><span class="n">add_output</span><span class="p">(</span><span class="s1">&#39;vdot&#39;</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nn</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;acceleration magnitude&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;m/s**2&#39;</span><span class="p">,</span>
-                        <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state_rate_source:v&#39;</span><span class="p">,</span> <span class="s1">&#39;state_units:m/s&#39;</span><span class="p">])</span>
-</code></pre></div>
-<p>The state is defined by adding tags to the state rate's output. The tag 'state_rate_source:v' declares that
-'v' is the state for which this output ('vdot') is the rate source.  You can also optionally use a tag
-in the format 'state_units:m/s' to define units for that state.  If you need to set any other options, then
-use <code>set_state_options</code> at the phase level.</p>
 <h3 id="controls">Controls<a class="headerlink" href="#controls" title="Permanent link">&para;</a></h3>
 <p>Inputs to the ODE which are to be dynamic controls are added via the <code>add_control</code> and <code>set_control_options</code> methods of Phase.
 The available options are as follows:</p>
@@ -1729,13 +1738,6 @@ The available options are as follows:</p>
 <td>N/A</td>
 <td>['str']</td>
 <td>The description of the control variable.</td>
-</tr>
-<tr>
-<td>dynamic</td>
-<td>True</td>
-<td>[True, False]</td>
-<td>['bool']</td>
-<td>If True, the value of the shape of the parameter will be (num_nodes, ...), allowing the variable to be used as either a static or dynamic control.  This impacts the shape of the partial derivatives matrix.  Unless a parameter is large and broadcasting a value to each individual node would be inefficient, users should stick to the default value of True.</td>
 </tr>
 <tr>
 <td>fix_final</td>
@@ -1904,10 +1906,10 @@ The available options are as follows:</p>
 </tr>
 <tr>
 <td>dynamic</td>
-<td>True</td>
-<td>[True, False]</td>
-<td>['bool']</td>
-<td>True if this parameter can be used as a dynamic control, else False</td>
+<td>unspecified</td>
+<td>[True, False, unspecified]</td>
+<td>N/A</td>
+<td>True if this parameter can be used as a dynamic control, else False.If _unspecified, attempt to determine through introspection.</td>
 </tr>
 <tr>
 <td>include_timeseries</td>
@@ -1966,6 +1968,13 @@ The available options are as follows:</p>
 <td>The shape of the parameter.</td>
 </tr>
 <tr>
+<td>static_target</td>
+<td>unspecified</td>
+<td>[True, False, unspecified]</td>
+<td>N/A</td>
+<td>True if the target of this parameter does NOT have a unique value at each node in the ODE.If _unspecified, attempt to determine through introspection.</td>
+</tr>
+<tr>
 <td>targets</td>
 <td>unspecified</td>
 <td>N/A</td>
@@ -1997,7 +2006,51 @@ The available options are as follows:</p>
 </table>
 <p>By default, Dymos assumes that the ODE is defined such that a value of the parameter is provided at each node.
 This makes it easier to define the partials for the ODE in a way such that some inputs may be used interchangeably as either controls or parameters.
-If an ODE input is only to be used as a static variable (and sized as <code>(1,)</code> instead of by the number of nodes, then the user may specify option <code>dynamic = False</code> to override this behavior.</p>
+If an ODE input is only to be used as a static variable (and not sized as <code>num_nodes</code> in the first dimension), then the user may specify option <code>static_target = True</code> to override this behavior.</p>
+<h3 id="tagging-variables">Tagging Variables<a class="headerlink" href="#tagging-variables" title="Permanent link">&para;</a></h3>
+<p>Dymos will also automatically find and add any states that have been declared in components in the ODE. The syntax
+for declaring them is as follows.</p>
+<div class="highlight"><pre><span></span><code>        <span class="bp">self</span><span class="o">.</span><span class="n">add_output</span><span class="p">(</span><span class="s1">&#39;vdot&#39;</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nn</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;acceleration magnitude&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;m/s**2&#39;</span><span class="p">,</span>
+                        <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;dymos.state_rate_source:v&#39;</span><span class="p">,</span> <span class="s1">&#39;dymos.state_units:m/s&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>The state is defined by adding tags to the state rate's output.
+The tag 'dymos.state_rate_source:v' declares that 'v' is the state for which this output ('vdot') is the rate source.
+You can also optionally use a tag in the format 'dymos.state_units:m/s' to define units for that state.
+If you need to set any other options, then use <code>set_state_options</code> at the phase level.</p>
+<p>Inputs which are sized as 'static' in the ODE (the first dimension is <em>not</em> the number of nodes), must be made known to Dymos when using them as parameters.
+This is normally accomplished with the 'static_target=True' option when calling add_parameter.
+To avoid repetitive use of this option, users can add the tag 'dymos.static_target' to any input which should always be considered static.
+When connecting to multiple targets, a 'dymos.static_target' tag on one of them will result in all of them being considered static.
+Inputs tagged with 'dymos.static_target' cannot be used as controls or polynomial controls.</p>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Applies to</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dymos.state_rate_source:{state_name}</td>
+<td>Outputs</td>
+<td>Specifies that the tagged output provides the rate used to integrate the state of the given name.</td>
+</tr>
+<tr>
+<td>dymos.state_units:{units}</td>
+<td>Outputs</td>
+<td>Specifies the default units to be used for the state whose rate is provided by the tagged output. May only be used on outputs also tagged with 'dymos.state_rate_source:{state_name}'.</td>
+</tr>
+<tr>
+<td>dymos.static_target</td>
+<td>Inputs</td>
+<td>Specifies that the input is <em>not</em> shaped with num_nodes as the first dimension. This effects the way in which parameters are connected to the input. Inputs tagged with 'dymos.static_target' cannot be used as controls.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="automatic-target-detection">Automatic target detection<a class="headerlink" href="#automatic-target-detection" title="Permanent link">&para;</a></h2>
+<p>Dymos will attempt to automatically connect variables to targets in the same name if those targets
+exist at the top-level of the ODE and have the same name as the state, control, parameter, or 'time'.</p>
 <h2 id="vectorizing-the-ode">Vectorizing the ODE<a class="headerlink" href="#vectorizing-the-ode" title="Permanent link">&para;</a></h2>
 <p>In addition to specifying the ODE Options, a system used as an ODE is required to have a metadata
 entry called <code>num_nodes</code>.  When evaluating the dynamics, these systems will receive time, states,
@@ -2074,7 +2127,7 @@ variable at a single node filling out the remaining indices. A 3-vector is thus 
 <h2 id="non-vector-inputs">Non-Vector Inputs<a class="headerlink" href="#non-vector-inputs" title="Permanent link">&para;</a></h2>
 <p>Declaring inputs as vectors means that they have the potential to be used either as parameters or as dynamic controls which can assume a different value at each node.
 For some quantities, such as gravitational acceleration in the Brachistochrone example, we can assume that the value will never need to be dynamic.
-To accommodate this, parameters can be declared static with the argument <code>dynamic=False</code>.
+To accommodate this, parameters can be declared static with the argument <code>static_target=True</code>.
 This prevents Dymos from "fanning out" the static value to the <em>n</em> nodes in the ODE system.</p>
 <h2 id="providing-the-ode-to-the-phase">Providing the ODE to the Phase<a class="headerlink" href="#providing-the-ode-to-the-phase" title="Permanent link">&para;</a></h2>
 <p>Phases in Dymos are instantiated with both the <code>ode_class</code> and the <code>transcription</code> to be used.
@@ -2144,7 +2197,7 @@ Note that the implementation below does not deal with any options provided via t
 <div class="highlight"><pre><span></span><code><span class="n">ode</span> <span class="o">=</span> <span class="n">CallableBrachistochroneODE</span><span class="p">(</span><span class="n">num_nodes</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">phase</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">Phase</span><span class="p">(</span><span class="n">ode_class</span><span class="o">=</span><span class="n">ode</span><span class="p">,</span> <span class="n">transcription</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
 </code></pre></div>
-<p>This can potentially lead to unintended behavior if multiple copeis of the ODE are intended to share data.
+<p>This can potentially lead to unintended behavior if multiple copies of the ODE are intended to share data.
 See <a href="https://docs.python.org/3/library/copy.html">the Python docs</a> for some of the limitations of deepcopy.</p>
                 
               
@@ -2164,7 +2217,8 @@ See <a href="https://docs.python.org/3/library/copy.html">the Python docs</a> fo
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="optimal_control.html" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="optimal_control.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Optimal Control" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2179,7 +2233,8 @@ See <a href="https://docs.python.org/3/library/copy.html">the Python docs</a> fo
         </a>
       
       
-        <a href="intro_to_dymos/intro_ivp.html" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="intro_to_dymos/intro_ivp.html" class="md-footer__link md-footer__link--next" aria-label="Next: Modeling Dynamic Systems with Dymos" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -2214,10 +2269,10 @@ See <a href="https://docs.python.org/3/library/copy.html">the Python docs</a> fo
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": {"method": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.7353b375.min.js"></script>
+      <script src="../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

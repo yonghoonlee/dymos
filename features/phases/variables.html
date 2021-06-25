@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.9299cb39.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -42,6 +42,8 @@
     
     
       
+
+
     
     
   </head>
@@ -74,7 +76,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Dymos" class="md-header__button md-logo" aria-label="Dymos" data-md-component="logo">
+    <a href="../../index.html" title="Dymos" class="md-header__button md-logo" aria-label="Dymos" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -154,7 +156,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Dymos" class="md-nav__button md-logo" aria-label="Dymos" data-md-component="logo">
+    <a href="../../index.html" title="Dymos" class="md-nav__button md-logo" aria-label="Dymos" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -641,6 +643,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -655,6 +658,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1174,6 +1178,7 @@
                   <div class="md-sidebar__inner">
                     
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1749,13 +1754,6 @@ be represented by a second-order polynomial.</p>
 <td>The description of the control variable.</td>
 </tr>
 <tr>
-<td>dynamic</td>
-<td>True</td>
-<td>[True, False]</td>
-<td>['bool']</td>
-<td>If True, the value of the shape of the parameter will be (num_nodes, ...), allowing the variable to be used as either a static or dynamic control.  This impacts the shape of the partial derivatives matrix.  Unless a parameter is large and broadcasting a value to each individual node would be inefficient, users should stick to the default value of True.</td>
-</tr>
-<tr>
 <td>fix_final</td>
 <td>False</td>
 <td>[True, False]</td>
@@ -1929,13 +1927,6 @@ Polynomial controls are specified at some limited number of points throughout a 
 <td>The description of the control variable.</td>
 </tr>
 <tr>
-<td>dynamic</td>
-<td>True</td>
-<td>[True, False]</td>
-<td>['bool']</td>
-<td>If True, the value of the shape of the parameter will be (num_nodes, ...), allowing the variable to be used as either a static or dynamic control.  This impacts the shape of the partial derivatives matrix.  Unless a parameter is large and broadcasting a value to each individual node would be inefficient, users should stick to the default value of True.</td>
-</tr>
-<tr>
 <td>fix_final</td>
 <td>False</td>
 <td>[True, False]</td>
@@ -2090,10 +2081,10 @@ If not optimized they can be targets for connections from outside of the Phase o
 </tr>
 <tr>
 <td>dynamic</td>
-<td>True</td>
-<td>[True, False]</td>
-<td>['bool']</td>
-<td>True if this parameter can be used as a dynamic control, else False</td>
+<td>unspecified</td>
+<td>[True, False, unspecified]</td>
+<td>N/A</td>
+<td>True if this parameter can be used as a dynamic control, else False.If _unspecified, attempt to determine through introspection.</td>
 </tr>
 <tr>
 <td>include_timeseries</td>
@@ -2152,6 +2143,13 @@ If not optimized they can be targets for connections from outside of the Phase o
 <td>The shape of the parameter.</td>
 </tr>
 <tr>
+<td>static_target</td>
+<td>unspecified</td>
+<td>[True, False, unspecified]</td>
+<td>N/A</td>
+<td>True if the target of this parameter does NOT have a unique value at each node in the ODE.If _unspecified, attempt to determine through introspection.</td>
+</tr>
+<tr>
 <td>targets</td>
 <td>unspecified</td>
 <td>N/A</td>
@@ -2204,7 +2202,8 @@ This can be done by specifying <code>include_timeseries = False</code> in the pa
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="segments.html" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="segments.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Segments" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2219,7 +2218,8 @@ This can be done by specifying <code>include_timeseries = False</code> in the pa
         </a>
       
       
-        <a href="constraints.html" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="constraints.html" class="md-footer__link md-footer__link--next" aria-label="Next: Constraints" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -2254,10 +2254,10 @@ This can be done by specifying <code>include_timeseries = False</code> in the pa
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": {"method": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.7353b375.min.js"></script>
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

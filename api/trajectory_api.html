@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.9299cb39.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -42,6 +42,8 @@
     
     
       
+
+
     
     
   </head>
@@ -74,7 +76,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Dymos" class="md-header__button md-logo" aria-label="Dymos" data-md-component="logo">
+    <a href="../index.html" title="Dymos" class="md-header__button md-logo" aria-label="Dymos" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -154,7 +156,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Dymos" class="md-nav__button md-logo" aria-label="Dymos" data-md-component="logo">
+    <a href="../index.html" title="Dymos" class="md-nav__button md-logo" aria-label="Dymos" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -924,6 +926,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -938,6 +941,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1081,6 +1085,7 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
   
@@ -1169,7 +1174,7 @@ a certain magnitude between two phases:</p>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">add_parameter</label><div class="tabbed-content">
 <div class="admonition abstract">
-<p><strong>add_parameter(self, name, units, val=unspecified, desc=unspecified, opt=False, targets=unspecified, lower=unspecified, upper=unspecified, scaler=unspecified, adder=unspecified, ref0=unspecified, ref=unspecified, shape=unspecified, dynamic=unspecified)</strong></p>
+<p><strong>add_parameter(self, name, units, val=unspecified, desc=unspecified, opt=False, targets=unspecified, lower=unspecified, upper=unspecified, scaler=unspecified, adder=unspecified, ref0=unspecified, ref=unspecified, shape=unspecified, dynamic=unspecified, static_target=unspecified)</strong></p>
 <p>Add a parameter (static control) to the trajectory.</p>
 <p><strong>Arguments:</strong></p>
 <p><strong>name</strong>: Name of the parameter.</p>
@@ -1186,6 +1191,7 @@ a certain magnitude between two phases:</p>
 <p><strong>ref</strong>: The unit-reference value of the parameter for the optimizer.</p>
 <p><strong>shape</strong>: The shape of the parameter.</p>
 <p><strong>dynamic</strong>: True if the targets in the ODE may be dynamic (if the inputs are sized to the number of nodes) else False.</p>
+<p><strong>static_target</strong>: True if the targets in the ODE are not shaped with num_nodes as the first dimension (meaning they cannot have a unique value at each node).  Otherwise False.</p>
 </div>
 </div>
 <input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">add_phase</label><div class="tabbed-content">
@@ -1220,13 +1226,15 @@ with one of two strings:</p>
 </div>
 <input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><label for="__tabbed_1_5">simulate</label><div class="tabbed-content">
 <div class="admonition abstract">
-<p><strong>simulate(self, times_per_seg=10, method='RK45', atol=1e-09, rtol=1e-09, record_file=None)</strong></p>
+<p><strong>simulate(self, times_per_seg=10, method=unspecified, atol=unspecified, rtol=unspecified, first_step=unspecified, max_step=unspecified, record_file=None)</strong></p>
 <p>Simulate the Trajectory using scipy.integrate.solve_ivp.</p>
 <p><strong>Arguments:</strong></p>
 <p><strong>times_per_seg</strong>: Number of equally spaced times per segment at which output is requested.  If None, output will be provided at all Nodes.</p>
 <p><strong>method</strong>: The scipy.integrate.solve_ivp integration method.</p>
 <p><strong>atol</strong>: Absolute convergence tolerance for scipy.integrate.solve_ivp.</p>
 <p><strong>rtol</strong>: Relative convergence tolerance for scipy.integrate.solve_ivp.</p>
+<p><strong>first_step</strong>: Initial step size for the integration.</p>
+<p><strong>max_step</strong>: Maximum step size for the integration.</p>
 <p><strong>record_file</strong>: If a string, the file to which the result of the simulation will be saved. If None, no record of the simulation will be saved.</p>
 </div>
 </div>
@@ -1249,7 +1257,8 @@ with one of two strings:</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="phase_api.html" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="phase_api.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Phase API" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1264,7 +1273,8 @@ with one of two strings:</p>
         </a>
       
       
-        <a href="../release_notes/version_0.16.0.html" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../release_notes/version_0.16.0.html" class="md-footer__link md-footer__link--next" aria-label="Next: dymos 0.16.0" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1299,10 +1309,10 @@ with one of two strings:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": {"method": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.7353b375.min.js"></script>
+      <script src="../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
