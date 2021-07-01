@@ -672,8 +672,8 @@ The design of a water rocket is somewhat constrained by the soda bottle used as 
 This means that the volume available for water and air is fixed, the initial launch pressure is limited by the bottle’s strength (since the pressure is directly related to the energy available for the rocket, it is easy to see that it should be as high as possible) and the nozzle throat area is also fixed.
 Given these manufacturing constraints, the design variables we are left with are the empty mass (it can be easily changed through adding ballast), the water volume at the launch, and the launch angle.
 With this considerations in mind, a natural formulation for the water rocket problem is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff897e96-02d5-4adf-bba9-333c5952a4a5">
-<span class="eqno">(66)<a class="headerlink" href="#equation-ff897e96-02d5-4adf-bba9-333c5952a4a5" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2e3b2959-d83d-4011-990f-e5941742956c">
+<span class="eqno">(66)<a class="headerlink" href="#equation-2e3b2959-d83d-4011-990f-e5941742956c" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \text{maximize}   &amp;\quad \text{range or height} \\
     \text{w.r.t.}     &amp;\quad \text{empty mass, initial water volume, launch angle, trajectory} \\
     \text{subject to} &amp;\quad \text{flight dynamics} \\
@@ -963,8 +963,8 @@ The constitutive equations and the N2 diagram showing the model organization are
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">_MassAdder</span></code> component calculates the rocket’s instantaneous mass by
 summing the water mass with the rockets empty mass, i.e.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0640c72c-175e-421b-bb0c-ecf89930c98f">
-<span class="eqno">(67)<a class="headerlink" href="#equation-0640c72c-175e-421b-bb0c-ecf89930c98f" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aeefb006-0925-415c-ab2d-8ebcb989c47a">
+<span class="eqno">(67)<a class="headerlink" href="#equation-aeefb006-0925-415c-ab2d-8ebcb989c47a" title="Permalink to this equation">¶</a></span>\[\begin{align}
     m = m_\text{empty}+\rho_w V_w
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -1533,7 +1533,7 @@ Here we also define the design variables.</p>
 ----------------------------
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 6.009096 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 5.561703 seconds.
 Total jacobian shape: (1151, 1153) 
 </pre></div>
 </div>
@@ -1542,21 +1542,64 @@ FWD solves: 21   REV solves: 0
 Total colors vs. total size: 21 vs 1153  (98.2% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 6.009096 sec.
-Time to compute coloring: 3.124751 sec.
+Time to compute sparsity: 5.561703 sec.
+Time to compute coloring: 2.717540 sec.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
+
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+Total number of variables............................:     1153
+                     variables with only lower bounds:      150
+                variables with lower and upper bounds:      157
+                     variables with only upper bounds:       30
+Total number of equality constraints.................:     1150
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of Iterations....: 49
+
+                                   (scaled)                 (unscaled)
+Objective...............:  -5.4133184081853457e+01   -5.4133184081853457e+01
+Dual infeasibility......:   1.9919673377444269e-07    1.9919673377444269e-07
+Constraint violation....:   5.5160290926767749e-11    5.5160290926767749e-11
+Complementarity.........:   9.0909090909091881e-08    9.0909090909091881e-08
+Overall NLP error.......:   1.9919673377444269e-07    1.9919673377444269e-07
+
+
+Number of objective function evaluations             = 67
+Number of objective gradient evaluations             = 50
+Number of equality constraint evaluations            = 67
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 50
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 0
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.823
+Total CPU secs in NLP function evaluations           =      9.564
+
+EXIT: Optimal Solution Found.
+
+
+Optimization Problem -- Optimization using pyOpt_sparse
 ================================================================================
     Objective Function: _objfunc
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    8.4784
-       User Objective Time :       0.6621
-       User Sensitivity Time :     4.6749
-       Interface Time :            2.2044
-       Opt Solver Time:            0.9369
+    Total Time:                    7.2647
+       User Objective Time :       0.5818
+       User Sensitivity Time :     4.0185
+       Interface Time :            1.8222
+       Opt Solver Time:            0.8421
     Calls to Objective Function :      67
     Calls to Sens Function :           50
 
@@ -3892,9 +3935,9 @@ Maximum velocity: 47.3203 m/s
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/water_rocket_24_7.png" src="../../_images/water_rocket_24_7.png" />
 <img alt="../../_images/water_rocket_24_8.png" src="../../_images/water_rocket_24_8.png" />
 <img alt="../../_images/water_rocket_24_9.png" src="../../_images/water_rocket_24_9.png" />
+<img alt="../../_images/water_rocket_24_10.png" src="../../_images/water_rocket_24_10.png" />
 </div>
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
@@ -3960,7 +4003,7 @@ Maximum velocity: 47.3203 m/s
 ----------------------------
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 5.929170 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 5.605025 seconds.
 Total jacobian shape: (1151, 1153) 
 </pre></div>
 </div>
@@ -3969,21 +4012,57 @@ FWD solves: 19   REV solves: 0
 Total colors vs. total size: 19 vs 1153  (98.4% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity: 5.929170 sec.
-Time to compute coloring: 3.209534 sec.
+Time to compute sparsity: 5.605025 sec.
+Time to compute coloring: 2.577120 sec.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
+
+Total number of variables............................:     1153
+                     variables with only lower bounds:      150
+                variables with lower and upper bounds:      157
+                     variables with only upper bounds:       30
+Total number of equality constraints.................:     1150
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of Iterations....: 42
+
+                                   (scaled)                 (unscaled)
+Objective...............:  -8.5114203368709277e+03   -8.5114203368709277e+03
+Dual infeasibility......:   8.2949409261345863e-06    8.2949409261345863e-06
+Constraint violation....:   1.7861505452568412e-09    1.7861505452568412e-09
+Complementarity.........:   9.0909090909090915e-08    9.0909090909090915e-08
+Overall NLP error.......:   1.6495040911759875e-07    8.2949409261345863e-06
+
+
+Number of objective function evaluations             = 53
+Number of objective gradient evaluations             = 43
+Number of equality constraint evaluations            = 53
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 43
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 0
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.909
+Total CPU secs in NLP function evaluations           =      7.836
+
+EXIT: Optimal Solution Found.
+
+
+Optimization Problem -- Optimization using pyOpt_sparse
 ================================================================================
     Objective Function: _objfunc
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    7.0549
-       User Objective Time :       0.5286
-       User Sensitivity Time :     3.8302
-       Interface Time :            1.8948
-       Opt Solver Time:            0.8013
+    Total Time:                    6.1477
+       User Objective Time :       0.4598
+       User Sensitivity Time :     3.3554
+       Interface Time :            1.6237
+       Opt Solver Time:            0.7088
     Calls to Objective Function :      53
     Calls to Sens Function :           43
 
@@ -6319,9 +6398,9 @@ Maximum velocity: 41.3132 m/s
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/water_rocket_27_7.png" src="../../_images/water_rocket_27_7.png" />
 <img alt="../../_images/water_rocket_27_8.png" src="../../_images/water_rocket_27_8.png" />
 <img alt="../../_images/water_rocket_27_9.png" src="../../_images/water_rocket_27_9.png" />
+<img alt="../../_images/water_rocket_27_10.png" src="../../_images/water_rocket_27_10.png" />
 </div>
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
