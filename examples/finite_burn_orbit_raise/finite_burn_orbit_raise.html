@@ -542,8 +542,8 @@ three-phase orbit raising maneuver with a burn-coast-burn phase
 sequence. This example is based on the problem provided in
 Enright <span id="id1">[<a class="reference internal" href="#id23">EC91</a>]</span>.</p>
 <p>The dynamics are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a218932b-0fba-493b-9a22-0d0ae061744d">
-<span class="eqno">(47)<a class="headerlink" href="#equation-a218932b-0fba-493b-9a22-0d0ae061744d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-301835dc-3c06-458e-b2f5-00118ddf0edb">
+<span class="eqno">(47)<a class="headerlink" href="#equation-301835dc-3c06-458e-b2f5-00118ddf0edb" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \frac{dr}{dt} &amp;= v_r \\
   \frac{d\theta}{dt} &amp;= \frac{v_\theta}{r} \\
   \frac{dv_r}{dt} &amp;= \frac{v^2_\theta}{r} - \frac{1}{r^2} + a_{thrust} \sin u_1 \\
@@ -552,8 +552,8 @@ Enright <span id="id1">[<a class="reference internal" href="#id23">EC91</a>]</sp
   \frac{d \Delta v}{dt} &amp;= a_{thrust}
 \end{align}\]</div>
 <p>The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb813b38-0144-4e1b-ab6d-57a44ad454ad">
-<span class="eqno">(48)<a class="headerlink" href="#equation-eb813b38-0144-4e1b-ab6d-57a44ad454ad" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9ad8c163-19ec-45e8-ae04-e472b587e714">
+<span class="eqno">(48)<a class="headerlink" href="#equation-9ad8c163-19ec-45e8-ae04-e472b587e714" title="Permalink to this equation">¶</a></span>\[\begin{align}
   r &amp;= 1 \rm{\,DU} \\
   \theta &amp;= 0 \rm{\,rad} \\
   v_r &amp;= 0 \rm{\,DU/TU}\\
@@ -562,8 +562,8 @@ Enright <span id="id1">[<a class="reference internal" href="#id23">EC91</a>]</sp
   \Delta v &amp;= 0 \rm{\,DU/TU}
 \end{align}\]</div>
 <p>and the final conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4594dc2f-ab5a-421b-b83b-1c13f8dd57ac">
-<span class="eqno">(49)<a class="headerlink" href="#equation-4594dc2f-ab5a-421b-b83b-1c13f8dd57ac" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e10b934b-9edf-447d-851f-926fa082e3bd">
+<span class="eqno">(49)<a class="headerlink" href="#equation-e10b934b-9edf-447d-851f-926fa082e3bd" title="Permalink to this equation">¶</a></span>\[\begin{align}
   r &amp;= 3 \rm{\,DU} \\
   \theta &amp;= \rm{free} \\
   v_r &amp;= 0 \rm{\,DU/TU}\\
@@ -1094,6 +1094,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 ----------------------------
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:440: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:989: DerivativesWarning:Inefficient choice of derivative mode.  You chose &#39;fwd&#39; for a problem with 204 design variables and 120 response variables (objectives and nonlinear constraints).
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking out_of_order
 </pre></div>
 </div>
@@ -1113,11 +1117,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:440: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:989: DerivativesWarning:Inefficient choice of derivative mode.  You chose &#39;fwd&#39; for a problem with 204 design variables and 120 response variables (objectives and nonlinear constraints).
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:989: DerivativesWarning:Inefficient choice of derivative mode.  You chose &#39;fwd&#39; for a problem with 204 design variables and 120 response variables (objectives and nonlinear constraints).
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already has already been recorded for Driver.
@@ -1143,7 +1142,10 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.624233 seconds.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:989: DerivativesWarning:Inefficient choice of derivative mode.  You chose &#39;fwd&#39; for a problem with 204 design variables and 120 response variables (objectives and nonlinear constraints).
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.918433 seconds.
 Total jacobian shape: (120, 204) 
 
 
@@ -1152,8 +1154,8 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 204  (93.6% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 1.624233 sec.
-Time to compute coloring: 0.030320 sec.
+Time to compute sparsity: 1.918433 sec.
+Time to compute coloring: 0.034921 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -1172,11 +1174,11 @@ This program contains Ipopt, a library for large-scale nonlinear optimization.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    2.8542
-       User Objective Time :       0.2411
-       User Sensitivity Time :     1.9914
-       Interface Time :            0.5191
-       Opt Solver Time:            0.1027
+    Total Time:                    3.3153
+       User Objective Time :       0.3066
+       User Sensitivity Time :     2.3113
+       Interface Time :            0.5846
+       Opt Solver Time:            0.1129
     Calls to Objective Function :      22
     Calls to Sens Function :           22
 
@@ -1606,7 +1608,7 @@ This program contains Ipopt, a library for large-scale nonlinear optimization.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/finite_burn_orbit_raise_3_22.png" src="../../_images/finite_burn_orbit_raise_3_22.png" />
+<img alt="../../_images/finite_burn_orbit_raise_3_23.png" src="../../_images/finite_burn_orbit_raise_3_23.png" />
 </div>
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
