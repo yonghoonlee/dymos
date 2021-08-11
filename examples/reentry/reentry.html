@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -552,8 +552,8 @@ optimal control problem governed by six equations of motion and limited
 by the aerodynamic heating rate. For a detailed layout of this problem
 and other optimal control problems see Betts <span id="id1">[<a class="reference internal" href="#id18">Bet10</a>]</span>.
 The governing equations of motion for this problem are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-047ffb78-58b6-4895-b7a3-b30d4ebf2846">
-<span class="eqno">(58)<a class="headerlink" href="#equation-047ffb78-58b6-4895-b7a3-b30d4ebf2846" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1a9c924b-47bf-4b3b-8aab-56bcbde446d3">
+<span class="eqno">(58)<a class="headerlink" href="#equation-1a9c924b-47bf-4b3b-8aab-56bcbde446d3" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \frac{dh}{dt} &amp;= v \sin \gamma \\
   \frac{d\phi}{dt} &amp;= \frac{v}{r} \cos \gamma \frac{\sin \psi}{\cos \theta} \\
   \frac{d\theta}{dt} &amp;= \frac{v}{r} \cos \gamma \cos \psi  \\
@@ -576,8 +576,8 @@ final altitude, without exceding a maximum heat rate at the leading
 edges. This heat rate is constrained by <span class="math notranslate nohighlight">\(q \leq 70\)</span> where q
 <span class="math notranslate nohighlight">\([\frac{btu}{ft^2s}]\)</span> is the heating rate.</p>
 <p>The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e7c78b86-3b76-4a4d-8b0a-75583924ae6e">
-<span class="eqno">(59)<a class="headerlink" href="#equation-e7c78b86-3b76-4a4d-8b0a-75583924ae6e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aa85964f-2a53-4815-b13d-582d1ab98575">
+<span class="eqno">(59)<a class="headerlink" href="#equation-aa85964f-2a53-4815-b13d-582d1ab98575" title="Permalink to this equation">¶</a></span>\[\begin{align}
   h_0 &amp;= 26000 \\
   v_0 &amp;= 25600 \\
   \phi_0 &amp;= 0 \\
@@ -586,8 +586,8 @@ edges. This heat rate is constrained by <span class="math notranslate nohighligh
   \psi_0 &amp;= \frac{\pi}{2}
 \end{align}\]</div>
 <p>and the final conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb087ab9-adb2-4cb3-880a-fe82bc802224">
-<span class="eqno">(60)<a class="headerlink" href="#equation-cb087ab9-adb2-4cb3-880a-fe82bc802224" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-91ed6b61-3cfd-4726-b77a-b964fcb7d81c">
+<span class="eqno">(60)<a class="headerlink" href="#equation-91ed6b61-3cfd-4726-b77a-b964fcb7d81c" title="Permalink to this equation">¶</a></span>\[\begin{align}
   h_0 &amp;= 80000 \\
   v_0 &amp;= 2500 \\
   \gamma_0 &amp;= -0.08727 \\
@@ -605,13 +605,13 @@ second component computes the aerodynamic forces of lift and drag on the
 shuttle. The third component is where the heating rate on the leading
 edge of the shuttles wings is computed. The heating rate is given by
 <span class="math notranslate nohighlight">\(q = q_a q_r\)</span> where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f8fb38c-3726-4b07-8c1a-bf54e23b6c6e">
-<span class="eqno">(61)<a class="headerlink" href="#equation-7f8fb38c-3726-4b07-8c1a-bf54e23b6c6e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fdf99b39-85e3-4981-aadb-0075d3f6afe2">
+<span class="eqno">(61)<a class="headerlink" href="#equation-fdf99b39-85e3-4981-aadb-0075d3f6afe2" title="Permalink to this equation">¶</a></span>\[\begin{align}
   q_a &amp;= c_0 + c_1\alpha + c_2 \alpha^2 + c_3 \alpha^3
 \end{align}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-300b09ec-34a2-4623-a626-6fa7c693d4f0">
-<span class="eqno">(62)<a class="headerlink" href="#equation-300b09ec-34a2-4623-a626-6fa7c693d4f0" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2cb6f6fb-3d6a-4118-b298-c07b2fd821d8">
+<span class="eqno">(62)<a class="headerlink" href="#equation-2cb6f6fb-3d6a-4118-b298-c07b2fd821d8" title="Permalink to this equation">¶</a></span>\[\begin{align}
   q_r &amp;= 17700 \rho^.5 (.0001v)^{3.07}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(c_0, c_1, c_2,\)</span> and <span class="math notranslate nohighlight">\(c_3\)</span> are constants, <span class="math notranslate nohighlight">\(\alpha\)</span> <span class="math notranslate nohighlight">\([deg]\)</span> is the
@@ -1176,7 +1176,7 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 2.423700 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.898361 seconds.
 Total jacobian shape: (327, 358) 
 </pre></div>
 </div>
@@ -1185,8 +1185,8 @@ FWD solves: 20   REV solves: 0
 Total colors vs. total size: 20 vs 358  (94.4% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 2.423700 sec.
-Time to compute coloring: 0.511470 sec.
+Time to compute sparsity: 1.898361 sec.
+Time to compute coloring: 0.422069 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -1195,11 +1195,11 @@ Time to compute coloring: 0.511470 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   55.3857
-       User Objective Time :       1.5232
-       User Sensitivity Time :    10.0812
-       Interface Time :            2.7361
-       Opt Solver Time:           41.0452
+    Total Time:                   50.4480
+       User Objective Time :       1.1905
+       User Sensitivity Time :     7.9395
+       Interface Time :            2.4589
+       Opt Solver Time:           38.8589
     Calls to Objective Function :     474
     Calls to Sens Function :          210
 

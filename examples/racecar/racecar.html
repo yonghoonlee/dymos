@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -1517,7 +1517,7 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 20.897795 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 15.401582 seconds.
 Total jacobian shape: (1256, 609) 
 </pre></div>
 </div>
@@ -1526,8 +1526,8 @@ FWD solves: 20   REV solves: 0
 Total colors vs. total size: 20 vs 609  (96.7% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 20.897795 sec.
-Time to compute coloring: 1.165174 sec.
+Time to compute sparsity: 15.401582 sec.
+Time to compute coloring: 0.921662 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -1751,15 +1751,16 @@ iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  62  2.2265741e+01 7.09e-04 1.16e-04  -4.0 4.17e-03    -  1.00e+00 1.00e+00h  1
-
-Number of Iterations....: 62
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of Iterations....: 62
 
                                    (scaled)                 (unscaled)
-Objective...............:   2.2265741109870437e+01    2.2265741109870437e+01
-Dual infeasibility......:   1.1595046336387860e-04    1.1595046336387860e-04
-Constraint violation....:   7.0918609182468728e-04    7.0918609182468728e-04
-Complementarity.........:   9.0909090909090931e-05    9.0909090909090931e-05
-Overall NLP error.......:   7.0918609182468728e-04    7.0918609182468728e-04
+Objective...............:   2.2265741110570968e+01    2.2265741110570968e+01
+Dual infeasibility......:   1.1596444257709615e-04    1.1596444257709615e-04
+Constraint violation....:   7.0893201316923893e-04    7.0893201316923893e-04
+Complementarity.........:   9.0909090909090917e-05    9.0909090909090917e-05
+Overall NLP error.......:   7.0893201316923893e-04    7.0893201316923893e-04
 
 
 Number of objective function evaluations             = 132
@@ -1769,8 +1770,8 @@ Number of inequality constraint evaluations          = 132
 Number of equality constraint Jacobian evaluations   = 64
 Number of inequality constraint Jacobian evaluations = 64
 Number of Lagrangian Hessian evaluations             = 0
-Total CPU secs in IPOPT (w/o function evaluations)   =      1.696
-Total CPU secs in NLP function evaluations           =     20.439
+Total CPU secs in IPOPT (w/o function evaluations)   =      1.405
+Total CPU secs in NLP function evaluations           =     17.246
 
 EXIT: Optimal Solution Found.
 </pre></div>
@@ -1779,11 +1780,11 @@ EXIT: Optimal Solution Found.
 Plotting
 </pre></div>
 </div>
-<img alt="../../_images/racecar_7_92.png" src="../../_images/racecar_7_92.png" />
 <img alt="../../_images/racecar_7_93.png" src="../../_images/racecar_7_93.png" />
 <img alt="../../_images/racecar_7_94.png" src="../../_images/racecar_7_94.png" />
 <img alt="../../_images/racecar_7_95.png" src="../../_images/racecar_7_95.png" />
 <img alt="../../_images/racecar_7_96.png" src="../../_images/racecar_7_96.png" />
+<img alt="../../_images/racecar_7_97.png" src="../../_images/racecar_7_97.png" />
 </div>
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
