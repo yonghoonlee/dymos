@@ -578,16 +578,16 @@
 <div class="section" id="the-van-der-pol-oscillator">
 <h1>The Van der Pol Oscillator<a class="headerlink" href="#the-van-der-pol-oscillator" title="Permalink to this headline">¶</a></h1>
 <p>In dynamics, the Van Der Pol oscillator <span id="id1">[<a class="reference internal" href="#id22">Wikipediacontributors20</a>]</span> is a non-conservative oscillator with non-linear damping. It evolves in time according to the second-order differential equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0fb78449-d574-4084-bb9b-219840704aab">
-<span class="eqno">(16)<a class="headerlink" href="#equation-0fb78449-d574-4084-bb9b-219840704aab" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5b8bde11-49f6-49b1-8139-f29af699145a">
+<span class="eqno">(16)<a class="headerlink" href="#equation-5b8bde11-49f6-49b1-8139-f29af699145a" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \frac{d^2x}{dt^2} - u (1 - x^2) \frac{dx}{dt} + x &amp;= 0
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> is the position coordinate (a function of the time <span class="math notranslate nohighlight">\(t\)</span>), and <span class="math notranslate nohighlight">\(u\)</span> is a scalar parameter
 indicating the nonlinearity and the strength of the damping.</p>
 <p>To make this an optimal control problem, we want to find the smallest control that will dampen the oscillation
 (drive the state variables to zero). We can express this as an objective function <span class="math notranslate nohighlight">\(J\)</span> to minimize:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-642a9e02-da8a-4b57-b5f4-d26dc0c70819">
-<span class="eqno">(17)<a class="headerlink" href="#equation-642a9e02-da8a-4b57-b5f4-d26dc0c70819" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-815cca52-6006-45f5-915b-5fcec481ab99">
+<span class="eqno">(17)<a class="headerlink" href="#equation-815cca52-6006-45f5-915b-5fcec481ab99" title="Permalink to this equation">¶</a></span>\[\begin{align}
     J &amp;= \int x^2_0 + x^2_1 + u^2
 \end{align}\]</div>
 <p>In other words, we want to find the optimal (smallest) trajectory of the control <span class="math notranslate nohighlight">\(u\)</span> such that the oscillation
@@ -606,8 +606,8 @@ and the oscillation’s rate of change are driven to zero.</p>
 <div class="section" id="system-dynamics">
 <h2>System Dynamics<a class="headerlink" href="#system-dynamics" title="Permalink to this headline">¶</a></h2>
 <p>The evolution of the state variables is given by the following ordinary differential equations (ODE):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-477ddae5-2b25-4b4c-92bf-9f0affd32a9d">
-<span class="eqno">(18)<a class="headerlink" href="#equation-477ddae5-2b25-4b4c-92bf-9f0affd32a9d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d04b129b-f6e7-41d5-899f-ed8207061c26">
+<span class="eqno">(18)<a class="headerlink" href="#equation-d04b129b-f6e7-41d5-899f-ed8207061c26" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \frac{dx_0}{dt} &amp;= (1 - x^2_1) x_0 - x_1 + u \\
     \frac{dx_1}{dt} &amp;= x_0 \\
     \frac{dJ}{dt} &amp;= x^2_0 + x^2_1 + u^2
@@ -624,15 +624,15 @@ and the oscillation’s rate of change are driven to zero.</p>
 <div class="section" id="the-initial-and-final-conditions">
 <h2>The initial and final conditions<a class="headerlink" href="#the-initial-and-final-conditions" title="Permalink to this headline">¶</a></h2>
 <p>The initial conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-780c925c-2d0b-4ab6-ac00-2aaa84181add">
-<span class="eqno">(19)<a class="headerlink" href="#equation-780c925c-2d0b-4ab6-ac00-2aaa84181add" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-88414049-0525-4a5b-8ca5-5ed43056b0bc">
+<span class="eqno">(19)<a class="headerlink" href="#equation-88414049-0525-4a5b-8ca5-5ed43056b0bc" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x_0 &amp;= 1 \\
     x_1 &amp;= 1 \\
       u &amp;= -0.75
 \end{align}\]</div>
 <p>The final conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-380d0ac1-9693-4ab0-af5d-bc829cadc96f">
-<span class="eqno">(20)<a class="headerlink" href="#equation-380d0ac1-9693-4ab0-af5d-bc829cadc96f" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d28fcdf8-c73b-4f7d-a847-df9077616ffc">
+<span class="eqno">(20)<a class="headerlink" href="#equation-d28fcdf8-c73b-4f7d-a847-df9077616ffc" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x_0 &amp;= 0 \\
     x_1 &amp;= 0 \\
       u &amp;= 0
@@ -937,13 +937,9 @@ INFO: checking out_of_order
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_all&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 3.102073 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 2.706825 seconds.
 Total jacobian shape: (329, 363) 
 </pre></div>
 </div>
@@ -952,8 +948,8 @@ FWD solves: 11   REV solves: 0
 Total colors vs. total size: 11 vs 363  (97.0% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 3.102073 sec.
-Time to compute coloring: 0.300734 sec.
+Time to compute sparsity: 2.706825 sec.
+Time to compute coloring: 0.205894 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -962,11 +958,11 @@ Time to compute coloring: 0.300734 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   90.8280
-       User Objective Time :      41.6341
-       User Sensitivity Time :    36.6507
-       Interface Time :            0.6677
-       Opt Solver Time:           11.8755
+    Total Time:                   88.5498
+       User Objective Time :      41.6195
+       User Sensitivity Time :    36.3647
+       Interface Time :            0.5630
+       Opt Solver Time:           10.0027
     Calls to Objective Function :      69
     Calls to Sens Function :           59
 
@@ -1761,37 +1757,7 @@ control variable <span class="math notranslate nohighlight">\(u\)</span> vs time
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_disc&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_col&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
@@ -1829,9 +1795,33 @@ control variable <span class="math notranslate nohighlight">\(u\)</span> vs time
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
@@ -1859,7 +1849,7 @@ control variable <span class="math notranslate nohighlight">\(u\)</span> vs time
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/vanderpol_6_16.png" src="../../_images/vanderpol_6_16.png" />
+<img alt="../../_images/vanderpol_6_15.png" src="../../_images/vanderpol_6_15.png" />
 </div>
 </div>
 </div>
@@ -1940,15 +1930,6 @@ and optimized results. The state variables <span class="math notranslate nohighl
 INFO: checking out_of_order
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_disc&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_col&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/recorders/sqlite_recorder.py:223: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
 </pre></div>
 </div>
@@ -1973,7 +1954,12 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.663191 seconds.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_disc&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_col&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/recorders/sqlite_recorder.py:223: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.138581 seconds.
 Total jacobian shape: (300, 379) 
 </pre></div>
 </div>
@@ -1982,8 +1968,8 @@ FWD solves: 9   REV solves: 0
 Total colors vs. total size: 9 vs 379  (97.6% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 1.663191 sec.
-Time to compute coloring: 0.277293 sec.
+Time to compute sparsity: 1.138581 sec.
+Time to compute coloring: 0.198801 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -2012,24 +1998,6 @@ Optimization Complete
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
@@ -2071,6 +2039,24 @@ Optimization Complete
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
@@ -2196,14 +2182,10 @@ INFO: checking out_of_order
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_disc&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_col&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/recorders/sqlite_recorder.py:223: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.277261 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.179435 seconds.
 Total jacobian shape: (60, 79) 
 
 
@@ -2212,8 +2194,8 @@ FWD solves: 9   REV solves: 0
 Total colors vs. total size: 9 vs 79  (88.6% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.277261 sec.
-Time to compute coloring: 0.064396 sec.
+Time to compute sparsity: 0.179435 sec.
+Time to compute coloring: 0.042064 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -2251,10 +2233,6 @@ Optimization Complete
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;grid_refinement_system.ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_disc&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_col&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already has already been recorded for Driver.
@@ -2264,7 +2242,7 @@ Model viewer data has already has already been recorded for Driver.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:132: OMDeprecationWarning:The metadata key &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39;.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.380576 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.228924 seconds.
 Total jacobian shape: (72, 104) 
 
 
@@ -2273,8 +2251,8 @@ FWD solves: 14   REV solves: 0
 Total colors vs. total size: 14 vs 104  (86.5% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.380576 sec.
-Time to compute coloring: 0.082022 sec.
+Time to compute sparsity: 0.228924 sec.
+Time to compute coloring: 0.058616 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -2308,22 +2286,16 @@ Optimization Complete
         Refined: True
 
 Model viewer data has already has already been recorded for Driver.
+Model viewer data has already has already been recorded for Driver.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;grid_refinement_system.ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;grid_refinement_system.ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_disc&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_col&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already has already been recorded for Driver.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.586753 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.376311 seconds.
 Total jacobian shape: (113, 164) 
 
 
@@ -2332,8 +2304,8 @@ FWD solves: 14   REV solves: 0
 Total colors vs. total size: 14 vs 164  (91.5% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.586753 sec.
-Time to compute coloring: 0.125817 sec.
+Time to compute sparsity: 0.376311 sec.
+Time to compute coloring: 0.091319 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -2365,23 +2337,18 @@ Optimization Complete
             Segment Ends = [-1.0, -0.9667, -0.9333, -0.8667, -0.8333, -0.8, -0.7333, -0.6667, -0.6, -0.5333, -0.4667, -0.3333, -0.2, -0.0667, 0.0667, 0.2, 0.3333, 0.6, 0.8667, 1.0]
             Segment Order = [5, 5, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
         Refined: True
+
+Model viewer data has already has already been recorded for Driver.
+Model viewer data has already has already been recorded for Driver.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;grid_refinement_system.ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;grid_refinement_system.ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_disc&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;traj.phases.phase0.rhs_col&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already has already been recorded for Driver.
-Model viewer data has already has already been recorded for Driver.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.749731 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.471044 seconds.
 Total jacobian shape: (136, 199) 
 
 
@@ -2390,8 +2357,8 @@ FWD solves: 0   REV solves: 18
 Total colors vs. total size: 18 vs 136  (86.8% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.749731 sec.
-Time to compute coloring: 0.162138 sec.
+Time to compute sparsity: 0.471044 sec.
+Time to compute coloring: 0.112860 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -2444,18 +2411,16 @@ Successfully completed grid refinement.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/component.py:206: DistributedComponentWarning:&#39;ode&#39; &lt;class VanderpolODE&gt;: Component contains distributed variables, but there is no distributed vector implementation (MPI/PETSc) available. The default non-distributed vectors will be used.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/vanderpol_10_39.png" src="../../_images/vanderpol_10_39.png" />
+<img alt="../../_images/vanderpol_10_36.png" src="../../_images/vanderpol_10_36.png" />
 </div>
 </div>
 </div>

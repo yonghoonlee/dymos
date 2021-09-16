@@ -731,9 +731,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:132: OMDeprecationWarning:The metadata key &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:132: OMDeprecationWarning:The metadata key &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39;.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
 </pre></div>
 </div>
@@ -833,10 +831,9 @@ Let’s try increasing that number to ten third-order segments.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/total_jac.py:1539: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0.time.time&#39;, inds=[39])] cannot be impacted by the design variables of the problem.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/total_jac.py:1539: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0.time.time&#39;, inds=[39])] cannot be impacted by the design variables of the problem.
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:132: OMDeprecationWarning:The metadata key &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39;.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -848,15 +845,10 @@ Optimization Complete
 -----------------------------------
 
 Simulating trajectory traj
+Done simulating trajectory traj
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
-</pre></div>
-</div>
-<img alt="../../_images/intro_segments_5_4.png" src="../../_images/intro_segments_5_4.png" />
+<img alt="../../_images/intro_segments_5_2.png" src="../../_images/intro_segments_5_2.png" />
 </div>
 </div>
 <p>Alternatively, we could stick with 4 segments but give each a higher order (7 in this case).</p>
@@ -938,9 +930,9 @@ Simulating trajectory traj
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/total_jac.py:1539: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0.time.time&#39;, inds=[31])] cannot be impacted by the design variables of the problem.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/total_jac.py:1539: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0.time.time&#39;, inds=[31])] cannot be impacted by the design variables of the problem.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:132: OMDeprecationWarning:The metadata key &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39;.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -952,16 +944,10 @@ Optimization Complete
 -----------------------------------
 
 Simulating trajectory traj
+Done simulating trajectory traj
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:132: OMDeprecationWarning:The metadata key &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39;.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
-</pre></div>
-</div>
-<img alt="../../_images/intro_segments_7_4.png" src="../../_images/intro_segments_7_4.png" />
+<img alt="../../_images/intro_segments_7_2.png" src="../../_images/intro_segments_7_2.png" />
 </div>
 </div>
 <p>In both these cases, we obtained a better match of the dynamics using either more segments or higher-order segments. This gives the state interpolating polynomials enough freedom to more accurately match the true behavior of the system. Increasing the number of segments and increasing the segment orders both increase the number of discrete points, and thus slow down the solution a bit. Theres a balance to be found between using enough discretization points to get an accurate solution, and slowing down the analysis due to having an overabundance of points. In general, using a high number of low-order segments is preferable to using fewer high-order segments because it makes the constraint jacobian more sparse.</p>
