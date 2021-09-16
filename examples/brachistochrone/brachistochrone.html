@@ -603,8 +603,8 @@ without friction along the wire moves from point A to point B in minimum time.</
 <div class="section" id="system-dynamics">
 <h2>System dynamics<a class="headerlink" href="#system-dynamics" title="Permalink to this headline">¶</a></h2>
 <p>From the free-body diagram above, the evolution of the state variables is given by the following ordinary differential equations (ODE).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f1604ce1-9c72-49c0-bfad-cde205b52ef4">
-<span class="eqno">(13)<a class="headerlink" href="#equation-f1604ce1-9c72-49c0-bfad-cde205b52ef4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3554c762-5f8e-46be-89b7-2ebf07793562">
+<span class="eqno">(13)<a class="headerlink" href="#equation-3554c762-5f8e-46be-89b7-2ebf07793562" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \frac{d x}{d t} &amp;= v \sin(\theta) \\
     \frac{d y}{d t} &amp;= -v \cos(\theta) \\
     \frac{d v}{d t} &amp;= g \cos(\theta)
@@ -622,8 +622,8 @@ without friction along the wire moves from point A to point B in minimum time.</
 <p>In this case, starting point <strong>A</strong> is given as <em>(0, 10)</em>.
 The point moving along the curve will begin there with zero initial velocity.</p>
 <p>The initial conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c8438aad-ce0c-4774-9f64-e31a5fa04b7b">
-<span class="eqno">(14)<a class="headerlink" href="#equation-c8438aad-ce0c-4774-9f64-e31a5fa04b7b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0b2655c8-efbc-4ac9-8dec-63bf3ecd6cd9">
+<span class="eqno">(14)<a class="headerlink" href="#equation-0b2655c8-efbc-4ac9-8dec-63bf3ecd6cd9" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x_0 &amp;= 0 \\
     y_0 &amp;= 10 \\
     v_0 &amp;= 0
@@ -631,8 +631,8 @@ The point moving along the curve will begin there with zero initial velocity.</p
 <p>The end point <strong>B</strong> is given as <em>(10, 5)</em>.
 The point will end there, but the velocity at that point is not constrained.</p>
 <p>The final conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e5cdf7ab-e129-4cd4-ac8a-9dde6513e4af">
-<span class="eqno">(15)<a class="headerlink" href="#equation-e5cdf7ab-e129-4cd4-ac8a-9dde6513e4af" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0462e280-cf18-4c12-a11c-03d5b78d4944">
+<span class="eqno">(15)<a class="headerlink" href="#equation-0462e280-cf18-4c12-a11c-03d5b78d4944" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x_f &amp;= 10 \\
     y_f &amp;= 5 \\
     v_f &amp;= \mathrm{free}
@@ -796,24 +796,24 @@ Component: BrachistochroneODE &#39;ode&#39;
 -------------------------------------------------------------------------------
 
 &#39;check&#39;    wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;check&#39;    wrt &#39;theta&#39;      | 1.1218e+03 | 1.1218e+03 | 1.4212e-14 | 1.2669e-17
-&#39;check&#39;    wrt &#39;v&#39;          | 1.3976e+01 | 1.3976e+01 | 0.0000e+00 | 0.0000e+00
-&#39;vdot&#39;     wrt &#39;g&#39;          | 1.6615e+00 | 1.6615e+00 | 1.9230e-16 | 1.1574e-16
-&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.4676e+01 | 1.4676e+01 | 2.5219e-15 | 1.7184e-16
+&#39;check&#39;    wrt &#39;theta&#39;      | 1.5596e+02 | 1.5596e+02 | 7.1607e-15 | 4.5915e-17
+&#39;check&#39;    wrt &#39;v&#39;          | 1.0809e+01 | 1.0809e+01 | 8.8818e-16 | 8.2168e-17
+&#39;vdot&#39;     wrt &#39;g&#39;          | 1.8108e+00 | 1.8108e+00 | 1.5701e-16 | 8.6706e-17
+&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.2865e+01 | 1.2865e+01 | 0.0000e+00 | 0.0000e+00
 &#39;vdot&#39;     wrt &#39;v&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
 &#39;xdot&#39;     wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;xdot&#39;     wrt &#39;theta&#39;      | 7.4638e+00 | 7.4638e+00 | 9.1551e-16 | 1.2266e-16
-&#39;xdot&#39;     wrt &#39;v&#39;          | 1.4965e+00 | 1.4965e+00 | 2.7756e-17 | 1.8547e-17
+&#39;xdot&#39;     wrt &#39;theta&#39;      | 4.6597e+00 | 4.6597e+00 | 3.1402e-16 | 6.7391e-17
+&#39;xdot&#39;     wrt &#39;v&#39;          | 1.3118e+00 | 1.3118e+00 | 1.2490e-16 | 9.5209e-17
 &#39;ydot&#39;     wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;ydot&#39;     wrt &#39;theta&#39;      | 1.5025e+00 | 1.5025e+00 | 1.2413e-16 | 8.2612e-17
-&#39;ydot&#39;     wrt &#39;v&#39;          | 1.6615e+00 | 1.6615e+00 | 1.9230e-16 | 1.1574e-16
+&#39;ydot&#39;     wrt &#39;theta&#39;      | 6.9233e+00 | 6.9233e+00 | 2.7756e-17 | 4.0090e-18
+&#39;ydot&#39;     wrt &#39;v&#39;          | 1.8108e+00 | 1.8108e+00 | 1.5701e-16 | 8.6706e-17
 
 ##################################################################
 Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 ##################################################################
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
-&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.4676e+01 | 1.4676e+01 | 2.5219e-15 | 1.7184e-16
+&#39;xdot&#39;     wrt &#39;v&#39;          | 1.3118e+00 | 1.3118e+00 | 1.2490e-16 | 9.5209e-17
 </pre></div>
 </div>
 </div>
@@ -907,7 +907,7 @@ Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 /usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/misc.py:314: OpenMDAOWarning:option desvar_indices of CoerceDesvar is deprecated. CoerceDesvar will now resolve desvar_indices internally and store them as an attribute.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.031328 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.040011 seconds.
 Total jacobian shape: (40, 50) 
 
 
@@ -916,8 +916,8 @@ FWD solves: 12   REV solves: 0
 Total colors vs. total size: 12 vs 50  (76.0% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.031328 sec.
-Time to compute coloring: 0.035880 sec.
+Time to compute sparsity: 0.040011 sec.
+Time to compute coloring: 0.048092 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -951,17 +951,15 @@ Optimization Complete
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:132: OMDeprecationWarning:The metadata key &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39;.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
+Done simulating trajectory traj
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:135: OMDeprecationWarning:The metadata key &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39;.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:440: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
-</pre></div>
-</div>
-<img alt="../../_images/brachistochrone_11_3.png" src="../../_images/brachistochrone_11_3.png" />
+<img alt="../../_images/brachistochrone_11_2.png" src="../../_images/brachistochrone_11_2.png" />
 </div>
 </div>
 </div>
