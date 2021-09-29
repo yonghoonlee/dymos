@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -73,6 +73,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/dymos_logo.png" class="logo" alt="logo">
       
@@ -575,13 +579,13 @@ Dynamic systems are typically defined by some set of ordinary
 differential equations (the ODE) which governs their behavior.</p>
 <p>Consider a simple damped harmonic oscillator.</p>
 <p><img alt="Damped harmonic oscillator free-body diagram" src="../../_images/spring_mass_damper.png" /></p>
-<div class="amsmath math notranslate nohighlight" id="equation-13ed4a32-e42c-4452-b45e-69b665e4a3cb">
-<span class="eqno">(11)<a class="headerlink" href="#equation-13ed4a32-e42c-4452-b45e-69b665e4a3cb" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e0e3dee9-8700-4423-8a29-4a8db091b09e">
+<span class="eqno">(11)<a class="headerlink" href="#equation-e0e3dee9-8700-4423-8a29-4a8db091b09e" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \ddot{x} &amp;= -\frac{kx}{m} - \frac{c \dot{x}}{m}
 \end{align}\]</div>
 <p>Converting this to a first order system results in an ODE system with two states:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7d3aaf4e-d7d8-4400-a429-3a8c557c755c">
-<span class="eqno">(12)<a class="headerlink" href="#equation-7d3aaf4e-d7d8-4400-a429-3a8c557c755c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1303a63b-1294-496b-8b0a-771aa09eebee">
+<span class="eqno">(12)<a class="headerlink" href="#equation-1303a63b-1294-496b-8b0a-771aa09eebee" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{x} &amp;= v \\
     \dot{v} &amp;= -\frac{kx}{m} - \frac{c \dot{x}}{m}
 \end{align}\]</div>
@@ -867,8 +871,8 @@ Otherwise, we can pass it only to certain states as an argument to <code class="
 traj.phases.phase0
 ==================
 NL: Newton 0 ; 64.9519053 1
-NL: Newton 1 ; 5.02960126e-08 7.74357771e-10
-NL: Newton 2 ; 5.67161095e-15 8.7320163e-17
+NL: Newton 1 ; 5.02959964e-08 7.74357522e-10
+NL: Newton 2 ; 3.34243898e-15 5.14602145e-17
 NL: Newton Converged
 
 Simulating trajectory traj
@@ -1056,7 +1060,7 @@ In the next section, we’ll explain how to deal with this.</p>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

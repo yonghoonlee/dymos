@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -70,6 +70,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../_static/dymos_logo.png" class="logo" alt="logo">
       
@@ -789,21 +793,21 @@ Component: BrachistochroneODE &#39;ode&#39;
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
 
-&#39;check&#39;    wrt &#39;theta&#39;      | 1.1796e+05 | 1.1796e+05 | 1.4559e-11 | 1.2342e-16
-&#39;check&#39;    wrt &#39;v&#39;          | 1.5741e+02 | 1.5741e+02 | 1.7764e-15 | 1.1285e-17
-&#39;vdot&#39;     wrt &#39;theta&#39;      | 9.3367e+00 | 9.3367e+00 | 8.9520e-16 | 9.5880e-17
+&#39;check&#39;    wrt &#39;theta&#39;      | 1.5209e+01 | 1.5209e+01 | 4.9651e-16 | 3.2645e-17
+&#39;check&#39;    wrt &#39;v&#39;          | 2.7147e+00 | 2.7147e+00 | 2.2204e-16 | 8.1794e-17
+&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.9724e+01 | 1.9724e+01 | 1.7764e-15 | 9.0061e-17
 &#39;vdot&#39;     wrt &#39;v&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;xdot&#39;     wrt &#39;theta&#39;      | 1.2082e+01 | 1.2082e+01 | 9.1551e-16 | 7.5772e-17
-&#39;xdot&#39;     wrt &#39;v&#39;          | 9.5207e-01 | 9.5207e-01 | 1.5516e-17 | 1.6297e-17
-&#39;ydot&#39;     wrt &#39;theta&#39;      | 3.1787e+00 | 3.1787e+00 | 2.2898e-16 | 7.2036e-17
-&#39;ydot&#39;     wrt &#39;v&#39;          | 2.0233e+00 | 2.0233e+00 | 1.9230e-16 | 9.5043e-17
+&#39;xdot&#39;     wrt &#39;theta&#39;      | 5.4188e+00 | 5.4188e+00 | 8.9509e-16 | 1.6518e-16
+&#39;xdot&#39;     wrt &#39;v&#39;          | 2.0113e+00 | 2.0113e+00 | 1.1102e-16 | 5.5200e-17
+&#39;ydot&#39;     wrt &#39;theta&#39;      | 8.0856e+00 | 8.0856e+00 | 7.6919e-16 | 9.5130e-17
+&#39;ydot&#39;     wrt &#39;v&#39;          | 9.7712e-01 | 9.7712e-01 | 2.7756e-17 | 2.8406e-17
 
 ##################################################################
 Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 ##################################################################
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
-&#39;check&#39;    wrt &#39;theta&#39;      | 1.1796e+05 | 1.1796e+05 | 1.4559e-11 | 1.2342e-16
+&#39;xdot&#39;     wrt &#39;theta&#39;      | 5.4188e+00 | 5.4188e+00 | 8.9509e-16 | 1.6518e-16
 </pre></div>
 </div>
 </div>
@@ -1097,7 +1101,7 @@ The lack of MPI capability or pyoptsparse will cause additional tests to be skip
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -71,6 +71,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/dymos_logo.png" class="logo" alt="logo">
       
@@ -845,10 +849,12 @@ Optimization Complete
 -----------------------------------
 
 Simulating trajectory traj
-Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/intro_segments_5_2.png" src="../../_images/intro_segments_5_2.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
+</pre></div>
+</div>
+<img alt="../../_images/intro_segments_5_3.png" src="../../_images/intro_segments_5_3.png" />
 </div>
 </div>
 <p>Alternatively, we could stick with 4 segments but give each a higher order (7 in this case).</p>
@@ -944,10 +950,12 @@ Optimization Complete
 -----------------------------------
 
 Simulating trajectory traj
-Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/intro_segments_7_2.png" src="../../_images/intro_segments_7_2.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
+</pre></div>
+</div>
+<img alt="../../_images/intro_segments_7_3.png" src="../../_images/intro_segments_7_3.png" />
 </div>
 </div>
 <p>In both these cases, we obtained a better match of the dynamics using either more segments or higher-order segments. This gives the state interpolating polynomials enough freedom to more accurately match the true behavior of the system. Increasing the number of segments and increasing the segment orders both increase the number of discrete points, and thus slow down the solution a bit. Theres a balance to be found between using enough discretization points to get an accurate solution, and slowing down the analysis due to having an overabundance of points. In general, using a high number of low-order segments is preferable to using fewer high-order segments because it makes the constraint jacobian more sparse.</p>
@@ -1021,7 +1029,7 @@ In reality, another nested level of iteration is required:</p>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

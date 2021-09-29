@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -73,6 +73,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../_static/dymos_logo.png" class="logo" alt="logo">
       
@@ -533,8 +537,8 @@ of a trajectory in which the <em>states</em> of the system evolve with time.  Th
 <span class="math notranslate nohighlight">\(\left(\bar{x}\right)\)</span> are typically governed by an ordinary differential equation (ODE) or
 a differential algebraic equation (DAE).  In Dymos we characterize all dynamics as an (ODE),
 although solving systems of DAEs is also possible.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-51da9a51-dd5f-46c1-ac29-3f2aae60721a">
-<span class="eqno">(8)<a class="headerlink" href="#equation-51da9a51-dd5f-46c1-ac29-3f2aae60721a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-49bc1298-eeae-4f58-b293-d02a331188a0">
+<span class="eqno">(8)<a class="headerlink" href="#equation-49bc1298-eeae-4f58-b293-d02a331188a0" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \dot{\bar{x}} = f_{ode}(\bar{x},t,\bar{u},\bar{d})
 \end{align}\]</div>
 </div>
@@ -553,8 +557,8 @@ In Dymos, we discretize these variables in time to convert a continuous-time opt
 <p>When optimizing problems there will always be constraints on the system.
 Some of these constraints can be characterized as bounds on our independent variables.
 For instance, fixing the initial conditions of a trajectory can be accomplished by bounding the initial states and time to the desired value.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2cd93cf5-929d-4bf9-ac93-a0ee64ae07ee">
-<span class="eqno">(9)<a class="headerlink" href="#equation-2cd93cf5-929d-4bf9-ac93-a0ee64ae07ee" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-31fe905c-5e50-45e5-89ca-e48382113daa">
+<span class="eqno">(9)<a class="headerlink" href="#equation-31fe905c-5e50-45e5-89ca-e48382113daa" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \mathrm{Time:}&amp; \qquad {t}_{lb} \leq t \leq {t}_{ub} \\
   \mathrm{State \, Variables:}&amp; \qquad \bar{x}_{lb} \leq \bar{x} \leq \bar{x}_{ub} \\
   \mathrm{Dynamic \, Controls:}&amp; \qquad \bar{u}_{lb} \leq \bar{u} \leq \bar{u}_{ub} \\
@@ -562,8 +566,8 @@ For instance, fixing the initial conditions of a trajectory can be accomplished 
 \end{align}\]</div>
 <p>Other times we may want to constrain an output of our system at a specific point along the trajectory (boundary constraints) or along the entire trajectory (path constraints).
 These are so-called nonlinear constraints because they <em>may</em> be nonlinear functions of our independent variables.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb23d0da-e4c2-47d4-8383-5a423056a9ae">
-<span class="eqno">(10)<a class="headerlink" href="#equation-eb23d0da-e4c2-47d4-8383-5a423056a9ae" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b05a0b7a-fd6c-4761-8e8c-319df98886ac">
+<span class="eqno">(10)<a class="headerlink" href="#equation-b05a0b7a-fd6c-4761-8e8c-319df98886ac" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathrm{Initial \, Boundary \, Constraints:}&amp; \qquad \bar{g}_{0,lb} \leq g_{0}(\bar{x}_0,t_0,\bar{u}_0, \bar{d}) \leq \bar{g}_{0,ub} \\
 \mathrm{Final \, Boundary \, Constraints:}&amp; \qquad \bar{g}_{f,lb} \leq g_{f}(\bar{x}_f,t_f,\bar{u}_f, \bar{d}) \leq \bar{g}_{f,ub} \\
 \mathrm{Path \, Constraints:}&amp; \qquad \bar{p}_{f,lb} \leq p_{f}(\bar{x},t,\bar{u},\bar{d}) \leq \bar{p}_{f,ub} \\
@@ -655,7 +659,7 @@ phase.  In this case, the standard OpenMDAO method <code class="docutils literal
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

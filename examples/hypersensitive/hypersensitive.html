@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -73,6 +73,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/dymos_logo.png" class="logo" alt="logo">
       
@@ -546,18 +550,18 @@
 Patterson <span id="id1">[<a class="reference internal" href="#id21">PHR15</a>]</span>. In this problem we seek to minimize both
 the distance traveled when moving between fixed boundary conditions and
 also to minimize the control <span class="math notranslate nohighlight">\(u\)</span> used. The cost function to be minimized is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c0aa65ff-e9a2-4077-805c-6318606b6edf">
-<span class="eqno">(42)<a class="headerlink" href="#equation-c0aa65ff-e9a2-4077-805c-6318606b6edf" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-42fb3ad1-652b-4241-b810-d0228747431f">
+<span class="eqno">(42)<a class="headerlink" href="#equation-42fb3ad1-652b-4241-b810-d0228747431f" title="Permalink to this equation">¶</a></span>\[\begin{align}
     J &amp;= \frac{1}{2} \int_{0}^{t_f} (x^2 + u^2) dt
 \end{align}\]</div>
 <p>The system is subject to the dynamic constraints:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5241a7e8-5d7e-4155-884c-15cb812c86e4">
-<span class="eqno">(43)<a class="headerlink" href="#equation-5241a7e8-5d7e-4155-884c-15cb812c86e4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-55ca83b4-c427-4b87-88c5-c97d1e7caf70">
+<span class="eqno">(43)<a class="headerlink" href="#equation-55ca83b4-c427-4b87-88c5-c97d1e7caf70" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \frac{dx}{dt} &amp;= -x + u
 \end{align}\]</div>
 <p>The boundary conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e8a2fa80-c8a1-4439-832a-218aa9de45a6">
-<span class="eqno">(44)<a class="headerlink" href="#equation-e8a2fa80-c8a1-4439-832a-218aa9de45a6" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-48abddd0-fbbe-4b9e-b385-054158ccf241">
+<span class="eqno">(44)<a class="headerlink" href="#equation-48abddd0-fbbe-4b9e-b385-054158ccf241" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x(t_0) &amp;= 1.5 \\
     x(t_f) &amp;= 1
 \end{align}\]</div>
@@ -567,14 +571,14 @@ the problem exhibits a <em>dive</em>, <em>cruise</em>, and <em>resurface</em> ty
 structure, where the all interesting behavior occurs at the beginning and
 end while remaining relatively constant in the middle.</p>
 <p>This problem has a known analytic optimal solution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-930454e6-0d92-4784-ac65-b4a058c1e313">
-<span class="eqno">(45)<a class="headerlink" href="#equation-930454e6-0d92-4784-ac65-b4a058c1e313" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8f364eb8-4364-4d38-b68c-3cd7f6c20e83">
+<span class="eqno">(45)<a class="headerlink" href="#equation-8f364eb8-4364-4d38-b68c-3cd7f6c20e83" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x^*(t) &amp;= c_1 e^{\sqrt{2} t} + c_2 e^{-\sqrt{2} t} \\
       u^*(t) &amp;= \dot{x}^*(t) + x^*(t)
 \end{align}\]</div>
 <p>where:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-04ef0f56-4986-4289-b014-eb25438b5a61">
-<span class="eqno">(46)<a class="headerlink" href="#equation-04ef0f56-4986-4289-b014-eb25438b5a61" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-16e20232-8251-4a34-94ff-69dc391b8f48">
+<span class="eqno">(46)<a class="headerlink" href="#equation-16e20232-8251-4a34-94ff-69dc391b8f48" title="Permalink to this equation">¶</a></span>\[\begin{align}
     c_1 &amp;= \frac{1.5 e^{-\sqrt{2} t_f} - 1}{e^{-\sqrt{2} t_f} - e^{\sqrt{2} t_f}} \\
     c_2 &amp;= \frac{1 - 1.5 e^{\sqrt{2} t_f}}{e^{-\sqrt{2} t_f} - e^{\sqrt{2} t_f}}
 \end{align}\]</div>
@@ -757,17 +761,17 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.605840 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.922494 seconds.
 Total jacobian shape: (239, 328) 
-
-
-Jacobian shape: (239, 328)  ( 1.63% nonzero)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (239, 328)  ( 1.63% nonzero)
 FWD solves: 0   REV solves: 9
 Total colors vs. total size: 9 vs 239  (96.2% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.605840 sec.
-Time to compute coloring: 0.162323 sec.
+Time to compute sparsity: 0.922494 sec.
+Time to compute coloring: 0.242853 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -776,11 +780,11 @@ Time to compute coloring: 0.162323 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    3.1699
-       User Objective Time :       0.0402
-       User Sensitivity Time :     0.2084
-       Interface Time :            0.2690
-       Opt Solver Time:            2.6524
+    Total Time:                    4.0025
+       User Objective Time :       0.0527
+       User Sensitivity Time :     0.3002
+       Interface Time :            0.3174
+       Opt Solver Time:            3.3322
     Calls to Objective Function :      21
     Calls to Sens Function :           21
 
@@ -1433,7 +1437,7 @@ Time to compute coloring: 0.162323 sec.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/hypersensitive_5_23.png" src="../../_images/hypersensitive_5_23.png" />
+<img alt="../../_images/hypersensitive_5_24.png" src="../../_images/hypersensitive_5_24.png" />
 </div>
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
@@ -1502,7 +1506,7 @@ Time to compute coloring: 0.162323 sec.
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

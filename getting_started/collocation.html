@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -73,6 +73,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../_static/dymos_logo.png" class="logo" alt="logo">
       
@@ -581,13 +585,13 @@ This makes scaling the problem easier, and gives the implicit variables more int
 <h2>Example:  Simulating the fall of an object<a class="headerlink" href="#example-simulating-the-fall-of-an-object" title="Permalink to this headline">¶</a></h2>
 <p>As a “hello, world” problem for Dymos, consider the vertical fall of an object acting under gravity - like Galileo dropping cannonballs from the Tower of Pisa.
 Ignoring aerodynamics and treating the ball as a point mass in a rectilinear gravity field, the motion is governed by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e9031c59-d917-4113-a54f-9285277d555d">
-<span class="eqno">(1)<a class="headerlink" href="#equation-e9031c59-d917-4113-a54f-9285277d555d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5fce46d3-e910-42c4-99ad-287cd14f4b20">
+<span class="eqno">(1)<a class="headerlink" href="#equation-5fce46d3-e910-42c4-99ad-287cd14f4b20" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \ddot{y} = -g
 \end{align}\]</div>
 <p>The techniques in Dymos are generally centered around first-order dynamics, so we convert the above equation into the following system of ODEs.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-024da280-46cd-40c0-a94d-cd3087bb91d8">
-<span class="eqno">(2)<a class="headerlink" href="#equation-024da280-46cd-40c0-a94d-cd3087bb91d8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-49943ec8-75db-41a9-ac52-133088fabfa2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-49943ec8-75db-41a9-ac52-133088fabfa2" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{y} &amp;= v_y \\
     \dot{v_y} &amp;= -g
 \end{align}\]</div>
@@ -663,8 +667,8 @@ In LGL collocation, these points are chosen to be the LGL <em>nodes</em> in the 
 <p>To form 3rd-order polynomials for the states we need four pieces of information, but so far we only have the two endpoint values.
 We’ll use the state rates at the state discretization nodes to provide the other two values needed for interpolation.
 To obtain these, we evaluate our ODE at the state discretization nodes.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ecb78254-7581-4cd8-ae55-7d72a2e31f89">
-<span class="eqno">(3)<a class="headerlink" href="#equation-ecb78254-7581-4cd8-ae55-7d72a2e31f89" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6a1ee8cf-2f09-4c25-8edf-da0230316765">
+<span class="eqno">(3)<a class="headerlink" href="#equation-6a1ee8cf-2f09-4c25-8edf-da0230316765" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{y}_0 &amp;= 0 \\
     \dot{y}_f &amp;= -50 \\
     \dot{v}_{y0} &amp;= -9.80665 \\
@@ -678,21 +682,21 @@ We call this difference in slope the collocation <em>defect</em>.</p>
 <p>Having computed the ODE at the state discretization nodes, we can form interpolants for the values and the slope of the states at the collocation nodes.
 Dymos uses Lagrange interpolants, such that the inputs to the system are the values of the states and controls, rather than less intuitive coefficients.
 In this case, the state values at our single collocation node are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2acb823a-50e1-4e99-b773-174a675d908a">
-<span class="eqno">(4)<a class="headerlink" href="#equation-2acb823a-50e1-4e99-b773-174a675d908a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-18fb0e9b-f35d-4cbd-8ff3-782cf8a223c2">
+<span class="eqno">(4)<a class="headerlink" href="#equation-18fb0e9b-f35d-4cbd-8ff3-782cf8a223c2" title="Permalink to this equation">¶</a></span>\[\begin{align}
     y_m &amp;= 50 \\
     v_{ym} &amp;= -25
 \end{align}\]</div>
 <p><img alt="Screenshot" src="../_images/lgl_animation_2.png" /></p>
 <p>The polynomial slopes at the collocation node are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31c44160-d2fd-4689-a224-638f99413b6c">
-<span class="eqno">(5)<a class="headerlink" href="#equation-31c44160-d2fd-4689-a224-638f99413b6c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6384b8d0-0482-4b61-a9af-941f07de5229">
+<span class="eqno">(5)<a class="headerlink" href="#equation-6384b8d0-0482-4b61-a9af-941f07de5229" title="Permalink to this equation">¶</a></span>\[\begin{align}
     y'_m &amp;= 50 \\
     v'_{ym} &amp;= -25
 \end{align}\]</div>
 <p>Now, having the state and time values at the collocation nodes, we can again evaluate the ODE.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d7bab390-d49a-43a4-8349-444e5cb92a4e">
-<span class="eqno">(6)<a class="headerlink" href="#equation-d7bab390-d49a-43a4-8349-444e5cb92a4e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0b6bcb87-3e39-4ace-ac4e-eb15fb0c5325">
+<span class="eqno">(6)<a class="headerlink" href="#equation-0b6bcb87-3e39-4ace-ac4e-eb15fb0c5325" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{y}_m &amp;= -17 \\
     \dot{v}_{ym} &amp;= -9.80665
 \end{align}\]</div>
@@ -803,7 +807,7 @@ This <code class="docutils literal notranslate"><span class="pre">solve_segments
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
