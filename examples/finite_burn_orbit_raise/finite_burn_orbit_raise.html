@@ -546,8 +546,8 @@ three-phase orbit raising maneuver with a burn-coast-burn phase
 sequence. This example is based on the problem provided in
 Enright <span id="id1">[<a class="reference internal" href="#id23">EC91</a>]</span>.</p>
 <p>The dynamics are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0944062f-3029-4af4-ba7b-c42f4efac0de">
-<span class="eqno">(47)<a class="headerlink" href="#equation-0944062f-3029-4af4-ba7b-c42f4efac0de" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d8eb6ac0-0dbf-41e8-878f-dfa17fc153d5">
+<span class="eqno">(47)<a class="headerlink" href="#equation-d8eb6ac0-0dbf-41e8-878f-dfa17fc153d5" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \frac{dr}{dt} &amp;= v_r \\
   \frac{d\theta}{dt} &amp;= \frac{v_\theta}{r} \\
   \frac{dv_r}{dt} &amp;= \frac{v^2_\theta}{r} - \frac{1}{r^2} + a_{thrust} \sin u_1 \\
@@ -556,8 +556,8 @@ Enright <span id="id1">[<a class="reference internal" href="#id23">EC91</a>]</sp
   \frac{d \Delta v}{dt} &amp;= a_{thrust}
 \end{align}\]</div>
 <p>The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f160e301-1697-47e1-bf38-8f3a08e7901e">
-<span class="eqno">(48)<a class="headerlink" href="#equation-f160e301-1697-47e1-bf38-8f3a08e7901e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7ce31834-a14c-4273-b169-5bdab89c433e">
+<span class="eqno">(48)<a class="headerlink" href="#equation-7ce31834-a14c-4273-b169-5bdab89c433e" title="Permalink to this equation">¶</a></span>\[\begin{align}
   r &amp;= 1 \rm{\,DU} \\
   \theta &amp;= 0 \rm{\,rad} \\
   v_r &amp;= 0 \rm{\,DU/TU}\\
@@ -566,8 +566,8 @@ Enright <span id="id1">[<a class="reference internal" href="#id23">EC91</a>]</sp
   \Delta v &amp;= 0 \rm{\,DU/TU}
 \end{align}\]</div>
 <p>and the final conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c5a2566b-1e64-4770-861e-b0ca70d506ee">
-<span class="eqno">(49)<a class="headerlink" href="#equation-c5a2566b-1e64-4770-861e-b0ca70d506ee" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f91f63c6-4a43-4678-9b73-f8c529663fea">
+<span class="eqno">(49)<a class="headerlink" href="#equation-f91f63c6-4a43-4678-9b73-f8c529663fea" title="Permalink to this equation">¶</a></span>\[\begin{align}
   r &amp;= 3 \rm{\,DU} \\
   \theta &amp;= \rm{free} \\
   v_r &amp;= 0 \rm{\,DU/TU}\\
@@ -1098,14 +1098,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 ----------------------------
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:991: DerivativesWarning:Inefficient choice of derivative mode.  You chose &#39;fwd&#39; for a problem with 204 design variables and 120 response variables (objectives and nonlinear constraints).
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking out_of_order
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:991: DerivativesWarning:Inefficient choice of derivative mode.  You chose &#39;fwd&#39; for a problem with 204 design variables and 120 response variables (objectives and nonlinear constraints).
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
@@ -1155,7 +1155,7 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:991: DerivativesWarning:Inefficient choice of derivative mode.  You chose &#39;fwd&#39; for a problem with 204 design variables and 120 response variables (objectives and nonlinear constraints).
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 2.095504 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.856674 seconds.
 Total jacobian shape: (120, 204) 
 
 
@@ -1164,8 +1164,8 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 204  (93.6% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 2.095504 sec.
-Time to compute coloring: 0.040806 sec.
+Time to compute sparsity: 1.856674 sec.
+Time to compute coloring: 0.033122 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -1184,11 +1184,11 @@ This program contains Ipopt, a library for large-scale nonlinear optimization.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    3.5911
-       User Objective Time :       0.3298
-       User Sensitivity Time :     2.5641
-       Interface Time :            0.5773
-       Opt Solver Time:            0.1199
+    Total Time:                    2.9950
+       User Objective Time :       0.2432
+       User Sensitivity Time :     2.1865
+       Interface Time :            0.4695
+       Opt Solver Time:            0.0958
     Calls to Objective Function :      22
     Calls to Sens Function :           22
 
