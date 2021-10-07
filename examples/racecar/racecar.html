@@ -1431,8 +1431,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/phase/phase.py:1638: UserWarning: Phase time options have no effect because fix_duration=True or input_duration=True for phase &#39;phase0&#39;: duration_ref, duration_ref0
-  warnings.warn(&#39;Phase time options have no effect because fix_duration=True or &#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/phase/phase.py:1638: UserWarning: Phase time options have no effect because fix_duration=True or input_duration=True for phase &#39;traj.phases.phase0&#39;: duration_ref, duration_ref0
+  warnings.warn(f&#39;Phase time options have no effect because fix_duration=True &#39;
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Linkage Report [traj] ---
@@ -1530,7 +1530,7 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 14.122597 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 19.781414 seconds.
 Total jacobian shape: (1256, 609) 
 </pre></div>
 </div>
@@ -1539,8 +1539,8 @@ FWD solves: 20   REV solves: 0
 Total colors vs. total size: 20 vs 609  (96.7% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 14.122597 sec.
-Time to compute coloring: 0.829830 sec.
+Time to compute sparsity: 19.781414 sec.
+Time to compute coloring: 1.131199 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -1768,11 +1768,11 @@ iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
 Number of Iterations....: 62
 
                                    (scaled)                 (unscaled)
-Objective...............:   2.2265741110570968e+01    2.2265741110570968e+01
-Dual infeasibility......:   1.1596444257709615e-04    1.1596444257709615e-04
-Constraint violation....:   7.0893201316923893e-04    7.0893201316923893e-04
-Complementarity.........:   9.0909090909090917e-05    9.0909090909090917e-05
-Overall NLP error.......:   7.0893201316923893e-04    7.0893201316923893e-04
+Objective...............:   2.2265741109870437e+01    2.2265741109870437e+01
+Dual infeasibility......:   1.1595046336387860e-04    1.1595046336387860e-04
+Constraint violation....:   7.0918609182468728e-04    7.0918609182468728e-04
+Complementarity.........:   9.0909090909090931e-05    9.0909090909090931e-05
+Overall NLP error.......:   7.0918609182468728e-04    7.0918609182468728e-04
 
 
 Number of objective function evaluations             = 132
@@ -1782,8 +1782,8 @@ Number of inequality constraint evaluations          = 132
 Number of equality constraint Jacobian evaluations   = 64
 Number of inequality constraint Jacobian evaluations = 64
 Number of Lagrangian Hessian evaluations             = 0
-Total CPU secs in IPOPT (w/o function evaluations)   =      1.225
-Total CPU secs in NLP function evaluations           =     15.325
+Total CPU secs in IPOPT (w/o function evaluations)   =      1.474
+Total CPU secs in NLP function evaluations           =     19.480
 
 EXIT: Optimal Solution Found.
 </pre></div>
