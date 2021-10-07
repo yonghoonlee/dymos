@@ -890,21 +890,20 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/utils/indexer.py:367: OMDeprecationWarning:&lt;model&gt; &lt;class Group&gt;: Indexing into a source array of dimension 2 using indices of dimension 1 without setting `flat_src_indices=True` when connecting to input &#39;state_error_comp.x0_actual&#39;. The source array is currently treated as flat, but this automatic flattening is deprecated and will be removed in a future release. To keep the old behavior, set `flat_src_indices=True` when you set `src_indices`.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/recorders/sqlite_recorder.py:223: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/recorders/sqlite_recorder.py:223: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.187900 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.136927 seconds.
 Total jacobian shape: (41, 51) 
-
-
-Jacobian shape: (41, 51)  (12.91% nonzero)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (41, 51)  (12.91% nonzero)
 FWD solves: 8   REV solves: 0
 Total colors vs. total size: 8 vs 51  (84.3% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.187900 sec.
-Time to compute coloring: 0.041221 sec.
+Time to compute sparsity: 0.136927 sec.
+Time to compute coloring: 0.035495 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -951,7 +950,7 @@ Simulating trajectory traj
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:132: OMDeprecationWarning:The metadata key &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39;.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:437: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
