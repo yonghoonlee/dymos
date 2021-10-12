@@ -913,7 +913,7 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/components/exec_comp.py:353: OMDeprecationWarning:&#39;traj.phases.phase0.rhs_all.guidance&#39; &lt;class ExecComp&gt;: &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.325559 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.225740 seconds.
 Total jacobian shape: (301, 398) 
 </pre></div>
 </div>
@@ -922,8 +922,8 @@ FWD solves: 11   REV solves: 0
 Total colors vs. total size: 11 vs 398  (97.2% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.325559 sec.
-Time to compute coloring: 0.459038 sec.
+Time to compute sparsity: 0.225740 sec.
+Time to compute coloring: 0.313989 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -932,11 +932,11 @@ Time to compute coloring: 0.459038 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    1.6922
-       User Objective Time :       0.0196
-       User Sensitivity Time :     0.0865
-       Interface Time :            0.1486
-       Opt Solver Time:            1.4375
+    Total Time:                    1.1710
+       User Objective Time :       0.0149
+       User Sensitivity Time :     0.0620
+       Interface Time :            0.1045
+       Opt Solver Time:            0.9896
     Calls to Objective Function :       6
     Calls to Sens Function :            5
 
