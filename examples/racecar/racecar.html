@@ -44,7 +44,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -561,7 +561,7 @@
                 
   <div class="cell tag_active-ipynb tag_remove-input tag_remove-output docutils container">
 </div>
-<div class="section" id="race-car-lap-simulation">
+<div class="tex2jax_ignore mathjax_ignore section" id="race-car-lap-simulation">
 <h1>Race car Lap Simulation<a class="headerlink" href="#race-car-lap-simulation" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-things-you-ll-learn-through-this-example admonition">
 <p class="admonition-title">Things you’ll learn through this example</p>
@@ -575,7 +575,7 @@
 </ul>
 </div>
 <div class="admonition-the-race-track-problem admonition">
-<p class="admonition-title">The race track problem</p>
+<p class="admonition-title">The race track problem </p>
 <p><em>The race track problem is different from other dymos example problems in that it is a cyclic problem.
 The solution must be such that the start and end states are identical. The problem for this example
 is given a race track shape, what is the optimum values for the controls such that the time elapsed to complete
@@ -1433,6 +1433,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/phase/phase.py:1645: UserWarning: Phase time options have no effect because fix_duration=True or input_duration=True for phase &#39;traj.phases.phase0&#39;: duration_ref, duration_ref0
   warnings.warn(f&#39;Phase time options have no effect because fix_duration=True &#39;
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:1913: PromotionWarning:&#39;traj.phases.phase0.continuity_comp&#39; &lt;class GaussLobattoContinuityComp&gt;: input variable &#39;t_duration&#39;, promoted using &#39;t_duration&#39;, was already promoted using &#39;t_duration&#39;.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Linkage Report [traj] ---
@@ -1530,7 +1531,7 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 20.261188 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 14.208600 seconds.
 Total jacobian shape: (1256, 609) 
 </pre></div>
 </div>
@@ -1539,8 +1540,8 @@ FWD solves: 20   REV solves: 0
 Total colors vs. total size: 20 vs 609  (96.7% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 20.261188 sec.
-Time to compute coloring: 1.107404 sec.
+Time to compute sparsity: 14.208600 sec.
+Time to compute coloring: 0.838763 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -1768,11 +1769,11 @@ iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
 Number of Iterations....: 62
 
                                    (scaled)                 (unscaled)
-Objective...............:   2.2265741109870437e+01    2.2265741109870437e+01
-Dual infeasibility......:   1.1595046336387860e-04    1.1595046336387860e-04
-Constraint violation....:   7.0918609182468728e-04    7.0918609182468728e-04
-Complementarity.........:   9.0909090909090931e-05    9.0909090909090931e-05
-Overall NLP error.......:   7.0918609182468728e-04    7.0918609182468728e-04
+Objective...............:   2.2265741110570968e+01    2.2265741110570968e+01
+Dual infeasibility......:   1.1596444257709615e-04    1.1596444257709615e-04
+Constraint violation....:   7.0893201316923893e-04    7.0893201316923893e-04
+Complementarity.........:   9.0909090909090917e-05    9.0909090909090917e-05
+Overall NLP error.......:   7.0893201316923893e-04    7.0893201316923893e-04
 
 
 Number of objective function evaluations             = 132
@@ -1782,8 +1783,8 @@ Number of inequality constraint evaluations          = 132
 Number of equality constraint Jacobian evaluations   = 64
 Number of inequality constraint Jacobian evaluations = 64
 Number of Lagrangian Hessian evaluations             = 0
-Total CPU secs in IPOPT (w/o function evaluations)   =      1.653
-Total CPU secs in NLP function evaluations           =     20.863
+Total CPU secs in IPOPT (w/o function evaluations)   =      1.245
+Total CPU secs in NLP function evaluations           =     15.726
 
 EXIT: Optimal Solution Found.
 </pre></div>

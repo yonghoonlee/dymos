@@ -44,7 +44,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -591,14 +591,14 @@
                 
   <div class="cell tag_active-ipynb tag_remove-input tag_remove-output docutils container">
 </div>
-<div class="section" id="defining-odes">
+<div class="tex2jax_ignore mathjax_ignore section" id="defining-odes">
 <h1>Defining ODEs<a class="headerlink" href="#defining-odes" title="Permalink to this headline">¶</a></h1>
 <p>Optimal control problems contain ordinary differential equations (ODE) or differential algebraic equations (DAE) that dictate the evolution of the state of the system.
 Typically this evolution occurs in time, and the ODE represents equations of motion (EOM).
 The equations of motion can define a variety of systems, not just mechanical ones.
 In other fields they are sometimes referred to as <em>process equations</em>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b084cd6c-2857-4d95-b64b-1c6e9f6965b8">
-<span class="eqno">(7)<a class="headerlink" href="#equation-b084cd6c-2857-4d95-b64b-1c6e9f6965b8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9ed4c64d-969b-43c4-b021-6ac51b474002">
+<span class="eqno">(7)<a class="headerlink" href="#equation-9ed4c64d-969b-43c4-b021-6ac51b474002" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{\bar{x}} = f_{ode}(\bar{x},t,\bar{u},\bar{d})
 \end{align}\]</div>
 <p>To represent EOM, Dymos uses a standard OpenMDAO System (a Group or Component).

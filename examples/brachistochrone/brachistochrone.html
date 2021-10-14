@@ -44,7 +44,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -564,7 +564,7 @@
                 
   <div class="cell tag_active-ipynb tag_remove-input tag_remove-output docutils container">
 </div>
-<div class="section" id="the-brachistochrone">
+<div class="tex2jax_ignore mathjax_ignore section" id="the-brachistochrone">
 <h1>The Brachistochrone<a class="headerlink" href="#the-brachistochrone" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-things-you-ll-learn-through-this-example admonition">
 <p class="admonition-title">Things you’ll learn through this example</p>
@@ -607,8 +607,8 @@ without friction along the wire moves from point A to point B in minimum time.</
 <div class="section" id="system-dynamics">
 <h2>System dynamics<a class="headerlink" href="#system-dynamics" title="Permalink to this headline">¶</a></h2>
 <p>From the free-body diagram above, the evolution of the state variables is given by the following ordinary differential equations (ODE).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-72704e6c-5aa5-409e-8e1c-e074203a2a5c">
-<span class="eqno">(13)<a class="headerlink" href="#equation-72704e6c-5aa5-409e-8e1c-e074203a2a5c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-78970d7a-daf2-40e7-a90b-585dadd90437">
+<span class="eqno">(13)<a class="headerlink" href="#equation-78970d7a-daf2-40e7-a90b-585dadd90437" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \frac{d x}{d t} &amp;= v \sin(\theta) \\
     \frac{d y}{d t} &amp;= -v \cos(\theta) \\
     \frac{d v}{d t} &amp;= g \cos(\theta)
@@ -626,8 +626,8 @@ without friction along the wire moves from point A to point B in minimum time.</
 <p>In this case, starting point <strong>A</strong> is given as <em>(0, 10)</em>.
 The point moving along the curve will begin there with zero initial velocity.</p>
 <p>The initial conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3934800b-cafe-443d-b157-0650d276b48f">
-<span class="eqno">(14)<a class="headerlink" href="#equation-3934800b-cafe-443d-b157-0650d276b48f" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f381a1cb-4ab0-4c70-95a1-35277977c910">
+<span class="eqno">(14)<a class="headerlink" href="#equation-f381a1cb-4ab0-4c70-95a1-35277977c910" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x_0 &amp;= 0 \\
     y_0 &amp;= 10 \\
     v_0 &amp;= 0
@@ -635,8 +635,8 @@ The point moving along the curve will begin there with zero initial velocity.</p
 <p>The end point <strong>B</strong> is given as <em>(10, 5)</em>.
 The point will end there, but the velocity at that point is not constrained.</p>
 <p>The final conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-875c54dd-7742-4009-a130-2ba6453cfa13">
-<span class="eqno">(15)<a class="headerlink" href="#equation-875c54dd-7742-4009-a130-2ba6453cfa13" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0e6ecd35-fb69-4d59-9eb9-b13b64100f6c">
+<span class="eqno">(15)<a class="headerlink" href="#equation-0e6ecd35-fb69-4d59-9eb9-b13b64100f6c" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x_f &amp;= 10 \\
     y_f &amp;= 5 \\
     v_f &amp;= \mathrm{free}
@@ -800,24 +800,24 @@ Component: BrachistochroneODE &#39;ode&#39;
 -------------------------------------------------------------------------------
 
 &#39;check&#39;    wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;check&#39;    wrt &#39;theta&#39;      | 1.7115e+01 | 1.7115e+01 | 6.6613e-16 | 3.8921e-17
-&#39;check&#39;    wrt &#39;v&#39;          | 2.8812e+00 | 2.8812e+00 | 0.0000e+00 | 0.0000e+00
-&#39;vdot&#39;     wrt &#39;g&#39;          | 1.1706e+00 | 1.1706e+00 | 0.0000e+00 | 0.0000e+00
-&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.8683e+01 | 1.8683e+01 | 1.7764e-15 | 9.5076e-17
+&#39;check&#39;    wrt &#39;theta&#39;      | 5.7071e+01 | 5.7071e+01 | 7.1745e-15 | 1.2571e-16
+&#39;check&#39;    wrt &#39;v&#39;          | 3.9069e+00 | 3.9069e+00 | 0.0000e+00 | 0.0000e+00
+&#39;vdot&#39;     wrt &#39;g&#39;          | 1.4947e+00 | 1.4947e+00 | 2.7756e-17 | 1.8569e-17
+&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.6309e+01 | 1.6309e+01 | 1.9860e-15 | 1.2177e-16
 &#39;vdot&#39;     wrt &#39;v&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
 &#39;xdot&#39;     wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;xdot&#39;     wrt &#39;theta&#39;      | 5.6363e+00 | 5.6363e+00 | 8.8821e-16 | 1.5759e-16
-&#39;xdot&#39;     wrt &#39;v&#39;          | 1.9052e+00 | 1.9052e+00 | 1.1102e-16 | 5.8274e-17
+&#39;xdot&#39;     wrt &#39;theta&#39;      | 7.5150e+00 | 7.5150e+00 | 6.2804e-16 | 8.3571e-17
+&#39;xdot&#39;     wrt &#39;v&#39;          | 1.6631e+00 | 1.6631e+00 | 1.1102e-16 | 6.6758e-17
 &#39;ydot&#39;     wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;ydot&#39;     wrt &#39;theta&#39;      | 6.8756e+00 | 6.8756e+00 | 5.5511e-17 | 8.0736e-18
-&#39;ydot&#39;     wrt &#39;v&#39;          | 1.1706e+00 | 1.1706e+00 | 0.0000e+00 | 0.0000e+00
+&#39;ydot&#39;     wrt &#39;theta&#39;      | 1.0476e+01 | 1.0476e+01 | 2.2204e-16 | 2.1195e-17
+&#39;ydot&#39;     wrt &#39;v&#39;          | 1.4947e+00 | 1.4947e+00 | 2.7756e-17 | 1.8569e-17
 
 ##################################################################
 Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 ##################################################################
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
-&#39;xdot&#39;     wrt &#39;theta&#39;      | 5.6363e+00 | 5.6363e+00 | 8.8821e-16 | 1.5759e-16
+&#39;check&#39;    wrt &#39;theta&#39;      | 5.7071e+01 | 5.7071e+01 | 7.1745e-15 | 1.2571e-16
 </pre></div>
 </div>
 </div>
@@ -905,17 +905,20 @@ Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.041172 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.031225 seconds.
 Total jacobian shape: (40, 50) 
-
-
-Jacobian shape: (40, 50)  (17.00% nonzero)
-FWD solves: 12   REV solves: 0
-Total colors vs. total size: 12 vs 50  (76.0% improvement)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (40, 50)  (18.15% nonzero)
+FWD solves: 13   REV solves: 0
+Total colors vs. total size: 13 vs 50  (74.0% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.041172 sec.
-Time to compute coloring: 0.046179 sec.
+Time to compute sparsity: 0.031225 sec.
+Time to compute coloring: 0.038008 sec.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:1913: PromotionWarning:&#39;traj.phases.phase0.continuity_comp&#39; &lt;class GaussLobattoContinuityComp&gt;: input variable &#39;t_duration&#39;, promoted using &#39;t_duration&#39;, was already promoted using &#39;t_duration&#39;.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -925,7 +928,9 @@ Time to compute coloring: 0.046179 sec.
             Gradient evaluations: 24
 Optimization Complete
 -----------------------------------
-[1.80161673]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.80161673]
 </pre></div>
 </div>
 </div>
@@ -950,10 +955,12 @@ Optimization Complete
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
-Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/brachistochrone_11_1.png" src="../../_images/brachistochrone_11_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
+</pre></div>
+</div>
+<img alt="../../_images/brachistochrone_11_2.png" src="../../_images/brachistochrone_11_2.png" />
 </div>
 </div>
 </div>

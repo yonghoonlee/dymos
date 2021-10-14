@@ -44,7 +44,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -530,19 +530,19 @@
         
               <div>
                 
-  <div class="section" id="optimal-control">
+  <div class="tex2jax_ignore mathjax_ignore section" id="optimal-control">
 <h1>Optimal Control<a class="headerlink" href="#optimal-control" title="Permalink to this headline">¶</a></h1>
 <p>Optimal control implies the optimization of a dynamical system.  Typically this takes the form
 of a trajectory in which the <em>states</em> of the system evolve with time.  The evolution of the states
 <span class="math notranslate nohighlight">\(\left(\bar{x}\right)\)</span> are typically governed by an ordinary differential equation (ODE) or
 a differential algebraic equation (DAE).  In Dymos we characterize all dynamics as an (ODE),
 although solving systems of DAEs is also possible.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-789c4aa3-ce00-4bfc-863d-e045d2f6ddc9">
-<span class="eqno">(8)<a class="headerlink" href="#equation-789c4aa3-ce00-4bfc-863d-e045d2f6ddc9" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-24bbea54-f003-4f47-a4e1-841382592074">
+<span class="eqno">(8)<a class="headerlink" href="#equation-24bbea54-f003-4f47-a4e1-841382592074" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \dot{\bar{x}} = f_{ode}(\bar{x},t,\bar{u},\bar{d})
 \end{align}\]</div>
 </div>
-<div class="section" id="controls-and-parameters">
+<div class="tex2jax_ignore mathjax_ignore section" id="controls-and-parameters">
 <h1>Controls and Parameters<a class="headerlink" href="#controls-and-parameters" title="Permalink to this headline">¶</a></h1>
 <p>In order to impact the behavior of such systems we need <em>controls</em>.
 Controls may be allowed to vary with time, such as the angle-of-attack of an aircraft during flight.
@@ -552,13 +552,13 @@ We refer to these as <em>parameters</em> <span class="math notranslate nohighlig
 The endpoints in time, state values, control values, and design parameter values define the independent variables for our optimization problem.
 In Dymos, we discretize these variables in time to convert a continuous-time optimal control problem into a nonlinear programming (NLP) problem.</p>
 </div>
-<div class="section" id="constraints">
+<div class="tex2jax_ignore mathjax_ignore section" id="constraints">
 <h1>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h1>
 <p>When optimizing problems there will always be constraints on the system.
 Some of these constraints can be characterized as bounds on our independent variables.
 For instance, fixing the initial conditions of a trajectory can be accomplished by bounding the initial states and time to the desired value.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5da6127-4b96-4403-bd8f-d57de6d21db4">
-<span class="eqno">(9)<a class="headerlink" href="#equation-b5da6127-4b96-4403-bd8f-d57de6d21db4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-71dbe65b-f63b-4064-80fe-88ab1a9f4832">
+<span class="eqno">(9)<a class="headerlink" href="#equation-71dbe65b-f63b-4064-80fe-88ab1a9f4832" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \mathrm{Time:}&amp; \qquad {t}_{lb} \leq t \leq {t}_{ub} \\
   \mathrm{State \, Variables:}&amp; \qquad \bar{x}_{lb} \leq \bar{x} \leq \bar{x}_{ub} \\
   \mathrm{Dynamic \, Controls:}&amp; \qquad \bar{u}_{lb} \leq \bar{u} \leq \bar{u}_{ub} \\
@@ -566,8 +566,8 @@ For instance, fixing the initial conditions of a trajectory can be accomplished 
 \end{align}\]</div>
 <p>Other times we may want to constrain an output of our system at a specific point along the trajectory (boundary constraints) or along the entire trajectory (path constraints).
 These are so-called nonlinear constraints because they <em>may</em> be nonlinear functions of our independent variables.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0e764f7b-7ca8-4cf7-a8b5-d5f3b070db6a">
-<span class="eqno">(10)<a class="headerlink" href="#equation-0e764f7b-7ca8-4cf7-a8b5-d5f3b070db6a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cff78fe5-33cc-4f40-833b-581f70452d99">
+<span class="eqno">(10)<a class="headerlink" href="#equation-cff78fe5-33cc-4f40-833b-581f70452d99" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathrm{Initial \, Boundary \, Constraints:}&amp; \qquad \bar{g}_{0,lb} \leq g_{0}(\bar{x}_0,t_0,\bar{u}_0, \bar{d}) \leq \bar{g}_{0,ub} \\
 \mathrm{Final \, Boundary \, Constraints:}&amp; \qquad \bar{g}_{f,lb} \leq g_{f}(\bar{x}_f,t_f,\bar{u}_f, \bar{d}) \leq \bar{g}_{f,ub} \\
 \mathrm{Path \, Constraints:}&amp; \qquad \bar{p}_{f,lb} \leq p_{f}(\bar{x},t,\bar{u},\bar{d}) \leq \bar{p}_{f,ub} \\
@@ -576,7 +576,7 @@ These are so-called nonlinear constraints because they <em>may</em> be nonlinear
 Nonlinear constraints, on the other hand, are constraints applied to the outputs of a system.<br />
 To put another way, bound constraints are always observed, while nonlinear constraints are not necessarily observed until the optimizer has finished solving the optimization problem.</p>
 </div>
-<div class="section" id="the-objective">
+<div class="tex2jax_ignore mathjax_ignore section" id="the-objective">
 <h1>The Objective<a class="headerlink" href="#the-objective" title="Permalink to this headline">¶</a></h1>
 <p>Dymos may be used to both simulate and optimize dynamical systems.
 The phase construct is generally used in optimization contexts.
@@ -589,7 +589,7 @@ Within each phase, the user can set the objective:</p>
 incorporated into larger models wherein the objective is defined in some subsystem outside of the
 phase.  In this case, the standard OpenMDAO method <code class="docutils literal notranslate"><span class="pre">add_objective</span></code> can be used.</p>
 </div>
-<div class="section" id="the-overall-optimization-problem">
+<div class="tex2jax_ignore mathjax_ignore section" id="the-overall-optimization-problem">
 <h1>The Overall Optimization Problem<a class="headerlink" href="#the-overall-optimization-problem" title="Permalink to this headline">¶</a></h1>
 <p>The optimization problem as defined by Dymos can thus be stated as:</p>
 <div class="amsmath math notranslate nohighlight">

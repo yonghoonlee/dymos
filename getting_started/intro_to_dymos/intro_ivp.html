@@ -44,7 +44,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -564,7 +564,7 @@
                 
   <div class="cell tag_active-ipynb tag_remove-input tag_remove-output docutils container">
 </div>
-<div class="section" id="modeling-dynamic-systems-with-dymos">
+<div class="tex2jax_ignore mathjax_ignore section" id="modeling-dynamic-systems-with-dymos">
 <h1>Modeling Dynamic Systems with Dymos<a class="headerlink" href="#modeling-dynamic-systems-with-dymos" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-things-you-ll-learn-through-this-example admonition">
 <p class="admonition-title">Things you’ll learn through this example</p>
@@ -579,13 +579,13 @@ Dynamic systems are typically defined by some set of ordinary
 differential equations (the ODE) which governs their behavior.</p>
 <p>Consider a simple damped harmonic oscillator.</p>
 <p><img alt="Damped harmonic oscillator free-body diagram" src="../../_images/spring_mass_damper.png" /></p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf557d7b-b5e8-4596-924d-6042c127ea89">
-<span class="eqno">(11)<a class="headerlink" href="#equation-cf557d7b-b5e8-4596-924d-6042c127ea89" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ead608c6-580d-4429-833b-9bdfb0b9d600">
+<span class="eqno">(11)<a class="headerlink" href="#equation-ead608c6-580d-4429-833b-9bdfb0b9d600" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \ddot{x} &amp;= -\frac{kx}{m} - \frac{c \dot{x}}{m}
 \end{align}\]</div>
 <p>Converting this to a first order system results in an ODE system with two states:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-528ae542-44c4-4c70-9071-cbf61f7721c6">
-<span class="eqno">(12)<a class="headerlink" href="#equation-528ae542-44c4-4c70-9071-cbf61f7721c6" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e31701c5-bb66-4327-9725-13c6b7c34568">
+<span class="eqno">(12)<a class="headerlink" href="#equation-e31701c5-bb66-4327-9725-13c6b7c34568" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{x} &amp;= v \\
     \dot{v} &amp;= -\frac{kx}{m} - \frac{c \dot{x}}{m}
 \end{align}\]</div>
@@ -867,8 +867,8 @@ Otherwise, we can pass it only to certain states as an argument to <code class="
 traj.phases.phase0
 ==================
 NL: Newton 0 ; 64.9519053 1
-NL: Newton 1 ; 5.02959964e-08 7.74357522e-10
-NL: Newton 2 ; 3.34243898e-15 5.14602145e-17
+NL: Newton 1 ; 5.02960122e-08 7.74357764e-10
+NL: Newton 2 ; 5.63952599e-15 8.68261826e-17
 NL: Newton Converged
 
 Simulating trajectory traj

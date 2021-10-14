@@ -44,7 +44,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -521,15 +521,15 @@
                 
   <div class="cell tag_active-ipynb tag_remove-input tag_remove-output docutils container">
 </div>
-<div class="section" id="phases-of-a-trajectory">
+<div class="tex2jax_ignore mathjax_ignore section" id="phases-of-a-trajectory">
 <h1>Phases of a Trajectory<a class="headerlink" href="#phases-of-a-trajectory" title="Permalink to this headline">¶</a></h1>
 <p>Dymos uses the concept of <em>phases</em> to support intermediate boundary constraints and path constraints on variables in the system.
 Each phase represents the trajectory of a dynamical system, and may be subject to different equations of motion, force models, and constraints.
 Multiple phases may be assembled to form one or more trajectories by enforcing compatibility constraints between them.</p>
 <p>For implicit and explicit phases, the equations-of-motion or process equations are defined via an ordinary differential equation.</p>
 <p>An ODE is of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a1535a3-dd2c-4d7b-b6ef-a7eedb3a6dc1">
-<span class="eqno">(68)<a class="headerlink" href="#equation-4a1535a3-dd2c-4d7b-b6ef-a7eedb3a6dc1" title="Permalink to this equation">¶</a></span>\[\begin{align}  
+<div class="amsmath math notranslate nohighlight" id="equation-38b3f9b1-e1d1-409a-92f0-d19c369f48b8">
+<span class="eqno">(68)<a class="headerlink" href="#equation-38b3f9b1-e1d1-409a-92f0-d19c369f48b8" title="Permalink to this equation">¶</a></span>\[\begin{align}  
     \frac{\partial \textbf x}{\partial t} = \textbf f(t, \textbf x, \textbf u)
 \end{align}\]</div>
 <p>where
@@ -542,8 +542,8 @@ and
 In addition, Dymos automatically calculates the first and second time-derivatives of the controls.
 These derivatives can then be utilized as via constraints or as additional parameters to the ODE.
 Subsequently, the optimal control problem as solved by Dymos can be expressed as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1dc35dc4-b033-462c-9974-810e8c09bf15">
-<span class="eqno">(69)<a class="headerlink" href="#equation-1dc35dc4-b033-462c-9974-810e8c09bf15" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f753f31e-0f6b-4a52-986a-8e57be96b6fe">
+<span class="eqno">(69)<a class="headerlink" href="#equation-f753f31e-0f6b-4a52-986a-8e57be96b6fe" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \textrm{Minimize}:&amp; \quad J = \textbf f_{obj}(t, \textbf x, \textbf u, \dot{\textbf u}, \ddot{\textbf u}) \\
   \textrm{subject to:}&amp; \\
   &amp;\textrm{system dynamics} \quad &amp;\frac{\partial \textbf x}{\partial t} &amp;= \textbf f_{ode}(t, \textbf x, \textbf u, \dot{\textbf u}, \ddot{\textbf u}) \\
