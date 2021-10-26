@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -34,14 +34,14 @@
     
   <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -85,7 +85,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Installation
  </span>
@@ -97,7 +97,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Getting Started
  </span>
@@ -129,7 +129,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Examples and Tutorials
  </span>
@@ -233,7 +233,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Feature Reference
  </span>
@@ -297,7 +297,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Frequently Asked Questions
  </span>
@@ -351,7 +351,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Dymos API Reference
  </span>
@@ -385,7 +385,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Contributing
  </span>
@@ -1052,6 +1052,24 @@
     <span class="k">def</span> <span class="nf">_configure_linkages</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">connected_linkage_inputs</span> <span class="o">=</span> <span class="p">[]</span>
 
+        <span class="k">def</span> <span class="nf">_get_prefixed_var</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">phase</span><span class="p">):</span>
+            <span class="n">class_var</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">classify_var</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+            <span class="n">prefixes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;time_phase&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;states:&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;parameter&#39;</span><span class="p">:</span> <span class="s1">&#39;parameters:&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;input_control&#39;</span><span class="p">:</span> <span class="s1">&#39;controls:&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;indep_control&#39;</span><span class="p">:</span> <span class="s1">&#39;controls:&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;control_rate&#39;</span><span class="p">:</span> <span class="s1">&#39;control_rates:&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;control_rate2&#39;</span><span class="p">:</span> <span class="s1">&#39;control_rates:&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;input_polynomial_control&#39;</span><span class="p">:</span> <span class="s1">&#39;polynomial_controls:&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;indep_polynomial_control&#39;</span><span class="p">:</span> <span class="s1">&#39;polynomial_controls:&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;polynomial_control_rate&#39;</span><span class="p">:</span> <span class="s1">&#39;polynomial_control_rates:&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;polynomial_control_rate2&#39;</span><span class="p">:</span> <span class="s1">&#39;polynomial_control_rates:&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;ode&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+                        <span class="p">}</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefixes</span><span class="p">[</span><span class="n">class_var</span><span class="p">]</span><span class="si">}{</span><span class="n">var</span><span class="si">}</span><span class="s1">&#39;</span>
+
         <span class="c1"># First, if the user requested all states and time be continuous (&#39;*&#39;, &#39;*&#39;), then</span>
         <span class="c1"># expand it out.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_expand_star_linkage_configure</span><span class="p">()</span>
@@ -1066,34 +1084,75 @@
             <span class="n">phase_name_a</span><span class="p">,</span> <span class="n">phase_name_b</span> <span class="o">=</span> <span class="n">phase_pair</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">indent</span><span class="si">}</span><span class="s1">--- </span><span class="si">{</span><span class="n">phase_name_a</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="n">phase_name_b</span><span class="si">}</span><span class="s1"> ---&#39;</span><span class="p">)</span>
 
+            <span class="n">phase_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_subsystem</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;phases.</span><span class="si">{</span><span class="n">phase_name_a</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="n">phase_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_subsystem</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;phases.</span><span class="si">{</span><span class="n">phase_name_b</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
             <span class="c1"># Pull out the maximum variable name length of all variables to make the print nicer.</span>
-            <span class="n">var_len</span> <span class="o">=</span> <span class="p">[(</span><span class="nb">len</span><span class="p">(</span><span class="n">var_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">var_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="k">for</span> <span class="n">var_pair</span> <span class="ow">in</span> <span class="n">var_dict</span><span class="p">]</span>
-            <span class="n">max_varname_length</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">var_len</span><span class="p">))</span>
-            <span class="n">padding</span> <span class="o">=</span> <span class="n">max_varname_length</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">var_len_a</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">_get_prefixed_var</span><span class="p">(</span><span class="n">var_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">phase_a</span><span class="p">))</span> <span class="k">for</span> <span class="n">var_pair</span> <span class="ow">in</span> <span class="n">var_dict</span><span class="p">]</span>
+            <span class="n">var_len_b</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">_get_prefixed_var</span><span class="p">(</span><span class="n">var_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">phase_b</span><span class="p">))</span> <span class="k">for</span> <span class="n">var_pair</span> <span class="ow">in</span> <span class="n">var_dict</span><span class="p">]</span>
+            <span class="n">padding_a</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">var_len_a</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+            <span class="n">padding_b</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">var_len_b</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
 
             <span class="k">for</span> <span class="n">var_pair</span><span class="p">,</span> <span class="n">options</span> <span class="ow">in</span> <span class="n">var_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="n">var_a</span><span class="p">,</span> <span class="n">var_b</span> <span class="o">=</span> <span class="n">var_pair</span>
                 <span class="n">loc_a</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;loc_a&#39;</span><span class="p">]</span>
                 <span class="n">loc_b</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;loc_b&#39;</span><span class="p">]</span>
 
+                <span class="n">class_a</span> <span class="o">=</span> <span class="n">phase_a</span><span class="o">.</span><span class="n">classify_var</span><span class="p">(</span><span class="n">var_a</span><span class="p">)</span>
+                <span class="n">class_b</span> <span class="o">=</span> <span class="n">phase_b</span><span class="o">.</span><span class="n">classify_var</span><span class="p">(</span><span class="n">var_b</span><span class="p">)</span>
+
                 <span class="bp">self</span><span class="o">.</span><span class="n">_update_linkage_options_configure</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
 
                 <span class="n">src_a</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">_src_a</span>
                 <span class="n">src_b</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">_src_b</span>
 
+                <span class="k">if</span> <span class="n">class_a</span> <span class="o">==</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span>
+                    <span class="n">fixed_a</span> <span class="o">=</span> <span class="n">phase_a</span><span class="o">.</span><span class="n">is_time_fixed</span><span class="p">(</span><span class="n">loc_a</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">class_a</span> <span class="o">==</span> <span class="s1">&#39;state&#39;</span><span class="p">:</span>
+                    <span class="n">fixed_a</span> <span class="o">=</span> <span class="n">phase_a</span><span class="o">.</span><span class="n">is_state_fixed</span><span class="p">(</span><span class="n">var_a</span><span class="p">,</span> <span class="n">loc_a</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">class_a</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;input_control&#39;</span><span class="p">,</span> <span class="s1">&#39;indep_control&#39;</span><span class="p">}:</span>
+                    <span class="n">fixed_a</span> <span class="o">=</span> <span class="n">phase_a</span><span class="o">.</span><span class="n">is_control_fixed</span><span class="p">(</span><span class="n">var_a</span><span class="p">,</span> <span class="n">loc_a</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">class_a</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;input_polynomial_control&#39;</span><span class="p">,</span> <span class="s1">&#39;indep_polynomial_control&#39;</span><span class="p">}:</span>
+                    <span class="n">fixed_a</span> <span class="o">=</span> <span class="n">phase_a</span><span class="o">.</span><span class="n">is_polynomial_control_fixed</span><span class="p">(</span><span class="n">var_a</span><span class="p">,</span> <span class="n">loc_a</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">fixed_a</span> <span class="o">=</span> <span class="kc">True</span>
+
+                <span class="k">if</span> <span class="n">class_b</span> <span class="o">==</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span>
+                    <span class="n">fixed_b</span> <span class="o">=</span> <span class="n">phase_b</span><span class="o">.</span><span class="n">is_time_fixed</span><span class="p">(</span><span class="n">loc_b</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">class_b</span> <span class="o">==</span> <span class="s1">&#39;state&#39;</span><span class="p">:</span>
+                    <span class="n">fixed_b</span> <span class="o">=</span> <span class="n">phase_b</span><span class="o">.</span><span class="n">is_state_fixed</span><span class="p">(</span><span class="n">var_b</span><span class="p">,</span> <span class="n">loc_b</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">class_b</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;input_control&#39;</span><span class="p">,</span> <span class="s1">&#39;indep_control&#39;</span><span class="p">}:</span>
+                    <span class="n">fixed_b</span> <span class="o">=</span> <span class="n">phase_b</span><span class="o">.</span><span class="n">is_control_fixed</span><span class="p">(</span><span class="n">var_b</span><span class="p">,</span> <span class="n">loc_b</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">class_b</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;input_polynomial_control&#39;</span><span class="p">,</span> <span class="s1">&#39;indep_polynomial_control&#39;</span><span class="p">}:</span>
+                    <span class="n">fixed_b</span> <span class="o">=</span> <span class="n">phase_b</span><span class="o">.</span><span class="n">is_polynomial_control_fixed</span><span class="p">(</span><span class="n">var_b</span><span class="p">,</span> <span class="n">loc_b</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">fixed_b</span> <span class="o">=</span> <span class="kc">True</span>
+
+                <span class="n">prefixed_a</span> <span class="o">=</span> <span class="n">_get_prefixed_var</span><span class="p">(</span><span class="n">var_a</span><span class="p">,</span> <span class="n">phase_a</span><span class="p">)</span>
+                <span class="n">prefixed_b</span> <span class="o">=</span> <span class="n">_get_prefixed_var</span><span class="p">(</span><span class="n">var_b</span><span class="p">,</span> <span class="n">phase_b</span><span class="p">)</span>
+
+                <span class="n">str_fixed_a</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span> <span class="k">if</span> <span class="n">fixed_a</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+                <span class="n">str_fixed_b</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span> <span class="k">if</span> <span class="n">fixed_b</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+
                 <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;connected&#39;</span><span class="p">]:</span>
-                    <span class="k">if</span> <span class="n">phase_b</span><span class="o">.</span><span class="n">classify_var</span><span class="p">(</span><span class="n">var_b</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">class_b</span> <span class="o">==</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">phase_name_a</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">src_a</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
                                      <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">phase_name_b</span><span class="si">}</span><span class="s1">.t_initial&#39;</span><span class="p">,</span>
                                      <span class="n">src_indices</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">flat_src_indices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-                    <span class="k">elif</span> <span class="n">phase_b</span><span class="o">.</span><span class="n">classify_var</span><span class="p">(</span><span class="n">var_b</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;state&#39;</span><span class="p">:</span>
+                    <span class="k">elif</span> <span class="n">class_b</span> <span class="o">==</span> <span class="s1">&#39;state&#39;</span><span class="p">:</span>
                         <span class="n">tgt_b</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;initial_states:</span><span class="si">{</span><span class="n">var_b</span><span class="si">}</span><span class="s1">&#39;</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">phase_name_a</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">src_a</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
                                      <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">phase_name_b</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">tgt_b</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
                                      <span class="n">src_indices</span><span class="o">=</span><span class="n">om</span><span class="o">.</span><span class="n">slicer</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">indent</span> <span class="o">*</span> <span class="mi">2</span><span class="si">}{</span><span class="n">var_a</span><span class="si">:</span><span class="s1">&lt;</span><span class="si">{</span><span class="n">padding</span><span class="si">}</span><span class="s1">s</span><span class="si">}</span><span class="s1">[</span><span class="si">{</span><span class="n">loc_a</span><span class="si">}</span><span class="s1">]  -&gt;  </span><span class="si">{</span><span class="n">var_b</span><span class="si">:</span><span class="s1">&lt;</span><span class="si">{</span><span class="n">padding</span><span class="si">}</span><span class="s1">s</span><span class="si">}</span><span class="s1">[</span><span class="si">{</span><span class="n">loc_b</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Could not create connection linkage from phase `</span><span class="si">{</span><span class="n">phase_name_a</span><span class="si">}</span><span class="s1">` &#39;</span> \
+                              <span class="sa">f</span><span class="s1">&#39;variable `</span><span class="si">{</span><span class="n">var_a</span><span class="si">}</span><span class="s1">` to phase `</span><span class="si">{</span><span class="n">phase_name_b</span><span class="si">}</span><span class="s1">` variable `</span><span class="si">{</span><span class="n">var_b</span><span class="si">}</span><span class="s1">`. &#39;</span> \
+                              <span class="sa">f</span><span class="s1">&#39;For direct connections, the target variable must be `time` or a &#39;</span> \
+                              <span class="sa">f</span><span class="s1">&#39;state in the phase.</span><span class="se">\n</span><span class="s1">Either remove the linkage or specify &#39;</span> \
+                              <span class="sa">f</span><span class="s1">&#39;`connected=False` to enforce it via an optimization constraint.&#39;</span>
+                        <span class="k">raise</span> <span class="n">om</span><span class="o">.</span><span class="n">OpenMDAOWarning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">indent</span> <span class="o">*</span> <span class="mi">2</span><span class="si">}{</span><span class="n">prefixed_a</span><span class="si">:</span><span class="s1">&lt;</span><span class="si">{</span><span class="n">padding_a</span><span class="si">}</span><span class="s1">s</span><span class="si">}</span><span class="s1"> [</span><span class="si">{</span><span class="n">loc_a</span><span class="si">}{</span><span class="n">str_fixed_a</span><span class="si">}</span><span class="s1">] -&gt;  &#39;</span>
+                          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefixed_b</span><span class="si">:</span><span class="s1">&lt;</span><span class="si">{</span><span class="n">padding_b</span><span class="si">}</span><span class="s1">s</span><span class="si">}</span><span class="s1"> [</span><span class="si">{</span><span class="n">loc_b</span><span class="si">}{</span><span class="n">str_fixed_b</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">is_valid</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_valid_linkage</span><span class="p">(</span><span class="n">phase_name_a</span><span class="p">,</span> <span class="n">phase_name_b</span><span class="p">,</span>
                                                            <span class="n">loc_a</span><span class="p">,</span> <span class="n">loc_b</span><span class="p">,</span> <span class="n">var_a</span><span class="p">,</span> <span class="n">var_b</span><span class="p">)</span>
@@ -1115,9 +1174,10 @@
                                      <span class="n">src_indices</span><span class="o">=</span><span class="n">om</span><span class="o">.</span><span class="n">slicer</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="o">...</span><span class="p">])</span>
                         <span class="n">connected_linkage_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">_input_b</span><span class="p">)</span>
 
-                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">indent</span> <span class="o">*</span> <span class="mi">2</span><span class="si">}{</span><span class="n">var_a</span><span class="si">:</span><span class="s1">&lt;</span><span class="si">{</span><span class="n">padding</span><span class="si">}</span><span class="s1">s</span><span class="si">}</span><span class="s1">[</span><span class="si">{</span><span class="n">loc_a</span><span class="si">}</span><span class="s1">]  ==  </span><span class="si">{</span><span class="n">var_b</span><span class="si">:</span><span class="s1">&lt;</span><span class="si">{</span><span class="n">padding</span><span class="si">}</span><span class="s1">s</span><span class="si">}</span><span class="s1">[</span><span class="si">{</span><span class="n">loc_b</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">indent</span> <span class="o">*</span> <span class="mi">2</span><span class="si">}{</span><span class="n">prefixed_a</span><span class="si">:</span><span class="s1">&lt;</span><span class="si">{</span><span class="n">padding_a</span><span class="si">}</span><span class="s1">s</span><span class="si">}</span><span class="s1"> [</span><span class="si">{</span><span class="n">loc_a</span><span class="si">}{</span><span class="n">str_fixed_a</span><span class="si">}</span><span class="s1">] ==  &#39;</span>
+                          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefixed_b</span><span class="si">:</span><span class="s1">&lt;</span><span class="si">{</span><span class="n">padding_b</span><span class="si">}</span><span class="s1">s</span><span class="si">}</span><span class="s1"> [</span><span class="si">{</span><span class="n">loc_b</span><span class="si">}{</span><span class="n">str_fixed_b</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------------------&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">* : This quantity is fixed or is an input.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>

@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,17 +34,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -93,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Installation
  </span>
@@ -105,7 +105,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Getting Started
  </span>
@@ -137,7 +137,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Examples and Tutorials
  </span>
@@ -241,7 +241,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Feature Reference
  </span>
@@ -305,7 +305,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Frequently Asked Questions
  </span>
@@ -359,7 +359,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Dymos API Reference
  </span>
@@ -393,7 +393,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Contributing
  </span>
@@ -793,21 +793,21 @@ Component: BrachistochroneODE &#39;ode&#39;
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
 
-&#39;check&#39;    wrt &#39;theta&#39;      | 2.1898e+01 | 2.1898e+01 | 2.5146e-15 | 1.1483e-16
-&#39;check&#39;    wrt &#39;v&#39;          | 3.4011e+00 | 3.4011e+00 | 2.2204e-16 | 6.5287e-17
-&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.5686e+01 | 1.5686e+01 | 8.8818e-16 | 5.6624e-17
+&#39;check&#39;    wrt &#39;theta&#39;      | 8.0071e+02 | 8.0071e+02 | 1.4247e-14 | 1.7793e-17
+&#39;check&#39;    wrt &#39;v&#39;          | 1.2722e+01 | 1.2722e+01 | 1.7902e-15 | 1.4071e-16
+&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.3173e+01 | 1.3173e+01 | 1.9860e-15 | 1.5076e-16
 &#39;vdot&#39;     wrt &#39;v&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;xdot&#39;     wrt &#39;theta&#39;      | 7.5265e+00 | 7.5265e+00 | 4.4755e-16 | 5.9462e-17
-&#39;xdot&#39;     wrt &#39;v&#39;          | 1.5995e+00 | 1.5995e+00 | 0.0000e+00 | 0.0000e+00
-&#39;ydot&#39;     wrt &#39;theta&#39;      | 7.7646e+00 | 7.7646e+00 | 1.0878e-15 | 1.4010e-16
-&#39;ydot&#39;     wrt &#39;v&#39;          | 1.5626e+00 | 1.5626e+00 | 1.1102e-16 | 7.1051e-17
+&#39;xdot&#39;     wrt &#39;theta&#39;      | 8.6991e+00 | 8.6991e+00 | 1.4054e-15 | 1.6156e-16
+&#39;xdot&#39;     wrt &#39;v&#39;          | 1.3433e+00 | 1.3433e+00 | 1.5701e-16 | 1.1689e-16
+&#39;ydot&#39;     wrt &#39;theta&#39;      | 1.0317e+01 | 1.0317e+01 | 2.2377e-16 | 2.1690e-17
+&#39;ydot&#39;     wrt &#39;v&#39;          | 1.7876e+00 | 1.7876e+00 | 1.9230e-16 | 1.0757e-16
 
 ##################################################################
 Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 ##################################################################
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
-&#39;ydot&#39;     wrt &#39;theta&#39;      | 7.7646e+00 | 7.7646e+00 | 1.0878e-15 | 1.4010e-16
+&#39;xdot&#39;     wrt &#39;theta&#39;      | 8.6991e+00 | 8.6991e+00 | 1.4054e-15 | 1.6156e-16
 </pre></div>
 </div>
 </div>
