@@ -546,8 +546,8 @@ three-phase orbit raising maneuver with a burn-coast-burn phase
 sequence. This example is based on the problem provided in
 Enright <span id="id1">[<a class="reference internal" href="#id23">EC91</a>]</span>.</p>
 <p>The dynamics are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ee36732a-4829-4844-9f5b-d2ca1d7cee6d">
-<span class="eqno">(47)<a class="headerlink" href="#equation-ee36732a-4829-4844-9f5b-d2ca1d7cee6d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ae12351e-4a97-4aec-834d-8c0049cca266">
+<span class="eqno">(47)<a class="headerlink" href="#equation-ae12351e-4a97-4aec-834d-8c0049cca266" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \frac{dr}{dt} &amp;= v_r \\
   \frac{d\theta}{dt} &amp;= \frac{v_\theta}{r} \\
   \frac{dv_r}{dt} &amp;= \frac{v^2_\theta}{r} - \frac{1}{r^2} + a_{thrust} \sin u_1 \\
@@ -556,8 +556,8 @@ Enright <span id="id1">[<a class="reference internal" href="#id23">EC91</a>]</sp
   \frac{d \Delta v}{dt} &amp;= a_{thrust}
 \end{align}\]</div>
 <p>The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-344451c5-2326-4516-8f9e-8bc414b5bb8b">
-<span class="eqno">(48)<a class="headerlink" href="#equation-344451c5-2326-4516-8f9e-8bc414b5bb8b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8eafca89-bb0b-4f67-8c2b-5c38dd544778">
+<span class="eqno">(48)<a class="headerlink" href="#equation-8eafca89-bb0b-4f67-8c2b-5c38dd544778" title="Permalink to this equation">¶</a></span>\[\begin{align}
   r &amp;= 1 \rm{\,DU} \\
   \theta &amp;= 0 \rm{\,rad} \\
   v_r &amp;= 0 \rm{\,DU/TU}\\
@@ -566,8 +566,8 @@ Enright <span id="id1">[<a class="reference internal" href="#id23">EC91</a>]</sp
   \Delta v &amp;= 0 \rm{\,DU/TU}
 \end{align}\]</div>
 <p>and the final conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00ccec03-a950-4b2a-a1af-60ccf94c78b7">
-<span class="eqno">(49)<a class="headerlink" href="#equation-00ccec03-a950-4b2a-a1af-60ccf94c78b7" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3d6d30db-60fb-4619-9f73-052b2bf8eb78">
+<span class="eqno">(49)<a class="headerlink" href="#equation-3d6d30db-60fb-4619-9f73-052b2bf8eb78" title="Permalink to this equation">¶</a></span>\[\begin{align}
   r &amp;= 3 \rm{\,DU} \\
   \theta &amp;= \rm{free} \\
   v_r &amp;= 0 \rm{\,DU/TU}\\
@@ -1158,7 +1158,7 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:994: DerivativesWarning:Inefficient choice of derivative mode.  You chose &#39;fwd&#39; for a problem with 204 design variables and 120 response variables (objectives and nonlinear constraints).
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 2.013595 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.817277 seconds.
 Total jacobian shape: (120, 204) 
 
 
@@ -1167,8 +1167,8 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 204  (93.6% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 2.013595 sec.
-Time to compute coloring: 0.035853 sec.
+Time to compute sparsity: 1.817277 sec.
+Time to compute coloring: 0.030173 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -1187,11 +1187,11 @@ This program contains Ipopt, a library for large-scale nonlinear optimization.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    3.6048
-       User Objective Time :       0.3178
-       User Sensitivity Time :     2.5730
-       Interface Time :            0.5893
-       Opt Solver Time:            0.1247
+    Total Time:                    3.0364
+       User Objective Time :       0.2474
+       User Sensitivity Time :     2.2112
+       Interface Time :            0.4686
+       Opt Solver Time:            0.1092
     Calls to Objective Function :      22
     Calls to Sens Function :           22
 
