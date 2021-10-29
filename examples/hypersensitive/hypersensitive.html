@@ -550,18 +550,18 @@
 Patterson <span id="id1">[<a class="reference internal" href="#id21">PHR15</a>]</span>. In this problem we seek to minimize both
 the distance traveled when moving between fixed boundary conditions and
 also to minimize the control <span class="math notranslate nohighlight">\(u\)</span> used. The cost function to be minimized is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-343da479-410b-4038-8f49-81698f46a8cd">
-<span class="eqno">(42)<a class="headerlink" href="#equation-343da479-410b-4038-8f49-81698f46a8cd" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0d8e0692-fefe-413e-b4c0-00b3b9a80b51">
+<span class="eqno">(42)<a class="headerlink" href="#equation-0d8e0692-fefe-413e-b4c0-00b3b9a80b51" title="Permalink to this equation">¶</a></span>\[\begin{align}
     J &amp;= \frac{1}{2} \int_{0}^{t_f} (x^2 + u^2) dt
 \end{align}\]</div>
 <p>The system is subject to the dynamic constraints:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ffbf0cc-9a05-485b-a3d8-22ff04bd4b97">
-<span class="eqno">(43)<a class="headerlink" href="#equation-6ffbf0cc-9a05-485b-a3d8-22ff04bd4b97" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ef1ba48d-7a87-4a1d-9bb2-fa8f7b38b04b">
+<span class="eqno">(43)<a class="headerlink" href="#equation-ef1ba48d-7a87-4a1d-9bb2-fa8f7b38b04b" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \frac{dx}{dt} &amp;= -x + u
 \end{align}\]</div>
 <p>The boundary conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ec32771-d480-48a2-b522-ba26a3d6ace0">
-<span class="eqno">(44)<a class="headerlink" href="#equation-1ec32771-d480-48a2-b522-ba26a3d6ace0" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-47c2eec3-bc4f-4c4d-8ae3-1ea7c63b45ac">
+<span class="eqno">(44)<a class="headerlink" href="#equation-47c2eec3-bc4f-4c4d-8ae3-1ea7c63b45ac" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x(t_0) &amp;= 1.5 \\
     x(t_f) &amp;= 1
 \end{align}\]</div>
@@ -571,14 +571,14 @@ the problem exhibits a <em>dive</em>, <em>cruise</em>, and <em>resurface</em> ty
 structure, where the all interesting behavior occurs at the beginning and
 end while remaining relatively constant in the middle.</p>
 <p>This problem has a known analytic optimal solution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f1767df5-c1b7-4e67-87f1-3d2fd7bf5a48">
-<span class="eqno">(45)<a class="headerlink" href="#equation-f1767df5-c1b7-4e67-87f1-3d2fd7bf5a48" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-af244996-a8e5-4c82-a56f-6226d77bcb8e">
+<span class="eqno">(45)<a class="headerlink" href="#equation-af244996-a8e5-4c82-a56f-6226d77bcb8e" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x^*(t) &amp;= c_1 e^{\sqrt{2} t} + c_2 e^{-\sqrt{2} t} \\
       u^*(t) &amp;= \dot{x}^*(t) + x^*(t)
 \end{align}\]</div>
 <p>where:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1540e2a8-8b5a-4d33-bd27-6adf77c27c7f">
-<span class="eqno">(46)<a class="headerlink" href="#equation-1540e2a8-8b5a-4d33-bd27-6adf77c27c7f" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-129e6057-6d60-4d5f-8b51-a1aadaa0e367">
+<span class="eqno">(46)<a class="headerlink" href="#equation-129e6057-6d60-4d5f-8b51-a1aadaa0e367" title="Permalink to this equation">¶</a></span>\[\begin{align}
     c_1 &amp;= \frac{1.5 e^{-\sqrt{2} t_f} - 1}{e^{-\sqrt{2} t_f} - e^{\sqrt{2} t_f}} \\
     c_2 &amp;= \frac{1 - 1.5 e^{\sqrt{2} t_f}}{e^{-\sqrt{2} t_f} - e^{\sqrt{2} t_f}}
 \end{align}\]</div>
@@ -764,17 +764,17 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:1913: PromotionWarning:&#39;traj.phases.phase0.continuity_comp&#39; &lt;class RadauPSContinuityComp&gt;: input variable &#39;t_duration&#39;, promoted using &#39;t_duration&#39;, was already promoted using &#39;t_duration&#39;.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.907177 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.601006 seconds.
 Total jacobian shape: (239, 328) 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (239, 328)  ( 1.63% nonzero)
+
+
+Jacobian shape: (239, 328)  ( 1.63% nonzero)
 FWD solves: 0   REV solves: 9
 Total colors vs. total size: 9 vs 239  (96.2% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.907177 sec.
-Time to compute coloring: 0.210851 sec.
+Time to compute sparsity: 0.601006 sec.
+Time to compute coloring: 0.160717 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -783,11 +783,11 @@ Time to compute coloring: 0.210851 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    3.1099
-       User Objective Time :       0.0437
-       User Sensitivity Time :     0.3083
-       Interface Time :            0.2635
-       Opt Solver Time:            2.4945
+    Total Time:                    3.2413
+       User Objective Time :       0.0370
+       User Sensitivity Time :     0.2094
+       Interface Time :            0.2654
+       Opt Solver Time:            2.7295
     Calls to Objective Function :      21
     Calls to Sens Function :           21
 
@@ -1436,7 +1436,7 @@ Time to compute coloring: 0.210851 sec.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/hypersensitive_5_24.png" src="../../_images/hypersensitive_5_24.png" />
+<img alt="../../_images/hypersensitive_5_23.png" src="../../_images/hypersensitive_5_23.png" />
 </div>
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">

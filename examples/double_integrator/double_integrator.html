@@ -546,20 +546,20 @@ traveled by a block (that starts and ends at rest) sliding without
 friction along a horizontal surface, with acceleration as the control.</p>
 <p>We minimize the final time, <span class="math notranslate nohighlight">\(t_f\)</span>, by varying the dynamic control,
 <span class="math notranslate nohighlight">\(u\)</span>, subject to the dynamics:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-acbd9a2f-88b0-4bdf-b3c8-e6b27daa1cdc">
-<span class="eqno">(39)<a class="headerlink" href="#equation-acbd9a2f-88b0-4bdf-b3c8-e6b27daa1cdc" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0b215710-98d3-4de7-a5cf-20c79fec4624">
+<span class="eqno">(39)<a class="headerlink" href="#equation-0b215710-98d3-4de7-a5cf-20c79fec4624" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \frac{dx}{dt} &amp;= v \\
   \frac{dv}{dt} &amp;= u
 \end{align}\]</div>
 <p>The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-202ce83b-dad4-409b-8115-5d3689368cdc">
-<span class="eqno">(40)<a class="headerlink" href="#equation-202ce83b-dad4-409b-8115-5d3689368cdc" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7acd27d7-4acf-4a20-82c3-7f1eab5ce221">
+<span class="eqno">(40)<a class="headerlink" href="#equation-7acd27d7-4acf-4a20-82c3-7f1eab5ce221" title="Permalink to this equation">¶</a></span>\[\begin{align}
   x_0 &amp;= 0 \\
   v_0 &amp;= 0
 \end{align}\]</div>
 <p>and the final conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4cb7e90c-3e5c-428b-8709-8aeaee1d7598">
-<span class="eqno">(41)<a class="headerlink" href="#equation-4cb7e90c-3e5c-428b-8709-8aeaee1d7598" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bd49971e-f0f6-4ba6-8b30-ad8e6e716d51">
+<span class="eqno">(41)<a class="headerlink" href="#equation-bd49971e-f0f6-4ba6-8b30-ad8e6e716d51" title="Permalink to this equation">¶</a></span>\[\begin{align}
   x_f &amp;= \rm{free} \\
   v_f &amp;= 0
 \end{align}\]</div>
@@ -842,7 +842,7 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.111331 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.107800 seconds.
 Total jacobian shape: (181, 327) 
 </pre></div>
 </div>
@@ -851,8 +851,8 @@ FWD solves: 0   REV solves: 6
 Total colors vs. total size: 6 vs 181  (96.7% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.111331 sec.
-Time to compute coloring: 0.173438 sec.
+Time to compute sparsity: 0.107800 sec.
+Time to compute coloring: 0.142659 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -861,11 +861,11 @@ Time to compute coloring: 0.173438 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    2.4435
-       User Objective Time :       0.0368
-       User Sensitivity Time :     0.1096
-       Interface Time :            0.1692
-       Opt Solver Time:            2.1278
+    Total Time:                    2.6435
+       User Objective Time :       0.0299
+       User Sensitivity Time :     0.0935
+       Interface Time :            0.1689
+       Opt Solver Time:            2.3512
     Calls to Objective Function :      19
     Calls to Sens Function :           19
 
@@ -1449,12 +1449,10 @@ Time to compute coloring: 0.173438 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
+Done simulating trajectory traj
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
-</pre></div>
-</div>
-<img alt="../../_images/double_integrator_5_25.png" src="../../_images/double_integrator_5_25.png" />
+<img alt="../../_images/double_integrator_5_24.png" src="../../_images/double_integrator_5_24.png" />
 </div>
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
