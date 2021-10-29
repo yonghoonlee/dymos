@@ -546,20 +546,20 @@ traveled by a block (that starts and ends at rest) sliding without
 friction along a horizontal surface, with acceleration as the control.</p>
 <p>We minimize the final time, <span class="math notranslate nohighlight">\(t_f\)</span>, by varying the dynamic control,
 <span class="math notranslate nohighlight">\(u\)</span>, subject to the dynamics:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b215710-98d3-4de7-a5cf-20c79fec4624">
-<span class="eqno">(39)<a class="headerlink" href="#equation-0b215710-98d3-4de7-a5cf-20c79fec4624" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-eaa8082e-898e-4604-b3bc-9720a035dee3">
+<span class="eqno">(39)<a class="headerlink" href="#equation-eaa8082e-898e-4604-b3bc-9720a035dee3" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \frac{dx}{dt} &amp;= v \\
   \frac{dv}{dt} &amp;= u
 \end{align}\]</div>
 <p>The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7acd27d7-4acf-4a20-82c3-7f1eab5ce221">
-<span class="eqno">(40)<a class="headerlink" href="#equation-7acd27d7-4acf-4a20-82c3-7f1eab5ce221" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3a628f67-0388-40c4-9c12-b6a505c9c036">
+<span class="eqno">(40)<a class="headerlink" href="#equation-3a628f67-0388-40c4-9c12-b6a505c9c036" title="Permalink to this equation">¶</a></span>\[\begin{align}
   x_0 &amp;= 0 \\
   v_0 &amp;= 0
 \end{align}\]</div>
 <p>and the final conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd49971e-f0f6-4ba6-8b30-ad8e6e716d51">
-<span class="eqno">(41)<a class="headerlink" href="#equation-bd49971e-f0f6-4ba6-8b30-ad8e6e716d51" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bfc64111-b7d2-4c2a-8bbb-8706233aa456">
+<span class="eqno">(41)<a class="headerlink" href="#equation-bfc64111-b7d2-4c2a-8bbb-8706233aa456" title="Permalink to this equation">¶</a></span>\[\begin{align}
   x_f &amp;= \rm{free} \\
   v_f &amp;= 0
 \end{align}\]</div>
@@ -779,7 +779,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking out_of_order
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Constraint Report [traj] ---
+    --- phase0 ---
+        None
+
+INFO: checking out_of_order
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
@@ -842,7 +846,7 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.107800 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.122444 seconds.
 Total jacobian shape: (181, 327) 
 </pre></div>
 </div>
@@ -851,8 +855,8 @@ FWD solves: 0   REV solves: 6
 Total colors vs. total size: 6 vs 181  (96.7% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.107800 sec.
-Time to compute coloring: 0.142659 sec.
+Time to compute sparsity: 0.122444 sec.
+Time to compute coloring: 0.157787 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -861,11 +865,11 @@ Time to compute coloring: 0.142659 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    2.6435
-       User Objective Time :       0.0299
-       User Sensitivity Time :     0.0935
-       Interface Time :            0.1689
-       Opt Solver Time:            2.3512
+    Total Time:                    3.1009
+       User Objective Time :       0.0343
+       User Sensitivity Time :     0.1055
+       Interface Time :            0.1922
+       Opt Solver Time:            2.7689
     Calls to Objective Function :      19
     Calls to Sens Function :           19
 
@@ -1449,10 +1453,12 @@ Time to compute coloring: 0.142659 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
-Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/double_integrator_5_24.png" src="../../_images/double_integrator_5_24.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
+</pre></div>
+</div>
+<img alt="../../_images/double_integrator_5_25.png" src="../../_images/double_integrator_5_25.png" />
 </div>
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">

@@ -579,13 +579,13 @@ Dynamic systems are typically defined by some set of ordinary
 differential equations (the ODE) which governs their behavior.</p>
 <p>Consider a simple damped harmonic oscillator.</p>
 <p><img alt="Damped harmonic oscillator free-body diagram" src="../../_images/spring_mass_damper.png" /></p>
-<div class="amsmath math notranslate nohighlight" id="equation-e25866b3-bba4-43fd-84de-2705233178d7">
-<span class="eqno">(11)<a class="headerlink" href="#equation-e25866b3-bba4-43fd-84de-2705233178d7" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-452ec0b7-0459-4153-b3d8-71784e0d529d">
+<span class="eqno">(11)<a class="headerlink" href="#equation-452ec0b7-0459-4153-b3d8-71784e0d529d" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \ddot{x} &amp;= -\frac{kx}{m} - \frac{c \dot{x}}{m}
 \end{align}\]</div>
 <p>Converting this to a first order system results in an ODE system with two states:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7d5c42e6-5b64-45c6-94a1-0b7e6a8f5afe">
-<span class="eqno">(12)<a class="headerlink" href="#equation-7d5c42e6-5b64-45c6-94a1-0b7e6a8f5afe" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c73bb387-75cf-4528-a98e-84f4706352a9">
+<span class="eqno">(12)<a class="headerlink" href="#equation-c73bb387-75cf-4528-a98e-84f4706352a9" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{x} &amp;= v \\
     \dot{v} &amp;= -\frac{kx}{m} - \frac{c \dot{x}}{m}
 \end{align}\]</div>
@@ -728,7 +728,12 @@ Some elements of this code will be explained later, but we’ll hit the highligh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Constraint Report [traj] ---
+    --- phase0 ---
+        None
+
+
+Simulating trajectory traj
 Done simulating trajectory traj
 </pre></div>
 </div>
@@ -863,7 +868,12 @@ Otherwise, we can pass it only to certain states as an argument to <code class="
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Constraint Report [traj] ---
+    --- phase0 ---
+        None
+
+
+==================
 traj.phases.phase0
 ==================
 NL: Newton 0 ; 64.9519053 1
@@ -965,7 +975,9 @@ Even though the initial time and duration of the phase are fixed, we provide the
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/total_jac.py:1539: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0.time.time&#39;, inds=[15])] cannot be impacted by the design variables of the problem.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Constraint Report [traj] ---
+    --- phase0 ---
+        None
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -980,7 +992,10 @@ Simulating trajectory traj
 Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/intro_ivp_10_2.png" src="../../_images/intro_ivp_10_2.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/total_jac.py:1539: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0.time.time&#39;, inds=[15])] cannot be impacted by the design variables of the problem.
+</pre></div>
+</div>
+<img alt="../../_images/intro_ivp_10_3.png" src="../../_images/intro_ivp_10_3.png" />
 </div>
 </div>
 </div>
