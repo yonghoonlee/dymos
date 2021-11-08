@@ -115,8 +115,8 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/collocation.html">
-   What is collocation?
+  <a class="reference internal" href="../../getting_started/optimal_control.html">
+   Optimal Control
   </a>
  </li>
  <li class="toctree-l1">
@@ -125,8 +125,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/optimal_control.html">
-   Optimal Control
+  <a class="reference internal" href="../../getting_started/collocation.html">
+   What is collocation?
   </a>
  </li>
  <li class="toctree-l1">
@@ -547,8 +547,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solving-the-problem">
-   Solving the Problem
+  <a class="reference internal nav-link" href="#solving-the-problem-with-legendre-gauss-lobatto-collocation-in-dymos">
+   Solving the problem with Legendre-Gauss-Lobatto collocation in Dymos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-the-problem-with-single-shooting-in-dymos">
+   Solving the problem with single shooting in Dymos
   </a>
  </li>
 </ul>
@@ -565,7 +570,7 @@
   <div class="cell tag_active-ipynb tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="the-brachistochrone">
-<h1>The Brachistochrone<a class="headerlink" href="#the-brachistochrone" title="Permalink to this headline">¶</a></h1>
+<span id="examples-the-brachistochrone"></span><h1>The Brachistochrone<a class="headerlink" href="#the-brachistochrone" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-things-you-ll-learn-through-this-example admonition">
 <p class="admonition-title">Things you’ll learn through this example</p>
 <ul class="simple">
@@ -607,8 +612,8 @@ without friction along the wire moves from point A to point B in minimum time.</
 <div class="section" id="system-dynamics">
 <h2>System dynamics<a class="headerlink" href="#system-dynamics" title="Permalink to this headline">¶</a></h2>
 <p>From the free-body diagram above, the evolution of the state variables is given by the following ordinary differential equations (ODE).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73765fed-7dd4-4e9f-90f9-dcd3b76b8195">
-<span class="eqno">(13)<a class="headerlink" href="#equation-73765fed-7dd4-4e9f-90f9-dcd3b76b8195" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7c4adbf6-4eb7-404f-a8d4-1818240b9da4">
+<span class="eqno">(13)<a class="headerlink" href="#equation-7c4adbf6-4eb7-404f-a8d4-1818240b9da4" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \frac{d x}{d t} &amp;= v \sin(\theta) \\
     \frac{d y}{d t} &amp;= -v \cos(\theta) \\
     \frac{d v}{d t} &amp;= g \cos(\theta)
@@ -626,8 +631,8 @@ without friction along the wire moves from point A to point B in minimum time.</
 <p>In this case, starting point <strong>A</strong> is given as <em>(0, 10)</em>.
 The point moving along the curve will begin there with zero initial velocity.</p>
 <p>The initial conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f5210ca8-f33d-4b04-b283-2f600b033981">
-<span class="eqno">(14)<a class="headerlink" href="#equation-f5210ca8-f33d-4b04-b283-2f600b033981" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e41d5229-5662-4065-91ce-70876c000821">
+<span class="eqno">(14)<a class="headerlink" href="#equation-e41d5229-5662-4065-91ce-70876c000821" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x_0 &amp;= 0 \\
     y_0 &amp;= 10 \\
     v_0 &amp;= 0
@@ -635,8 +640,8 @@ The point moving along the curve will begin there with zero initial velocity.</p
 <p>The end point <strong>B</strong> is given as <em>(10, 5)</em>.
 The point will end there, but the velocity at that point is not constrained.</p>
 <p>The final conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a47d61ee-f8e3-44af-b6cb-eea554dc7b4f">
-<span class="eqno">(15)<a class="headerlink" href="#equation-a47d61ee-f8e3-44af-b6cb-eea554dc7b4f" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-237fb8ae-664a-43ff-baa6-0bf3c03d92ae">
+<span class="eqno">(15)<a class="headerlink" href="#equation-237fb8ae-664a-43ff-baa6-0bf3c03d92ae" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x_f &amp;= 10 \\
     y_f &amp;= 5 \\
     v_f &amp;= \mathrm{free}
@@ -800,24 +805,24 @@ Component: BrachistochroneODE &#39;ode&#39;
 -------------------------------------------------------------------------------
 
 &#39;check&#39;    wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;check&#39;    wrt &#39;theta&#39;      | 6.1224e+01 | 6.1224e+01 | 1.0098e-14 | 1.6493e-16
-&#39;check&#39;    wrt &#39;v&#39;          | 3.8252e+00 | 3.8252e+00 | 4.4409e-16 | 1.1610e-16
-&#39;vdot&#39;     wrt &#39;g&#39;          | 1.5095e+00 | 1.5095e+00 | 1.5701e-16 | 1.0401e-16
-&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.6177e+01 | 1.6177e+01 | 1.8310e-15 | 1.1318e-16
+&#39;check&#39;    wrt &#39;theta&#39;      | 4.7979e+01 | 4.7979e+01 | 7.5366e-15 | 1.5708e-16
+&#39;check&#39;    wrt &#39;v&#39;          | 6.6564e+00 | 6.6564e+00 | 2.2204e-16 | 3.3358e-17
+&#39;vdot&#39;     wrt &#39;g&#39;          | 1.5769e+00 | 1.5769e+00 | 1.1102e-16 | 7.0406e-17
+&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.5547e+01 | 1.5547e+01 | 1.9860e-15 | 1.2774e-16
 &#39;vdot&#39;     wrt &#39;v&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
 &#39;xdot&#39;     wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;xdot&#39;     wrt &#39;theta&#39;      | 1.2441e+01 | 1.2441e+01 | 1.8310e-15 | 1.4718e-16
-&#39;xdot&#39;     wrt &#39;v&#39;          | 1.6496e+00 | 1.6496e+00 | 1.2413e-16 | 7.5245e-17
+&#39;xdot&#39;     wrt &#39;theta&#39;      | 5.9885e+00 | 5.9885e+00 | 2.2204e-16 | 3.7079e-17
+&#39;xdot&#39;     wrt &#39;v&#39;          | 1.5854e+00 | 1.5854e+00 | 1.9230e-16 | 1.2129e-16
 &#39;ydot&#39;     wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;ydot&#39;     wrt &#39;theta&#39;      | 1.1489e+01 | 1.1489e+01 | 1.2561e-15 | 1.0933e-16
-&#39;ydot&#39;     wrt &#39;v&#39;          | 1.5095e+00 | 1.5095e+00 | 1.5701e-16 | 1.0401e-16
+&#39;ydot&#39;     wrt &#39;theta&#39;      | 1.0543e+01 | 1.0543e+01 | 1.8312e-15 | 1.7369e-16
+&#39;ydot&#39;     wrt &#39;v&#39;          | 1.5769e+00 | 1.5769e+00 | 1.1102e-16 | 7.0406e-17
 
 ##################################################################
 Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 ##################################################################
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
-&#39;check&#39;    wrt &#39;theta&#39;      | 6.1224e+01 | 6.1224e+01 | 1.0098e-14 | 1.6493e-16
+&#39;ydot&#39;     wrt &#39;theta&#39;      | 1.0543e+01 | 1.0543e+01 | 1.8312e-15 | 1.7369e-16
 </pre></div>
 </div>
 </div>
@@ -825,8 +830,8 @@ Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 </div>
-<div class="section" id="solving-the-problem">
-<h2>Solving the Problem<a class="headerlink" href="#solving-the-problem" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="solving-the-problem-with-legendre-gauss-lobatto-collocation-in-dymos">
+<h2>Solving the problem with Legendre-Gauss-Lobatto collocation in Dymos<a class="headerlink" href="#solving-the-problem-with-legendre-gauss-lobatto-collocation-in-dymos" title="Permalink to this headline">¶</a></h2>
 <p>The following script fully defines the brachistochrone problem with Dymos and solves it.  In this section we’ll walk through each step.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -912,7 +917,7 @@ Model viewer data has already has already been recorded for Driver.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:1913: PromotionWarning:&#39;traj.phases.phase0.continuity_comp&#39; &lt;class GaussLobattoContinuityComp&gt;: input variable &#39;t_duration&#39;, promoted using &#39;t_duration&#39;, was already promoted using &#39;t_duration&#39;.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.031862 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.044308 seconds.
 Total jacobian shape: (40, 50) 
 
 
@@ -921,8 +926,8 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 50  (74.0% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.031862 sec.
-Time to compute coloring: 0.034175 sec.
+Time to compute sparsity: 0.044308 sec.
+Time to compute coloring: 0.048146 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
@@ -957,14 +962,168 @@ Optimization Complete
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
+Done simulating trajectory traj
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
+<img alt="../../_images/brachistochrone_11_1.png" src="../../_images/brachistochrone_11_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="solving-the-problem-with-single-shooting-in-dymos">
+<span id="examples-brachistochrone-explicit-shooting"></span><h2>Solving the problem with single shooting in Dymos<a class="headerlink" href="#solving-the-problem-with-single-shooting-in-dymos" title="Permalink to this headline">¶</a></h2>
+<p>The following script fully defines the brachistochrone problem with Dymos and solves it using a single explicit shooting method.</p>
+<p>The code is nearly identical to that using the collocation approach.
+Key differences are shown when defining the transcription, specifying how to constraint the final state values of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> states, and providing initial guesses for all states.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openmdao.api</span> <span class="k">as</span> <span class="nn">om</span>
+<span class="kn">import</span> <span class="nn">dymos</span> <span class="k">as</span> <span class="nn">dm</span>
+<span class="kn">from</span> <span class="nn">dymos.examples.plotting</span> <span class="kn">import</span> <span class="n">plot_results</span>
+<span class="kn">from</span> <span class="nn">dymos.examples.brachistochrone</span> <span class="kn">import</span> <span class="n">BrachistochroneODE</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#</span>
+<span class="c1"># Initialize the Problem and the optimization driver</span>
+<span class="c1">#</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">Problem</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">om</span><span class="o">.</span><span class="n">Group</span><span class="p">())</span>
+<span class="n">p</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">ScipyOptimizeDriver</span><span class="p">()</span>
+
+<span class="c1"># We&#39;ll try to use coloring, but OpenMDAO will tell us that it provides no benefit.</span>
+<span class="n">p</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">declare_coloring</span><span class="p">()</span>
+
+<span class="c1">#</span>
+<span class="c1"># Create a trajectory and add a phase to it</span>
+<span class="c1">#</span>
+<span class="n">traj</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">add_subsystem</span><span class="p">(</span><span class="s1">&#39;traj&#39;</span><span class="p">,</span> <span class="n">dm</span><span class="o">.</span><span class="n">Trajectory</span><span class="p">())</span>
+
+<span class="n">phase</span> <span class="o">=</span> <span class="n">traj</span><span class="o">.</span><span class="n">add_phase</span><span class="p">(</span><span class="s1">&#39;phase0&#39;</span><span class="p">,</span>
+                       <span class="n">dm</span><span class="o">.</span><span class="n">Phase</span><span class="p">(</span><span class="n">ode_class</span><span class="o">=</span><span class="n">BrachistochroneODE</span><span class="p">,</span>
+                                <span class="n">transcription</span><span class="o">=</span><span class="n">dm</span><span class="o">.</span><span class="n">ExplicitShooting</span><span class="p">(</span><span class="n">num_segments</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                                                  <span class="n">num_steps_per_segment</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                                                  <span class="n">method</span><span class="o">=</span><span class="s1">&#39;rk4&#39;</span><span class="p">)))</span>
+
+<span class="c1">#</span>
+<span class="c1"># Set the variables</span>
+<span class="c1">#</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">set_time_options</span><span class="p">(</span><span class="n">fix_initial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">duration_bounds</span><span class="o">=</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Note, we cannot use fix_final=True with the shooting method</span>
+<span class="c1"># because the final value of the states are </span>
+<span class="c1"># not design variables in the transcribed optimization problem.</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">add_state</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">phase</span><span class="o">.</span><span class="n">add_state</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">phase</span><span class="o">.</span><span class="n">add_state</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">phase</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="s1">&#39;theta&#39;</span><span class="p">,</span> <span class="n">continuity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rate_continuity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">units</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">179.9</span><span class="p">)</span>
+
+<span class="n">phase</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;m/s**2&#39;</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mf">9.80665</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="c1"># Minimize time at the end of the phase</span>
+<span class="c1">#</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">add_objective</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span> <span class="n">scaler</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="c1"># Add boundary constraints for x and y since we could not use `fix_final=True` </span>
+<span class="c1">#</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">add_boundary_constraint</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span> <span class="n">equals</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">add_boundary_constraint</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span> <span class="n">equals</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">linear_solver</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">DirectSolver</span><span class="p">()</span>
+
+<span class="c1">#</span>
+<span class="c1"># Setup the Problem</span>
+<span class="c1">#</span>
+<span class="n">p</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+<span class="c1">#</span>
+<span class="c1"># Set the initial values</span>
+<span class="c1">#</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;traj.phase0.t_initial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;traj.phase0.t_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="c1"># Only the initial values of the states are design variables,</span>
+<span class="c1"># so the phase interp method is not used on states.</span>
+<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.states:x&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.states:y&#39;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.states:v&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.controls:theta&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;theta&#39;</span><span class="p">,</span> <span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">100.5</span><span class="p">]))</span>
+
+<span class="c1">#</span>
+<span class="c1"># Solve for the optimal trajectory</span>
+<span class="c1">#</span>
+<span class="n">dm</span><span class="o">.</span><span class="n">run_problem</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># Check the results</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.time&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-<img alt="../../_images/brachistochrone_11_2.png" src="../../_images/brachistochrone_11_2.png" />
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Constraint Report [traj] ---
+    --- phase0 ---
+        [final]   1.0000e+01 m    == x
+        [final]   5.0000e+00 m    == y
+
+Model viewer data has already has already been recorded for Driver.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/recorders/sqlite_recorder.py:223: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.014052 seconds.
+Total jacobian shape: (12, 22) 
+
+
+Jacobian shape: (12, 22)  (100.00% nonzero)
+FWD solves: 0   REV solves: 12
+Total colors vs. total size: 12 vs 12  (0.0% improvement)
+
+Sparsity computed using tolerance: 1e-25
+Time to compute sparsity: 0.014052 sec.
+Time to compute coloring: 0.019325 sec.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/drivers/scipy_optimizer.py:439: DerivativesWarning:ScipyOptimizeDriver: Coloring was deactivated.  Improvement of 0.0% was less than min allowed (5.0%).
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
+            Current function value: 18.01647189439755
+            Iterations: 11
+            Function evaluations: 13
+            Gradient evaluations: 11
+Optimization Complete
+-----------------------------------
+[1.80164719]
+</pre></div>
 </div>
 </div>
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_results</span><span class="p">([(</span><span class="s1">&#39;traj.phase0.timeseries.states:x&#39;</span><span class="p">,</span> <span class="s1">&#39;traj.phase0.timeseries.states:y&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;x (m)&#39;</span><span class="p">,</span> <span class="s1">&#39;y (m)&#39;</span><span class="p">),</span>
+              <span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.time&#39;</span><span class="p">,</span> <span class="s1">&#39;traj.phase0.timeseries.controls:theta&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;time (s)&#39;</span><span class="p">,</span> <span class="s1">&#39;theta (deg)&#39;</span><span class="p">)],</span>
+             <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Brachistochrone Solution</span><span class="se">\n</span><span class="s1">Explicit Shooting Method&#39;</span><span class="p">,</span>
+             <span class="n">p_sol</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/brachistochrone_15_0.png" src="../../_images/brachistochrone_15_0.png" />
+</div>
+</div>
+<p>Note that the shooting methods provide timeseries values at the start and end of each segment.
+Due to plans to enable variable step integration in the future, Dymos cannot provide outputs for each individual step since the number of steps will not be known when setting up the problem.</p>
+<p>Because control values and rates may not be continuous across segment bounds, depending on the settings used, there may be discontinuities in ODE outputs and therefore timeseries values are provided on each side of each segment boundary.</p>
 </div>
 </div>
 

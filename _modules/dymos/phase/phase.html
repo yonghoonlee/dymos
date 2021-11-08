@@ -104,8 +104,8 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../getting_started/collocation.html">
-   What is collocation?
+  <a class="reference internal" href="../../../getting_started/optimal_control.html">
+   Optimal Control
   </a>
  </li>
  <li class="toctree-l1">
@@ -114,8 +114,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../getting_started/optimal_control.html">
-   Optimal Control
+  <a class="reference internal" href="../../../getting_started/collocation.html">
+   What is collocation?
   </a>
  </li>
  <li class="toctree-l1">
@@ -578,8 +578,6 @@
                              <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Keyword arguments provided when initializing the ODE System&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">declare</span><span class="p">(</span><span class="s1">&#39;transcription&#39;</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="n">TranscriptionBase</span><span class="p">,</span>
                              <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Transcription technique of the optimal control problem.&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">declare</span><span class="p">(</span><span class="s1">&#39;timeseries&#39;</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="p">(</span><span class="nb">dict</span><span class="p">,),</span>
-                             <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Alternative timeseries.&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Phase.add_state"><a class="viewcode-back" href="../../../api/phase_api.html#dymos.Phase.add_state">[docs]</a>    <span class="k">def</span> <span class="nf">add_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">_unspecified</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">_unspecified</span><span class="p">,</span>
                   <span class="n">rate_source</span><span class="o">=</span><span class="n">_unspecified</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">_unspecified</span><span class="p">,</span>
