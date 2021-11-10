@@ -579,13 +579,13 @@ Dynamic systems are typically defined by some set of ordinary
 differential equations (the ODE) which governs their behavior.</p>
 <p>Consider a simple damped harmonic oscillator.</p>
 <p><img alt="Damped harmonic oscillator free-body diagram" src="../../_images/spring_mass_damper.png" /></p>
-<div class="amsmath math notranslate nohighlight" id="equation-09d75123-a3f0-4e65-9c18-5103992eb4b9">
-<span class="eqno">(11)<a class="headerlink" href="#equation-09d75123-a3f0-4e65-9c18-5103992eb4b9" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9bef1ad8-4c5d-4975-902f-651b7d21a1ac">
+<span class="eqno">(11)<a class="headerlink" href="#equation-9bef1ad8-4c5d-4975-902f-651b7d21a1ac" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \ddot{x} &amp;= -\frac{kx}{m} - \frac{c \dot{x}}{m}
 \end{align}\]</div>
 <p>Converting this to a first order system results in an ODE system with two states:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-33d31dbc-be24-4e22-81de-7a1559838342">
-<span class="eqno">(12)<a class="headerlink" href="#equation-33d31dbc-be24-4e22-81de-7a1559838342" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cde79119-5df4-4385-a439-733e9eea255b">
+<span class="eqno">(12)<a class="headerlink" href="#equation-cde79119-5df4-4385-a439-733e9eea255b" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{x} &amp;= v \\
     \dot{v} &amp;= -\frac{kx}{m} - \frac{c \dot{x}}{m}
 \end{align}\]</div>
@@ -877,17 +877,15 @@ Otherwise, we can pass it only to certain states as an argument to <code class="
 traj.phases.phase0
 ==================
 NL: Newton 0 ; 64.9519053 1
-NL: Newton 1 ; 5.02959964e-08 7.74357522e-10
-NL: Newton 2 ; 3.34243898e-15 5.14602145e-17
+NL: Newton 1 ; 5.02960122e-08 7.74357764e-10
+NL: Newton 2 ; 5.63952599e-15 8.68261826e-17
 NL: Newton Converged
 
 Simulating trajectory traj
+Done simulating trajectory traj
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
-</pre></div>
-</div>
-<img alt="../../_images/intro_ivp_7_2.png" src="../../_images/intro_ivp_7_2.png" />
+<img alt="../../_images/intro_ivp_7_1.png" src="../../_images/intro_ivp_7_1.png" />
 </div>
 </div>
 </div>
