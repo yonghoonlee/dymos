@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hyper-Sensitive Problem &#8212; Dymos</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -43,7 +43,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -57,7 +57,10 @@
     <link rel="next" title="Two-Burn Orbit Raise" href="../finite_burn_orbit_raise/finite_burn_orbit_raise.html" />
     <link rel="prev" title="Double Integrator" href="../double_integrator/double_integrator.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -96,7 +99,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Installation
  </span>
@@ -108,7 +111,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Getting Started
  </span>
@@ -140,7 +143,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Examples and Tutorials
  </span>
@@ -244,7 +247,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Feature Reference
  </span>
@@ -308,7 +311,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Frequently Asked Questions
  </span>
@@ -362,7 +365,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Dymos API Reference
  </span>
@@ -396,7 +399,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Contributing
  </span>
@@ -550,18 +553,18 @@
 Patterson <span id="id1">[<a class="reference internal" href="#id21">PHR15</a>]</span>. In this problem we seek to minimize both
 the distance traveled when moving between fixed boundary conditions and
 also to minimize the control <span class="math notranslate nohighlight">\(u\)</span> used. The cost function to be minimized is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aaa944e3-9f32-43d1-accc-7f3e3a6e02dd">
-<span class="eqno">(42)<a class="headerlink" href="#equation-aaa944e3-9f32-43d1-accc-7f3e3a6e02dd" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fea411bf-c4f1-45cb-8f95-e97feeabf0a2">
+<span class="eqno">(42)<a class="headerlink" href="#equation-fea411bf-c4f1-45cb-8f95-e97feeabf0a2" title="Permalink to this equation">¶</a></span>\[\begin{align}
     J &amp;= \frac{1}{2} \int_{0}^{t_f} (x^2 + u^2) dt
 \end{align}\]</div>
 <p>The system is subject to the dynamic constraints:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9d44fda2-182f-48b9-9d82-e1ecf1bb4144">
-<span class="eqno">(43)<a class="headerlink" href="#equation-9d44fda2-182f-48b9-9d82-e1ecf1bb4144" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ad6c9584-2d85-432c-a238-8e3eba78215e">
+<span class="eqno">(43)<a class="headerlink" href="#equation-ad6c9584-2d85-432c-a238-8e3eba78215e" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \frac{dx}{dt} &amp;= -x + u
 \end{align}\]</div>
 <p>The boundary conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5dda744f-de03-489f-a39a-f8a9a62ccb8d">
-<span class="eqno">(44)<a class="headerlink" href="#equation-5dda744f-de03-489f-a39a-f8a9a62ccb8d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ce225432-d8fd-465b-a5a5-8fd0a63764d0">
+<span class="eqno">(44)<a class="headerlink" href="#equation-ce225432-d8fd-465b-a5a5-8fd0a63764d0" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x(t_0) &amp;= 1.5 \\
     x(t_f) &amp;= 1
 \end{align}\]</div>
@@ -571,14 +574,14 @@ the problem exhibits a <em>dive</em>, <em>cruise</em>, and <em>resurface</em> ty
 structure, where the all interesting behavior occurs at the beginning and
 end while remaining relatively constant in the middle.</p>
 <p>This problem has a known analytic optimal solution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9a89b4a8-3618-48c7-8df0-a8637b84c713">
-<span class="eqno">(45)<a class="headerlink" href="#equation-9a89b4a8-3618-48c7-8df0-a8637b84c713" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-805bc861-da2a-4e06-9353-92d609f0b795">
+<span class="eqno">(45)<a class="headerlink" href="#equation-805bc861-da2a-4e06-9353-92d609f0b795" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x^*(t) &amp;= c_1 e^{\sqrt{2} t} + c_2 e^{-\sqrt{2} t} \\
       u^*(t) &amp;= \dot{x}^*(t) + x^*(t)
 \end{align}\]</div>
 <p>where:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a5cc77f7-0a00-4bd6-9888-ac05e6b96a4b">
-<span class="eqno">(46)<a class="headerlink" href="#equation-a5cc77f7-0a00-4bd6-9888-ac05e6b96a4b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5d2c2722-038e-41b7-b216-3941cabfae92">
+<span class="eqno">(46)<a class="headerlink" href="#equation-5d2c2722-038e-41b7-b216-3941cabfae92" title="Permalink to this equation">¶</a></span>\[\begin{align}
     c_1 &amp;= \frac{1.5 e^{-\sqrt{2} t_f} - 1}{e^{-\sqrt{2} t_f} - e^{\sqrt{2} t_f}} \\
     c_2 &amp;= \frac{1 - 1.5 e^{\sqrt{2} t_f}}{e^{-\sqrt{2} t_f} - e^{\sqrt{2} t_f}}
 \end{align}\]</div>
@@ -768,7 +771,7 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:1913: PromotionWarning:&#39;traj.phases.phase0.continuity_comp&#39; &lt;class RadauPSContinuityComp&gt;: input variable &#39;t_duration&#39;, promoted using &#39;t_duration&#39;, was already promoted using &#39;t_duration&#39;.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.755181 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.969723 seconds.
 Total jacobian shape: (239, 328) 
 </pre></div>
 </div>
@@ -777,8 +780,8 @@ FWD solves: 0   REV solves: 9
 Total colors vs. total size: 9 vs 239  (96.2% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.755181 sec.
-Time to compute coloring: 0.198621 sec.
+Time to compute sparsity: 0.969723 sec.
+Time to compute coloring: 0.246034 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -787,11 +790,11 @@ Time to compute coloring: 0.198621 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    4.0435
-       User Objective Time :       0.0512
-       User Sensitivity Time :     0.2550
-       Interface Time :            0.3247
-       Opt Solver Time:            3.4127
+    Total Time:                    4.0303
+       User Objective Time :       0.0495
+       User Sensitivity Time :     0.3150
+       Interface Time :            0.3320
+       Opt Solver Time:            3.3338
     Calls to Objective Function :      21
     Calls to Sens Function :           21
 
@@ -1480,31 +1483,22 @@ Time to compute coloring: 0.198621 sec.
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../double_integrator/double_integrator.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Double Integrator</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../double_integrator/double_integrator.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Double Integrator</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../finite_burn_orbit_raise/finite_burn_orbit_raise.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Two-Burn Orbit Raise</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="../finite_burn_orbit_raise/finite_burn_orbit_raise.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Two-Burn Orbit Raise</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -1525,8 +1519,7 @@ Time to compute coloring: 0.198621 sec.
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
