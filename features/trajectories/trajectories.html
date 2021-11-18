@@ -240,6 +240,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../examples/robertson_problem/robertson_problem.html">
+     The Robertson Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../examples/water_rocket/water_rocket.html">
      Water Rocket
     </a>
@@ -639,8 +644,8 @@ In order to enforce continuity among certain variables across phases, the user m
 There are two methods in dymos which provide this functionality.
 The <code class="docutils literal notranslate"><span class="pre">add_linkage_constraint</span></code> method provides a very general way of coupling two phases together.
 It does so by generating a constraint of the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4cbcf3af-9646-4a9a-9193-171823b849b6">
-<span class="eqno">(71)<a class="headerlink" href="#equation-4cbcf3af-9646-4a9a-9193-171823b849b6" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4853f3bb-917a-4dd5-8b78-467fea9ed26c">
+<span class="eqno">(73)<a class="headerlink" href="#equation-4853f3bb-917a-4dd5-8b78-467fea9ed26c" title="Permalink to this equation">¶</a></span>\[\begin{align}
     c = \mathrm{sign}_a \mathrm{var}_a + \mathrm{sign}_b \mathrm{var}_b
 \end{align}\]</div>
 <p>Method <code class="docutils literal notranslate"><span class="pre">add_linkage_constraint</span></code> lets the user specify the variables and phases to be compared for this constraint, as well as the location of the variable in each phase (either ‘initial’ or ‘final’)
