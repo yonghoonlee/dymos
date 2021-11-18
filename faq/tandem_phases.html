@@ -557,8 +557,8 @@ This is one application of the interpolating timeseries component.</p>
 This is a trivial solution which should find a straight line from the starting point to the ending point.</p>
 <p>There are two phases involved, the first utilizes the standard ODE for the brachistochrone problem.
 The second integrates the arclength (𝑆) of the wire using the equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7fab62ea-de0a-4304-9ea6-f2dcc76a2af2">
-<span class="eqno">(74)<a class="headerlink" href="#equation-7fab62ea-de0a-4304-9ea6-f2dcc76a2af2" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-271912a0-7722-4780-800a-f0d054eaed46">
+<span class="eqno">(74)<a class="headerlink" href="#equation-271912a0-7722-4780-800a-f0d054eaed46" title="Permalink to this equation">¶</a></span>\[\begin{align}
     S = \int v \sin \theta  \sqrt{1 + \frac{1}{\tan^2 \theta}} dt
 \end{align}\]</div>
 <div class="section" id="the-ode-for-the-wire-arclength">
@@ -958,7 +958,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/phase/phase.py:1623: RuntimeWarning: Phase &#39;phase1&#39; time duration is an externally-connected input, therefore fix_duration has no effect.
   warnings.warn(f&#39;Phase \&#39;{self.name}\&#39; time duration is an externally-connected input, &#39;
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:1913: PromotionWarning:&#39;phase0.continuity_comp&#39; &lt;class GaussLobattoContinuityComp&gt;: input variable &#39;t_duration&#39;, promoted using &#39;t_duration&#39;, was already promoted using &#39;t_duration&#39;.
+/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:1918: PromotionWarning:&#39;phase0.continuity_comp&#39; &lt;class GaussLobattoContinuityComp&gt;: input variable &#39;t_duration&#39;, promoted using &#39;t_duration&#39;, was already promoted using &#39;t_duration&#39;.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking out_of_order
@@ -1019,7 +1019,7 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/recorders/sqlite_recorder.py:223: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.320781 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.317041 seconds.
 Total jacobian shape: (220, 287) 
 </pre></div>
 </div>
@@ -1028,8 +1028,8 @@ FWD solves: 29   REV solves: 0
 Total colors vs. total size: 29 vs 287  (89.9% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.320781 sec.
-Time to compute coloring: 0.335455 sec.
+Time to compute sparsity: 0.317041 sec.
+Time to compute coloring: 0.335011 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -1038,11 +1038,11 @@ Time to compute coloring: 0.335455 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   13.0405
-       User Objective Time :       0.4601
-       User Sensitivity Time :     2.8038
-       Interface Time :            1.0794
-       Opt Solver Time:            8.6972
+    Total Time:                   12.7978
+       User Objective Time :       0.4123
+       User Sensitivity Time :     2.7313
+       Interface Time :            1.0600
+       Opt Solver Time:            8.5943
     Calls to Objective Function :     134
     Calls to Sens Function :          103
 

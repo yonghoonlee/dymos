@@ -684,8 +684,8 @@ The design of a water rocket is somewhat constrained by the soda bottle used as 
 This means that the volume available for water and air is fixed, the initial launch pressure is limited by the bottle’s strength (since the pressure is directly related to the energy available for the rocket, it is easy to see that it should be as high as possible) and the nozzle throat area is also fixed.
 Given these manufacturing constraints, the design variables we are left with are the empty mass (it can be easily changed through adding ballast), the water volume at the launch, and the launch angle.
 With this considerations in mind, a natural formulation for the water rocket problem is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fc909c88-55dc-4ff4-83af-df37c16db5f2">
-<span class="eqno">(68)<a class="headerlink" href="#equation-fc909c88-55dc-4ff4-83af-df37c16db5f2" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6242af53-40fc-443b-af51-c88265c2cda1">
+<span class="eqno">(68)<a class="headerlink" href="#equation-6242af53-40fc-443b-af51-c88265c2cda1" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \text{maximize}   &amp;\quad \text{range or height} \\
     \text{w.r.t.}     &amp;\quad \text{empty mass, initial water volume, launch angle, trajectory} \\
     \text{subject to} &amp;\quad \text{flight dynamics} \\
@@ -975,8 +975,8 @@ The constitutive equations and the N2 diagram showing the model organization are
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">_MassAdder</span></code> component calculates the rocket’s instantaneous mass by
 summing the water mass with the rockets empty mass, i.e.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b74e648e-910e-4215-8a2b-d16634dd9545">
-<span class="eqno">(69)<a class="headerlink" href="#equation-b74e648e-910e-4215-8a2b-d16634dd9545" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6991716d-77f0-452c-92f7-b92628336c0f">
+<span class="eqno">(69)<a class="headerlink" href="#equation-6991716d-77f0-452c-92f7-b92628336c0f" title="Permalink to this equation">¶</a></span>\[\begin{align}
     m = m_\text{empty}+\rho_w V_w
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -1554,7 +1554,7 @@ Here we also define the design variables.</p>
         None
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 3.040407 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 3.149804 seconds.
 Total jacobian shape: (1151, 1153) 
 </pre></div>
 </div>
@@ -1563,8 +1563,8 @@ FWD solves: 21   REV solves: 0
 Total colors vs. total size: 21 vs 1153  (98.2% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 3.040407 sec.
-Time to compute coloring: 2.330015 sec.
+Time to compute sparsity: 3.149804 sec.
+Time to compute coloring: 2.356744 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -1604,8 +1604,8 @@ Number of inequality constraint evaluations          = 0
 Number of equality constraint Jacobian evaluations   = 48
 Number of inequality constraint Jacobian evaluations = 0
 Number of Lagrangian Hessian evaluations             = 0
-Total CPU secs in IPOPT (w/o function evaluations)   =      0.739
-Total CPU secs in NLP function evaluations           =      7.437
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.785
+Total CPU secs in NLP function evaluations           =      7.140
 
 EXIT: Optimal Solution Found.
 
@@ -1616,11 +1616,11 @@ Optimization Problem -- Optimization using pyOpt_sparse
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    5.5599
-       User Objective Time :       0.3442
-       User Sensitivity Time :     3.0647
-       Interface Time :            1.5192
-       Opt Solver Time:            0.6319
+    Total Time:                    5.4882
+       User Objective Time :       0.3132
+       User Sensitivity Time :     3.0568
+       Interface Time :            1.4897
+       Opt Solver Time:            0.6284
     Calls to Objective Function :      65
     Calls to Sens Function :           48
 
@@ -4033,7 +4033,7 @@ Maximum velocity: 47.3203 m/s
         None
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 3.031838 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 3.143095 seconds.
 Total jacobian shape: (1151, 1153) 
 </pre></div>
 </div>
@@ -4042,8 +4042,8 @@ FWD solves: 19   REV solves: 0
 Total colors vs. total size: 19 vs 1153  (98.4% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity: 3.031838 sec.
-Time to compute coloring: 2.179197 sec.
+Time to compute sparsity: 3.143095 sec.
+Time to compute coloring: 2.209207 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -4066,7 +4066,7 @@ Objective...............:  -8.5114203368709277e+03   -8.5114203368709277e+03
 Dual infeasibility......:   8.2957558333873749e-06    8.2957558333873749e-06
 Constraint violation....:   1.7861544807952574e-09    1.7861544807952574e-09
 Complementarity.........:   9.0909090909090915e-08    9.0909090909090915e-08
-Overall NLP error.......:   1.6496661408950235e-07    8.2957558333873749e-06
+Overall NLP error.......:   1.6496661408950237e-07    8.2957558333873749e-06
 
 
 Number of objective function evaluations             = 53
@@ -4076,8 +4076,8 @@ Number of inequality constraint evaluations          = 0
 Number of equality constraint Jacobian evaluations   = 43
 Number of inequality constraint Jacobian evaluations = 0
 Number of Lagrangian Hessian evaluations             = 0
-Total CPU secs in IPOPT (w/o function evaluations)   =      0.862
-Total CPU secs in NLP function evaluations           =      6.258
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.909
+Total CPU secs in NLP function evaluations           =      6.076
 
 EXIT: Optimal Solution Found.
 
@@ -4088,11 +4088,11 @@ Optimization Problem -- Optimization using pyOpt_sparse
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    4.8342
-       User Objective Time :       0.2881
-       User Sensitivity Time :     2.6370
-       Interface Time :            1.3541
-       Opt Solver Time:            0.5550
+    Total Time:                    4.7062
+       User Objective Time :       0.2638
+       User Sensitivity Time :     2.5673
+       Interface Time :            1.3221
+       Opt Solver Time:            0.5530
     Calls to Objective Function :      53
     Calls to Sens Function :           43
 
