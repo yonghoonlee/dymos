@@ -2441,6 +2441,7 @@
 
         <span class="c1"># Assign parameter values</span>
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">phs</span><span class="o">.</span><span class="n">parameter_options</span><span class="p">:</span>
+            <span class="n">units</span> <span class="o">=</span> <span class="n">phs</span><span class="o">.</span><span class="n">parameter_options</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;units&#39;</span><span class="p">]</span>
 
             <span class="k">if</span> <span class="n">skip_params</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">skip_params</span><span class="p">:</span>
                 <span class="k">continue</span>
@@ -2448,9 +2449,9 @@
             <span class="c1"># We use this private function to grab the correctly sized variable from the</span>
             <span class="c1"># auto_ivc source.</span>
             <span class="k">if</span> <span class="n">om_version</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-                <span class="n">val</span> <span class="o">=</span> <span class="n">phs</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;parameters:</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="n">phs</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;parameters:</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">val</span> <span class="o">=</span> <span class="n">phs</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;parameters:</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="n">phs</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;parameters:</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">phase_path</span><span class="p">:</span>
                 <span class="n">prob_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">phase_path</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">.parameters:</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span>

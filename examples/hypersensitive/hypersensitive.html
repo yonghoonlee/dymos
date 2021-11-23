@@ -558,18 +558,18 @@
 Patterson <span id="id1">[<a class="reference internal" href="#id21">PHR15</a>]</span>. In this problem we seek to minimize both
 the distance traveled when moving between fixed boundary conditions and
 also to minimize the control <span class="math notranslate nohighlight">\(u\)</span> used. The cost function to be minimized is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4238071e-10ca-4158-9ce5-9f4f60414bb4">
-<span class="eqno">(42)<a class="headerlink" href="#equation-4238071e-10ca-4158-9ce5-9f4f60414bb4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4bc646d8-9dc7-4f77-9bf1-a8d1a8b371ed">
+<span class="eqno">(42)<a class="headerlink" href="#equation-4bc646d8-9dc7-4f77-9bf1-a8d1a8b371ed" title="Permalink to this equation">¶</a></span>\[\begin{align}
     J &amp;= \frac{1}{2} \int_{0}^{t_f} (x^2 + u^2) dt
 \end{align}\]</div>
 <p>The system is subject to the dynamic constraints:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-21eee873-3d6a-4e1b-9be7-29de439f07e1">
-<span class="eqno">(43)<a class="headerlink" href="#equation-21eee873-3d6a-4e1b-9be7-29de439f07e1" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a068461c-7cf7-41ad-b95f-080365179c18">
+<span class="eqno">(43)<a class="headerlink" href="#equation-a068461c-7cf7-41ad-b95f-080365179c18" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \frac{dx}{dt} &amp;= -x + u
 \end{align}\]</div>
 <p>The boundary conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90997054-e643-4157-8b21-9b90cbb7266e">
-<span class="eqno">(44)<a class="headerlink" href="#equation-90997054-e643-4157-8b21-9b90cbb7266e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5ec4637c-876c-4a23-a70b-19406bfa7888">
+<span class="eqno">(44)<a class="headerlink" href="#equation-5ec4637c-876c-4a23-a70b-19406bfa7888" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x(t_0) &amp;= 1.5 \\
     x(t_f) &amp;= 1
 \end{align}\]</div>
@@ -579,14 +579,14 @@ the problem exhibits a <em>dive</em>, <em>cruise</em>, and <em>resurface</em> ty
 structure, where the all interesting behavior occurs at the beginning and
 end while remaining relatively constant in the middle.</p>
 <p>This problem has a known analytic optimal solution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1d08eb8d-d985-4d23-b44a-23813672b409">
-<span class="eqno">(45)<a class="headerlink" href="#equation-1d08eb8d-d985-4d23-b44a-23813672b409" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-be61959f-667e-4823-88b0-ae47b0041c8e">
+<span class="eqno">(45)<a class="headerlink" href="#equation-be61959f-667e-4823-88b0-ae47b0041c8e" title="Permalink to this equation">¶</a></span>\[\begin{align}
     x^*(t) &amp;= c_1 e^{\sqrt{2} t} + c_2 e^{-\sqrt{2} t} \\
       u^*(t) &amp;= \dot{x}^*(t) + x^*(t)
 \end{align}\]</div>
 <p>where:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73d8fc0e-8655-4b91-8ed1-643d58f2ce2f">
-<span class="eqno">(46)<a class="headerlink" href="#equation-73d8fc0e-8655-4b91-8ed1-643d58f2ce2f" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b4e6c494-0078-4dbf-acb9-5192c04124b2">
+<span class="eqno">(46)<a class="headerlink" href="#equation-b4e6c494-0078-4dbf-acb9-5192c04124b2" title="Permalink to this equation">¶</a></span>\[\begin{align}
     c_1 &amp;= \frac{1.5 e^{-\sqrt{2} t_f} - 1}{e^{-\sqrt{2} t_f} - e^{\sqrt{2} t_f}} \\
     c_2 &amp;= \frac{1 - 1.5 e^{\sqrt{2} t_f}}{e^{-\sqrt{2} t_f} - e^{\sqrt{2} t_f}}
 \end{align}\]</div>
@@ -776,7 +776,7 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:1918: PromotionWarning:&#39;traj.phases.phase0.continuity_comp&#39; &lt;class RadauPSContinuityComp&gt;: input variable &#39;t_duration&#39;, promoted using &#39;t_duration&#39;, was already promoted using &#39;t_duration&#39;.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.938116 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.927645 seconds.
 Total jacobian shape: (239, 328) 
 </pre></div>
 </div>
@@ -785,8 +785,8 @@ FWD solves: 0   REV solves: 9
 Total colors vs. total size: 9 vs 239  (96.2% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.938116 sec.
-Time to compute coloring: 0.243504 sec.
+Time to compute sparsity: 0.927645 sec.
+Time to compute coloring: 0.267133 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -795,11 +795,11 @@ Time to compute coloring: 0.243504 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    3.6279
-       User Objective Time :       0.0420
-       User Sensitivity Time :     0.2925
-       Interface Time :            0.3145
-       Opt Solver Time:            2.9789
+    Total Time:                    4.0772
+       User Objective Time :       0.0536
+       User Sensitivity Time :     0.3204
+       Interface Time :            0.3478
+       Opt Solver Time:            3.3554
     Calls to Objective Function :      21
     Calls to Sens Function :           21
 
