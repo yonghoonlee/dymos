@@ -554,20 +554,20 @@ traveled by a block (that starts and ends at rest) sliding without
 friction along a horizontal surface, with acceleration as the control.</p>
 <p>We minimize the final time, <span class="math notranslate nohighlight">\(t_f\)</span>, by varying the dynamic control,
 <span class="math notranslate nohighlight">\(u\)</span>, subject to the dynamics:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71fcb4c3-9a53-41a6-9c20-0c53922cdee6">
-<span class="eqno">(39)<a class="headerlink" href="#equation-71fcb4c3-9a53-41a6-9c20-0c53922cdee6" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bf379f93-6f59-4f63-9604-9515ec025bec">
+<span class="eqno">(39)<a class="headerlink" href="#equation-bf379f93-6f59-4f63-9604-9515ec025bec" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \frac{dx}{dt} &amp;= v \\
   \frac{dv}{dt} &amp;= u
 \end{align}\]</div>
 <p>The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-502a7ef2-59e3-401f-b609-afb4914fd3b4">
-<span class="eqno">(40)<a class="headerlink" href="#equation-502a7ef2-59e3-401f-b609-afb4914fd3b4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a6f98d39-7810-4b7b-b501-16b0664f1a51">
+<span class="eqno">(40)<a class="headerlink" href="#equation-a6f98d39-7810-4b7b-b501-16b0664f1a51" title="Permalink to this equation">¶</a></span>\[\begin{align}
   x_0 &amp;= 0 \\
   v_0 &amp;= 0
 \end{align}\]</div>
 <p>and the final conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-09bc7616-a11c-4e3d-869c-088813896ec4">
-<span class="eqno">(41)<a class="headerlink" href="#equation-09bc7616-a11c-4e3d-869c-088813896ec4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-71fc317c-feb1-4202-a7f4-4e675b877726">
+<span class="eqno">(41)<a class="headerlink" href="#equation-71fc317c-feb1-4202-a7f4-4e675b877726" title="Permalink to this equation">¶</a></span>\[\begin{align}
   x_f &amp;= \rm{free} \\
   v_f &amp;= 0
 \end{align}\]</div>
@@ -854,7 +854,7 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.154623 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.134432 seconds.
 Total jacobian shape: (181, 327) 
 </pre></div>
 </div>
@@ -863,8 +863,8 @@ FWD solves: 0   REV solves: 6
 Total colors vs. total size: 6 vs 181  (96.7% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.154623 sec.
-Time to compute coloring: 0.207732 sec.
+Time to compute sparsity: 0.134432 sec.
+Time to compute coloring: 0.176568 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -873,11 +873,11 @@ Time to compute coloring: 0.207732 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    3.1569
-       User Objective Time :       0.0419
-       User Sensitivity Time :     0.1273
-       Interface Time :            0.2210
-       Opt Solver Time:            2.7668
+    Total Time:                    3.3024
+       User Objective Time :       0.0314
+       User Sensitivity Time :     0.1118
+       Interface Time :            0.2016
+       Opt Solver Time:            2.9576
     Calls to Objective Function :      19
     Calls to Sens Function :           19
 
