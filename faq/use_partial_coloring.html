@@ -992,7 +992,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.585088 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.435948 seconds.
 Total jacobian shape: (361, 212) 
 </pre></div>
 </div>
@@ -1001,8 +1001,8 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 212  (93.9% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity: 0.585088 sec.
-Time to compute coloring: 0.322520 sec.
+Time to compute sparsity: 0.435948 sec.
+Time to compute coloring: 0.229184 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -1024,11 +1024,11 @@ This program contains Ipopt, a library for large-scale nonlinear optimization.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   10.3614
-       User Objective Time :       5.0808
-       User Sensitivity Time :     3.0233
-       Interface Time :            1.4130
-       Opt Solver Time:            0.8443
+    Total Time:                    7.8382
+       User Objective Time :       3.8170
+       User Sensitivity Time :     2.3093
+       Interface Time :            1.0246
+       Opt Solver Time:            0.6874
     Calls to Objective Function :     198
     Calls to Sens Function :          121
 
@@ -1626,8 +1626,8 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 212  (93.9% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity: 0.585088 sec.
-Time to compute coloring: 0.322520 sec.
+Time to compute sparsity: 0.435948 sec.
+Time to compute coloring: 0.229184 sec.
 Finite Differencing: True  Partial Coloring: False
 
 --- Constraint Report [traj] ---
@@ -1642,7 +1642,7 @@ Finite Differencing: True  Partial Coloring: False
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.716871 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.545846 seconds.
 Total jacobian shape: (361, 212) 
 </pre></div>
 </div>
@@ -1651,8 +1651,8 @@ FWD solves: 154   REV solves: 0
 Total colors vs. total size: 154 vs 212  (27.4% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity: 0.716871 sec.
-Time to compute coloring: 1.766019 sec.
+Time to compute sparsity: 0.545846 sec.
+Time to compute coloring: 1.254973 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -1667,11 +1667,11 @@ Time to compute coloring: 1.766019 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   28.5171
-       User Objective Time :       6.3514
-       User Sensitivity Time :    18.9854
-       Interface Time :            1.5357
-       Opt Solver Time:            1.6446
+    Total Time:                   21.7532
+       User Objective Time :       4.8282
+       User Sensitivity Time :    14.3734
+       Interface Time :            1.1544
+       Opt Solver Time:            1.3971
     Calls to Objective Function :     249
     Calls to Sens Function :          127
 
@@ -2272,8 +2272,8 @@ FWD solves: 154   REV solves: 0
 Total colors vs. total size: 154 vs 212  (27.4% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity: 0.716871 sec.
-Time to compute coloring: 1.766019 sec.
+Time to compute sparsity: 0.545846 sec.
+Time to compute coloring: 1.254973 sec.
 Finite Differencing: True  Partial Coloring: True
 
 --- Constraint Report [traj] ---
@@ -2289,13 +2289,13 @@ Finite Differencing: True  Partial Coloring: True
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approx coloring for &#39;traj.phases.phase0.rhs_disc.aero.q_comp&#39; (class DynamicPressureCompFD)
-f....................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.......................f........................................................... 0  q
+f...........................................................f........................................................... 0  q
 .f...........................................................f.......................................................... 1  q
 ..f...........................................................f......................................................... 2  q
-...f...........................................................f........................................................ 3  q
+...f...........................................................f........................................
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>................ 3  q
 ....f...........................................................f....................................................... 4  q
 .....f...........................................................f...................................................... 5  q
 ......f...........................................................f..................................................... 6  q
@@ -2317,18 +2317,18 @@ f....................................
 ......................f...........................................................f..................................... 22  q
 .......................f...........................................................f.................................... 23  q
 ........................f...........................................................f................................... 24  q
-.........................f...........................................................f.................................. 25  q
+............
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.............f...........................................................f.................................. 25  q
 ..........................f...........................................................f................................. 26  q
 ...........................f...........................................................f................................ 27  q
 ............................f...........................................................f............................... 28  q
-.............
+.............................f...........................................................f.............................. 29  q
+..............................f.......................
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>................f...........................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>................f.............................. 29  q
-..............................f...........................................................f............................. 30  q
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....................................f............................. 30  q
 ...............................f...........................................................f............................ 31  q
 ................................f...........................................................f........................... 32  q
 .................................f...........................................................f.......................... 33  q
@@ -2350,13 +2350,19 @@ f....................................
 .................................................f...........................................................f.......... 49  q
 ..................................................f...........................................................f......... 50  q
 ...................................................f...........................................................f........ 51  q
-....................................................f...........................................................f....... 52  q
+....................................................f......
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.....................................................f....... 52  q
 .....................................................f...........................................................f...... 53  q
 ......................................................f...........................................................f..... 54  q
 .......................................................f...........................................................f.... 55  q
 ........................................................f...........................................................f... 56  q
 .........................................................f...........................................................f.. 57  q
-..........................................................f...........................................................f. 58  q
+..........................................................f........................................
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...................f. 58  q
 ...........................................................f...........................................................f 59  q
 |rho
                                                             |v
@@ -2366,11 +2372,10 @@ FWD solves: 2   REV solves: 0
 Total colors vs. total size: 2 vs 120  (98.3% improvement)
 
 Sparsity computed using tolerance: 1e-06
-Time to compute sparsity: 0.015445 sec.
-Time to compute coloring: 0.013972 sec.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approx coloring for &#39;traj.phases.phase0.rhs_col.aero.q_comp&#39; (class DynamicPressureCompFD)
+Time to compute sparsity: 0.012700 sec.
+Time to compute coloring: 0.009963 sec.
+
+Approx coloring for &#39;traj.phases.phase0.rhs_col.aero.q_comp&#39; (class DynamicPressureCompFD)
 f.............................f............................. 0  q
 .f.............................f............................ 1  q
 ..f.............................f........................... 2  q
@@ -2409,11 +2414,11 @@ FWD solves: 2   REV solves: 0
 Total colors vs. total size: 2 vs 60  (96.7% improvement)
 
 Sparsity computed using tolerance: 1e-06
-Time to compute sparsity: 0.012940 sec.
-Time to compute coloring: 0.016033 sec.
+Time to compute sparsity: 0.006577 sec.
+Time to compute coloring: 0.005214 sec.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.297156 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.137757 seconds.
 Total jacobian shape: (361, 212) 
 </pre></div>
 </div>
@@ -2422,8 +2427,8 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 212  (93.9% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity: 1.297156 sec.
-Time to compute coloring: 0.320087 sec.
+Time to compute sparsity: 1.137757 sec.
+Time to compute coloring: 0.228852 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -2438,11 +2443,11 @@ Time to compute coloring: 0.320087 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    9.8854
-       User Objective Time :       4.8486
-       User Sensitivity Time :     3.0837
-       Interface Time :            1.2433
-       Opt Solver Time:            0.7098
+    Total Time:                    7.9009
+       User Objective Time :       3.7724
+       User Sensitivity Time :     2.5337
+       Interface Time :            0.9521
+       Opt Solver Time:            0.6427
     Calls to Objective Function :     194
     Calls to Sens Function :          112
 
@@ -3037,14 +3042,14 @@ Time to compute coloring: 0.320087 sec.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 396x396 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="../_images/use_partial_coloring_6_31.png" src="../_images/use_partial_coloring_6_31.png" />
+<img alt="../_images/use_partial_coloring_6_32.png" src="../_images/use_partial_coloring_6_32.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (361, 212)  ( 3.44% nonzero)
 FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 212  (93.9% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity: 1.297156 sec.
-Time to compute coloring: 0.320087 sec.
+Time to compute sparsity: 1.137757 sec.
+Time to compute coloring: 0.228852 sec.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 396x396 with 0 Axes&gt;
