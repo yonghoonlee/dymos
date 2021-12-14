@@ -205,6 +205,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../examples/mountain_car/mountain_car.html">
+     The Mountain Car Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../examples/multi_phase_cannonball/multi_phase_cannonball.html">
      Multi-Phase Cannonball
     </a>
@@ -644,8 +649,8 @@ In order to enforce continuity among certain variables across phases, the user m
 There are two methods in dymos which provide this functionality.
 The <code class="docutils literal notranslate"><span class="pre">add_linkage_constraint</span></code> method provides a very general way of coupling two phases together.
 It does so by generating a constraint of the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40d0af85-9841-4832-936a-812b77ebb13e">
-<span class="eqno">(73)<a class="headerlink" href="#equation-40d0af85-9841-4832-936a-812b77ebb13e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-05921d32-1483-4ce4-9adb-9f2f9705e863">
+<span class="eqno">(78)<a class="headerlink" href="#equation-05921d32-1483-4ce4-9adb-9f2f9705e863" title="Permalink to this equation">¶</a></span>\[\begin{align}
     c = \mathrm{sign}_a \mathrm{var}_a + \mathrm{sign}_b \mathrm{var}_b
 \end{align}\]</div>
 <p>Method <code class="docutils literal notranslate"><span class="pre">add_linkage_constraint</span></code> lets the user specify the variables and phases to be compared for this constraint, as well as the location of the variable in each phase (either ‘initial’ or ‘final’)

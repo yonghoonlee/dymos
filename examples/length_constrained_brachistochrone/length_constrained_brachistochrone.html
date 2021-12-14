@@ -205,6 +205,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../mountain_car/mountain_car.html">
+     The Mountain Car Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../multi_phase_cannonball/multi_phase_cannonball.html">
      Multi-Phase Cannonball
     </a>
@@ -543,8 +548,8 @@ Now, we seek to find the minimum time brachistochrone trajectory subject to a up
 <p>The most efficient way to approach this problem would be to treat the arc-length <span class="math notranslate nohighlight">\(S\)</span> as an integrated state variable.
 In this case, as is often the case in real-world MDO analyses, the implementation of our arc-length function is not integrated into our pseudospectral approach.
 Rather than rewrite an analysis tool to accommodate the pseudospectral approach, the arc-length analysis simply takes the result of the trajectory in its entirety and computes the arc-length constraint via the trapezoidal rule:\</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3c302bd9-dffe-4ef3-9d4e-ad3bebd8f7f8">
-<span class="eqno">(50)<a class="headerlink" href="#equation-3c302bd9-dffe-4ef3-9d4e-ad3bebd8f7f8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-27f56b1e-a8f1-49f3-b7ee-4dda168e6777">
+<span class="eqno">(50)<a class="headerlink" href="#equation-27f56b1e-a8f1-49f3-b7ee-4dda168e6777" title="Permalink to this equation">¶</a></span>\[\begin{align}
     S &amp;= \frac{1}{2} \left( \sum_{i=1}^{N-1} \sqrt{1 + \frac{1}{\tan{\theta_{i-1}}}} + \sqrt{1 + \frac{1}{\tan{\theta_{i}}}} \right) \left(x_{i-1} - x_i \right)
 \end{align}\]</div>
 <p>The OpenMDAO component used to compute the arclength is defined as follows:</p>
@@ -900,7 +905,7 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.707657 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.315449 seconds.
 Total jacobian shape: (220, 296) 
 </pre></div>
 </div>
@@ -909,12 +914,12 @@ FWD solves: 1   REV solves: 11
 Total colors vs. total size: 12 vs 220  (94.5% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.707657 sec.
-Time to compute coloring: 0.243673 sec.
+Time to compute sparsity: 1.315449 sec.
+Time to compute coloring: 0.415850 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.    (Exit mode 0)
-            Current function value: 1.8085985207863575
+            Current function value: 1.8085985207863569
             Iterations: 5
             Function evaluations: 5
             Gradient evaluations: 5
@@ -923,10 +928,12 @@ Optimization Complete
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
-Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/length_constrained_brachistochrone_5_13.png" src="../../_images/length_constrained_brachistochrone_5_13.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
+</pre></div>
+</div>
+<img alt="../../_images/length_constrained_brachistochrone_5_14.png" src="../../_images/length_constrained_brachistochrone_5_14.png" />
 </div>
 </div>
 </div>

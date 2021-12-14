@@ -205,6 +205,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../mountain_car/mountain_car.html">
+     The Mountain Car Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../multi_phase_cannonball/multi_phase_cannonball.html">
      Multi-Phase Cannonball
     </a>
@@ -1172,10 +1177,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 <span class="c1"># Define Controls</span>
 <span class="n">phase</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;delta&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;rad&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                  <span class="n">fix_final</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;delta&#39;</span><span class="p">],</span> <span class="n">ref</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>  <span class="c1"># steering angle</span>
-<span class="n">phase</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;thrust&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fix_final</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="p">[</span>
-    <span class="s1">&#39;thrust&#39;</span><span class="p">])</span>  <span class="c1"># the thrust controls the longitudinal force of the rear tires and is</span>
-<span class="c1"># positive while accelerating, negative while braking</span>
+                  <span class="n">fix_final</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span> <span class="n">rate_continuity</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># steering angle</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;thrust&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fix_final</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rate_continuity</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># the thrust controls the longitudinal force of the rear tires and is positive while accelerating, negative while braking</span>
 
 <span class="c1"># Performance Constraints</span>
 <span class="n">pmax</span> <span class="o">=</span> <span class="mi">960000</span>  <span class="c1"># W</span>
@@ -1548,7 +1552,7 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 14.987397 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 22.924589 seconds.
 Total jacobian shape: (1256, 609) 
 </pre></div>
 </div>
@@ -1557,8 +1561,8 @@ FWD solves: 20   REV solves: 0
 Total colors vs. total size: 20 vs 609  (96.7% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 14.987397 sec.
-Time to compute coloring: 0.828714 sec.
+Time to compute sparsity: 22.924589 sec.
+Time to compute coloring: 1.198879 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -1786,11 +1790,11 @@ iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
 Number of Iterations....: 62
 
                                    (scaled)                 (unscaled)
-Objective...............:   2.2265741110570968e+01    2.2265741110570968e+01
-Dual infeasibility......:   1.1596444257709615e-04    1.1596444257709615e-04
-Constraint violation....:   7.0893201316923893e-04    7.0893201316923893e-04
-Complementarity.........:   9.0909090909090917e-05    9.0909090909090917e-05
-Overall NLP error.......:   7.0893201316923893e-04    7.0893201316923893e-04
+Objective...............:   2.2265741109870437e+01    2.2265741109870437e+01
+Dual infeasibility......:   1.1595046336387860e-04    1.1595046336387860e-04
+Constraint violation....:   7.0918609182468728e-04    7.0918609182468728e-04
+Complementarity.........:   9.0909090909090931e-05    9.0909090909090931e-05
+Overall NLP error.......:   7.0918609182468728e-04    7.0918609182468728e-04
 
 
 Number of objective function evaluations             = 132
@@ -1800,8 +1804,8 @@ Number of inequality constraint evaluations          = 132
 Number of equality constraint Jacobian evaluations   = 64
 Number of inequality constraint Jacobian evaluations = 64
 Number of Lagrangian Hessian evaluations             = 0
-Total CPU secs in IPOPT (w/o function evaluations)   =      1.206
-Total CPU secs in NLP function evaluations           =     11.831
+Total CPU secs in IPOPT (w/o function evaluations)   =      1.650
+Total CPU secs in NLP function evaluations           =     17.355
 
 EXIT: Optimal Solution Found.
 </pre></div>
